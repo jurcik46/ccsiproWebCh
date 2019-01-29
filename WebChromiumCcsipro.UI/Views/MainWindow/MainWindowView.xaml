@@ -4,9 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WebChromiumCcsipro.UI.Views.MainWindow"
+        xmlns:cefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
         mc:Ignorable="d"
-        Title="MainWindowView" Height="450" Width="800">
+        Title="MainWindowView" Height="450" Width="800" Loaded="MainWindowView_OnLoaded">
     <Grid>
-        
+        <cefSharp:ChromiumWebBrowser Grid.Row="0"
+                                     Address="https://github.com/cefsharp/CefSharp/wiki/Frequently-asked-questions" />
     </Grid>
 </Window>
