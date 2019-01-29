@@ -117,10 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ApplicationName" xml:space="preserve">
-    <value>CCSIPro Web Chromium V1</value>
+  <data name="ErrorCaption" xml:space="preserve">
+    <value>Application error</value>
   </data>
-  <data name="CompanyName" xml:space="preserve">
-    <value>CCSIPro.sk</value>
+  <data name="ErrorMessageFormat" xml:space="preserve">
+    <value>An unexpected error occurred. Please restart the application.
+{0}</value>
   </data>
 </root>
