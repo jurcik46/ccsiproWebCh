@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebChromiumCcsipro.Resources.Properties
+namespace WebChromiumCcsipro.Resource.Properties
 {
     
     
