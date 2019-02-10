@@ -32,7 +32,8 @@ namespace WebChromiumCcsipro.UI.ViewModels
             {
                 // Create run time view services and models
                 //SimpleIoc.Default.Register<ITestService, TestService>();
-                SimpleIoc.Default.Register<ISettingsService, SettingsService>();
+                //                SimpleIoc.Default.Register<ISettingsService, SettingsService>();
+                SimpleIoc.Default.Register<IDialogServiceWithOwner, DialogService>();
             }
             RegisterViewModels();
 
