@@ -127,6 +127,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\SettingViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="Views\MainWindow\MainWindowView.xaml.cs">
       <DependentUpon>MainWindowView.xaml</DependentUpon>
@@ -134,11 +135,18 @@
     <Compile Include="Views\MainWindow\NotifiWindowView.xaml.cs">
       <DependentUpon>NotifiWindowView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SettingsWindow\SettingWindowView.xaml.cs">
+      <DependentUpon>SettingWindowView.xaml</DependentUpon>
+    </Compile>
     <Page Include="Views\MainWindow\MainWindowView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainWindow\NotifiWindowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SettingsWindow\SettingWindowView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

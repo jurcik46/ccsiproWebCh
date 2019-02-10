@@ -85,6 +85,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>lang.sk-SK.resx</DependentUpon>
     </Compile>
+    <Compile Include="Language\LanguageSource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
