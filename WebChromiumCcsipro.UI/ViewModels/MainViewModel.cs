@@ -32,8 +32,8 @@ namespace WebChromiumCcsipro.UI.ViewModels
         public RelayCommand<IClosable> ExitCommand { get; set; }
 
         private Window SettingWindow { get; set; }
-
-        private ISettingsService SettingService;
+        private ISettingsService SettingService { get; set; }
+        private IDialogServiceWithOwner DialogService { get; set; }
 
         public string ToolTipText
         {
@@ -51,9 +51,10 @@ namespace WebChromiumCcsipro.UI.ViewModels
             set { _urlAddress = value; }
         }
 
-        public MainViewModel(ISettingsService settingService)
+        public MainViewModel(ISettingsService settingService, IDialogServiceWithOwner dialogService)
         {
             SettingService = settingService;
+            DialogService = dialogService;
             CommandInit();
             UrlAddress =
                 @"https://stackoverflow.com/questions/6925584/the-name-initializecomponent-does-not-exist-in-the-current-context";
@@ -65,7 +66,6 @@ namespace WebChromiumCcsipro.UI.ViewModels
 
         private void CommandInit()
         {
-
             //this.Options = new RelayCommand(this.ShowOptionsLogin, this.CanShowOptionsLogin);
             SettingsCommand = new RelayCommand(OpenSetting, CanOpenSetting);
             RestartCommand = new RelayCommand<IClosable>(RestartApplication, CanRestartRestartApplication);
@@ -117,10 +117,9 @@ namespace WebChromiumCcsipro.UI.ViewModels
         private void OpenSetting()
         {
             SettingWindow = new SettingWindowView();
-            var settingViewModel = new SettingViewModel.SettingViewModel(SettingService);
+            var settingViewModel = new SettingViewModel.SettingViewModel(SettingService, DialogService);
             SettingWindow.DataContext = settingViewModel;
             SettingWindow.Show();
-
         }
         #endregion
 
