@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
@@ -15,10 +16,12 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
         public RelayCommand ApplicationSettingCommand { get; set; }
         public RelayCommand ChangePasswordCommand { get; set; }
         private ISettingsService SettingService { get; set; }
+        private IDialogServiceWithOwner DialogService { get; set; }
 
-        public SettingViewModel(ISettingsService settingService)
+        public SettingViewModel(ISettingsService settingService, IDialogServiceWithOwner dialogService)
         {
             SettingService = settingService;
+            DialogService = dialogService;
             CommandInit();
         }
 
@@ -48,7 +51,10 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
 
         public void ChangePassword()
         {
-
+            var newPassword = DialogService.ChangePassword();
+            //            Messenger.Default.Send<NotifiMessage>(new NotifiMessage() { Title = ViewModelLocator.rm.GetString("settingTitle"), Msg = ViewModelLocator.rm.GetString("savedSetting"), IconType = Notifications.Wpf.NotificationType.Success, ExpTime = 4 });
+            // Send notification for succel change password
+            Console.WriteLine(newPassword);
         }
         #endregion
 

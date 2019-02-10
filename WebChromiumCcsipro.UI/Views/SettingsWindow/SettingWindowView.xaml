@@ -18,7 +18,7 @@
         </Grid.RowDefinitions>
 
         <Button Grid.Column="0" Grid.Row="0" Margin="5" Content="{x:Static lang:lang.SettingButtonApplication}" Command="{Binding ApplicationSettingCommand}"/>
-        <Button Grid.Column="1" Grid.Row="0" Margin="5" Content="{x:Static lang:lang.SettingButtonChangePassword}"/>
+        <Button Grid.Column="1" Grid.Row="0" Margin="5" Content="{x:Static lang:lang.SettingButtonChangePassword}" Command="{Binding ChangePasswordCommand}"/>
         <Button Grid.Column="0" Grid.Row="1" Margin="5" Grid.ColumnSpan="2" Content="{x:Static lang:lang.SettingButtonSignature}"/>
         <!-- <Button Grid.Column="1" Grid.Row="1" Content="{x:Static lang:lang.SettingButtonChangePassword}"/> -->
     </Grid>
