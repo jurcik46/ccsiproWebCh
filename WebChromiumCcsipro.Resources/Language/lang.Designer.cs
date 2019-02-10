@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebChromiumCcsipro.Resources.Properties {
+namespace WebChromiumCcsipro.Resources.Language {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace WebChromiumCcsipro.Resources.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Resource {
+    public class lang {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resource() {
+        internal lang() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace WebChromiumCcsipro.Resources.Properties {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WebChromiumCcsipro.Resources.Properties.Resource", typeof(Resource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WebChromiumCcsipro.Resources.Language.lang", typeof(lang).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -76,6 +76,15 @@ namespace WebChromiumCcsipro.Resources.Properties {
         public static string ErrorMessageFormat {
             get {
                 return ResourceManager.GetString("ErrorMessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Double click for signature.
+        /// </summary>
+        public static string TrayIconToolTipDefault {
+            get {
+                return ResourceManager.GetString("TrayIconToolTipDefault", resourceCulture);
             }
         }
     }

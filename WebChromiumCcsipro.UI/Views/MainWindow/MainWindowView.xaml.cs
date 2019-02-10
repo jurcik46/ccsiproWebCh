@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using CefSharp;
+using GalaSoft.MvvmLight.Messaging;
+using WebChromiumCcsipro.Controls.Enums;
+using WebChromiumCcsipro.Controls.Interfaces;
+using WebChromiumCcsipro.Controls.Messages;
 using WebChromiumCcsipro.UI.ViewModels;
 
 namespace WebChromiumCcsipro.UI.Views.MainWindow
@@ -20,12 +26,24 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
     /// Interaction logic for MainWindowView.xaml
     /// </summary>
     /// [STAThread]
-    public partial class MainWindowView : Window
+    public partial class MainWindowView : Window, IClosable
     {
+        private NotifiWindowView notifiWindow;
+
         public MainWindowView()
         {
             InitializeComponent();
             this.DataContext = ViewModelLocator.MainViewModel;
+
+            notifiWindow = new NotifiWindowView();
+            notifiWindow.Show();
+            this.trayIconTaskbar.Icon = new Icon(@"Images/Icons/online.ico");
+            var viewModel = DataContext as MainViewModel;
+            if (viewModel != null)
+            {
+                //                viewModel.ToolTipText = "asdasda";
+                return;
+            }
         }
 
         private void MainWindowView_OnLoaded(object sender, RoutedEventArgs e)
@@ -39,5 +57,35 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
             ViewModelLocator.SplashScreen = null;
 
         }
+
+        private void MainWindowView_OnClosed(object sender, EventArgs e)
+        {
+            Cef.Shutdown();
+        }
+
+        #region Message Registration
+        private void RegistrationMessage()
+        {
+            Messenger.Default.Register<TrayIconsStatusMessage>(this, (message) =>
+            {
+                switch (message.IconStatus)
+                {
+                    case TrayIconsStatus.Online:
+                        trayIconTaskbar.Icon = new Icon(@"Images/Icons/online.ico");
+                        break;
+                    case TrayIconsStatus.Offline:
+                        trayIconTaskbar.Icon = new Icon(@"Images/Icons/offline.ico");
+                        break;
+                    case TrayIconsStatus.Working:
+                        trayIconTaskbar.Icon = new Icon(@"Images/Icons/working.ico");
+                        break;
+                    default:
+                        break;
+                }
+            });
+        }
+        #endregion
+
+
     }
 }

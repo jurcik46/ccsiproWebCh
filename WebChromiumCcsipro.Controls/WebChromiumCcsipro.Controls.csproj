@@ -65,6 +65,9 @@
     <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.4.1.0, Culture=neutral, PublicKeyToken=5f873c45e98af8a1, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
     </Reference>
+    <Reference Include="Notifications.Wpf, Version=0.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Notifications.Wpf.0.1.1\lib\net461\Notifications.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
       <HintPath>..\packages\Serilog.2.8.0\lib\net46\Serilog.dll</HintPath>
     </Reference>
@@ -138,11 +141,15 @@
     <Compile Include="Constants.cs" />
     <Compile Include="Diagnostics.cs" />
     <Compile Include="Enums\ApplicationEvents.cs" />
+    <Compile Include="Enums\TrayIconsStatus.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Extensions\LoggerExtensions.cs" />
+    <Compile Include="Interfaces\IClosable.cs" />
     <Compile Include="Interfaces\IDiagnostics.cs" />
     <Compile Include="Interfaces\IServices\ISettingsService.cs" />
     <Compile Include="LoggerInitializer.cs" />
+    <Compile Include="Messages\NotifiMessage.cs" />
+    <Compile Include="Messages\TrayIconsStatusMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

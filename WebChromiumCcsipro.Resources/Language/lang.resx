@@ -124,4 +124,7 @@
     <value>An unexpected error occurred. Please restart the application.
 {0}</value>
   </data>
+  <data name="TrayIconToolTipDefault" xml:space="preserve">
+    <value>Double click for signature</value>
+  </data>
 </root>

@@ -66,7 +66,7 @@ namespace WebChromiumCcsipro.V1
             CultureInfo.DefaultThreadCurrentCulture = culture;
             CultureInfo.DefaultThreadCurrentUICulture = culture;
             appResourcesAction(culture);
-            Resources.Properties.Resource.Culture = culture;
+            Resources.Language.lang.Culture = culture;
             if (!reloadWindow)
             {
                 return;

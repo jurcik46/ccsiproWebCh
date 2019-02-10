@@ -45,7 +45,7 @@ namespace WebChromiumCcsipro.V1
         public static void CurrentDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e, ILogger logger)
         {
             logger.Fatal(e.Exception, ApplicationEvents.DispatcherUnhandledException, "Dispatcher unhandled exception: {ErrorMessage}", true, e.Exception.Message);
-            var errorMessage = string.Format(CultureInfo.CurrentCulture, Resources.Properties.Resource.ErrorMessageFormat, e.Exception.Message);
+            var errorMessage = string.Format(CultureInfo.CurrentCulture, Resources.Language.lang.ErrorMessageFormat, e.Exception.Message);
             //            var dialogService = ViewModelLocator.DialogService;
             //            if (dialogService != null)
             //            {
@@ -53,7 +53,7 @@ namespace WebChromiumCcsipro.V1
             //            }
             //            else
             //            {
-            MessageBox.Show(errorMessage, Resources.Properties.Resource.ErrorCaption, MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show(errorMessage, Resources.Language.lang.ErrorCaption, MessageBoxButton.OK, MessageBoxImage.Error);
             //            }
             ((IDisposable)Log.Logger).Dispose();
             Environment.Exit(1);
@@ -82,10 +82,10 @@ namespace WebChromiumCcsipro.V1
             {
                 logger.Fatal(ApplicationEvents.CurrentDomainUnhandledException, "CurrentDomain unhandled exception, terminating. ExceptionObject: {ExceptionObject}", true, e.ExceptionObject);
             }
-            var errorMessage = Resources.Properties.Resource.ErrorCaption;
+            var errorMessage = Resources.Language.lang.ErrorCaption;
             if (ex != null)
             {
-                errorMessage = string.Format(CultureInfo.CurrentCulture, Resources.Properties.Resource.ErrorMessageFormat, ex.Message);
+                errorMessage = string.Format(CultureInfo.CurrentCulture, Resources.Language.lang.ErrorMessageFormat, ex.Message);
             }
             //            var dialogService = ViewModelLocator.DialogService;
             //            if (dialogService != null)
@@ -94,7 +94,7 @@ namespace WebChromiumCcsipro.V1
             //            }
             //            else
             //            {
-            MessageBox.Show(errorMessage, Resources.Properties.Resource.ErrorCaption, MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show(errorMessage, Resources.Language.lang.ErrorCaption, MessageBoxButton.OK, MessageBoxImage.Error);
             //            }
             ((IDisposable)Log.Logger).Dispose();
         }
