@@ -87,5 +87,14 @@ namespace WebChromiumCcsipro.Resources.Language {
                 return ResourceManager.GetString("TrayIconToolTipDefault", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning!.
+        /// </summary>
+        public static string WarningCaption {
+            get {
+                return ResourceManager.GetString("WarningCaption", resourceCulture);
+            }
+        }
     }
 }
