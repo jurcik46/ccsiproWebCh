@@ -124,6 +124,15 @@
     <value>An unexpected error occurred. Please restart the application.
 {0}</value>
   </data>
+  <data name="SettingButtonApplication" xml:space="preserve">
+    <value>CCSIpro Chromium</value>
+  </data>
+  <data name="SettingButtonChangePassword" xml:space="preserve">
+    <value>Zmeniť heslo do nastavenia</value>
+  </data>
+  <data name="SettingButtonSignature" xml:space="preserve">
+    <value>BOZP Podpisovanie</value>
+  </data>
   <data name="TrayIconToolTipDefault" xml:space="preserve">
     <value>Dvojklik pre podpísanie a kliknutím pravým tlačidlom pre menu</value>
   </data>

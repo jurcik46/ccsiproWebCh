@@ -80,6 +80,33 @@ namespace WebChromiumCcsipro.Resources.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CCSIpro Chromium.
+        /// </summary>
+        public static string SettingButtonApplication {
+            get {
+                return ResourceManager.GetString("SettingButtonApplication", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change settings password.
+        /// </summary>
+        public static string SettingButtonChangePassword {
+            get {
+                return ResourceManager.GetString("SettingButtonChangePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BOZP Signature.
+        /// </summary>
+        public static string SettingButtonSignature {
+            get {
+                return ResourceManager.GetString("SettingButtonSignature", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Double click for signature.
         /// </summary>
         public static string TrayIconToolTipDefault {
