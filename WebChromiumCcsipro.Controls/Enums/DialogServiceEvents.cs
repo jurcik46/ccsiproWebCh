@@ -6,6 +6,11 @@
         ShowConfirmation,
         HiddenError,
         ShowErrorDialog,
-        ShowWarning
+        ShowWarning,
+        ChangePassword,
+        EnterSetting,
+        ShowError,
+        ChangePasswordCancel,
+        ChangePasswordSuccess
     }
 }
