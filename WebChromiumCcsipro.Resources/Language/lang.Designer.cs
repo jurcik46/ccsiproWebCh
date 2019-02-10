@@ -107,6 +107,15 @@ namespace WebChromiumCcsipro.Resources.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string SettingWindowsTitle {
+            get {
+                return ResourceManager.GetString("SettingWindowsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Double click for signature.
         /// </summary>
         public static string TrayIconToolTipDefault {

@@ -133,6 +133,9 @@
   <data name="SettingButtonSignature" xml:space="preserve">
     <value>BOZP Podpisovanie</value>
   </data>
+  <data name="SettingWindowsTitle" xml:space="preserve">
+    <value>Nastavenia</value>
+  </data>
   <data name="TrayIconToolTipDefault" xml:space="preserve">
     <value>Dvojklik pre podpísanie a kliknutím pravým tlačidlom pre menu</value>
   </data>

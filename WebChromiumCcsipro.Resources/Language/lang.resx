@@ -133,6 +133,9 @@
   <data name="SettingButtonSignature" xml:space="preserve">
     <value>BOZP Signature</value>
   </data>
+  <data name="SettingWindowsTitle" xml:space="preserve">
+    <value>Settings</value>
+  </data>
   <data name="TrayIconToolTipDefault" xml:space="preserve">
     <value>Double click for signature</value>
   </data>
