@@ -12,6 +12,7 @@ namespace WebChromiumCcsipro.Controls.Interfaces.IServices
         bool HideAllErrors { get; set; }
         Window Owner { get; set; }
         string ChangePassword();
+        bool EnterSetting();
         Task ShowError(string message, string title, string buttonText, Action afterHideCallback, bool alwaysShow);
         Task<bool> ShowMessage(string message, string title, string buttonConfirmText, string buttonCancelText, Action<bool> afterHideCallback, bool defaultCancel);
         Task ShowWarning(string message, string title);

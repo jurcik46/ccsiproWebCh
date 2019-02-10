@@ -117,6 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ChangePasswodWindowCancelButton" xml:space="preserve">
+    <value>Zrušiť</value>
+  </data>
+  <data name="ChangePasswodWindowChangeButton" xml:space="preserve">
+    <value>Zmeniť Heslo</value>
+  </data>
+  <data name="ChangePasswodWindowFirstPasswordTextBox" xml:space="preserve">
+    <value>Nové heslo:</value>
+  </data>
+  <data name="ChangePasswodWindowSecondPasswordTextBox" xml:space="preserve">
+    <value>Heslo znova:</value>
+  </data>
+  <data name="ChangePasswodWindowTitle" xml:space="preserve">
+    <value>Zmena Hesla</value>
+  </data>
   <data name="ErrorCaption" xml:space="preserve">
     <value>Application error</value>
   </data>

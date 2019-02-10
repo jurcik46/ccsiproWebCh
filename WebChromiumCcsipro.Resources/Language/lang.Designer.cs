@@ -61,6 +61,51 @@ namespace WebChromiumCcsipro.Resources.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string ChangePasswodWindowCancelButton {
+            get {
+                return ResourceManager.GetString("ChangePasswodWindowCancelButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change password.
+        /// </summary>
+        public static string ChangePasswodWindowChangeButton {
+            get {
+                return ResourceManager.GetString("ChangePasswodWindowChangeButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New password:.
+        /// </summary>
+        public static string ChangePasswodWindowFirstPasswordTextBox {
+            get {
+                return ResourceManager.GetString("ChangePasswodWindowFirstPasswordTextBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Again password:.
+        /// </summary>
+        public static string ChangePasswodWindowSecondPasswordTextBox {
+            get {
+                return ResourceManager.GetString("ChangePasswodWindowSecondPasswordTextBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change password.
+        /// </summary>
+        public static string ChangePasswodWindowTitle {
+            get {
+                return ResourceManager.GetString("ChangePasswodWindowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Application error.
         /// </summary>
         public static string ErrorCaption {
