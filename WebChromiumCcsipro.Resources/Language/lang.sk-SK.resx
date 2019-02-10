@@ -127,4 +127,7 @@
   <data name="TrayIconToolTipDefault" xml:space="preserve">
     <value>Dvojklik pre podpísanie a kliknutím pravým tlačidlom pre menu</value>
   </data>
+  <data name="WarningCaption" xml:space="preserve">
+    <value>Warning!</value>
+  </data>
 </root>
