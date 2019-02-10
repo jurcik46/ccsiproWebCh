@@ -10,6 +10,7 @@ using System.Windows;
 using System.Windows.Shapes;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using Serilog;
 using WebChromiumCcsipro.Controls.Interfaces;
 using WebChromiumCcsipro.Controls.Interfaces.IServices;
 using WebChromiumCcsipro.Resources;
@@ -20,6 +21,8 @@ namespace WebChromiumCcsipro.UI.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
+        public ILogger Logger => Log.Logger.ForContext<MainViewModel>();
+
         private string _urlAddress;
         private string _toolTipText;
 
