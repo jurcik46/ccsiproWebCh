@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:WebChromiumCcsipro.UI.Views.SettingsWindow"
         xmlns:lang="clr-namespace:WebChromiumCcsipro.Resources.Language;assembly=WebChromiumCcsipro.Resources"
         mc:Ignorable="d"
-        Title="{x:Static lang:lang.SettingWindowsTitle}" Height="200" Width="300" MaxHeight="500" MaxWidth="600" WindowStartupLocation="CenterScreen">
-    <Grid>
+        Title="{x:Static lang:lang.SettingWindowsTitle}" Height="200" Width="350" MaxHeight="500" MaxWidth="600" WindowStartupLocation="CenterScreen">
+    <Grid Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
@@ -17,9 +17,9 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Button Grid.Column="0" Grid.Row="0" Content="{x:Static lang:lang.SettingButtonApplication}"/>
-        <Button Grid.Column="1" Grid.Row="0" Content="{x:Static lang:lang.SettingButtonChangePassword}"/>
-        <Button Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Content="{x:Static lang:lang.SettingButtonSignature}"/>
+        <Button Grid.Column="0" Grid.Row="0" Margin="5" Content="{x:Static lang:lang.SettingButtonApplication}" Command="{Binding ApplicationSettingCommand}"/>
+        <Button Grid.Column="1" Grid.Row="0" Margin="5" Content="{x:Static lang:lang.SettingButtonChangePassword}"/>
+        <Button Grid.Column="0" Grid.Row="1" Margin="5" Grid.ColumnSpan="2" Content="{x:Static lang:lang.SettingButtonSignature}"/>
         <!-- <Button Grid.Column="1" Grid.Row="1" Content="{x:Static lang:lang.SettingButtonChangePassword}"/> -->
     </Grid>
 </Window>

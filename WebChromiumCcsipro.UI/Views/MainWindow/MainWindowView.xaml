@@ -44,7 +44,7 @@
             <!-- The taskbar context menu -->
             <tb:TaskbarIcon.ContextMenu>
                 <ContextMenu >
-                    <MenuItem Header="Nastavenia" Command="{Binding Options}" />
+                    <MenuItem Header="Nastavenia" Command="{Binding SettingsCommand}" />
                     <Separator />
                     <MenuItem Header="Restart" Command="{Binding RestartCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"/>
                     <MenuItem Header="Exit" Command="{Binding ExitCommand}" CommandParameter="{Binding ElementName=MainBrowserWindow}"/>
