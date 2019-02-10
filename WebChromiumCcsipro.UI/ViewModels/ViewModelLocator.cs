@@ -44,6 +44,11 @@ namespace WebChromiumCcsipro.UI.ViewModels
             {
                 SimpleIoc.Default.Register<MainViewModel>();
             }
+
+            if (!SimpleIoc.Default.IsRegistered<SettingViewModel>())
+            {
+                SimpleIoc.Default.Register<SettingViewModel>();
+            }
         }
 
         public static LoggingLevelSwitch LoggingLevelSwitch => _loggingLevelSwitch ?? (_loggingLevelSwitch = new LoggingLevelSwitch());
@@ -51,9 +56,7 @@ namespace WebChromiumCcsipro.UI.ViewModels
 
         public static ISettingsService SettingsService => ServiceLocator.Current.GetInstance<ISettingsService>();
         public static MainViewModel MainViewModel => ServiceLocator.Current.GetInstance<MainViewModel>();
-
-
-
+        public static SettingViewModel SettingViewModel => ServiceLocator.Current.GetInstance<SettingViewModel>();
 
     }
 }
