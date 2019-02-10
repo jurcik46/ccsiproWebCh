@@ -4,9 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WebChromiumCcsipro.UI.Views.SettingsWindow"
+        xmlns:lang="clr-namespace:WebChromiumCcsipro.Resources.Language;assembly=WebChromiumCcsipro.Resources"
         mc:Ignorable="d"
-        Title="SettingWindowView" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="SettingWindowView" Height="200" Width="300" MaxHeight="500" MaxWidth="600" WindowStartupLocation="CenterScreen">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
+        <Button Grid.Column="0" Grid.Row="0" Content="{x:Static lang:lang.SettingButtonApplication}"/>
+        <Button Grid.Column="1" Grid.Row="0" Content="{x:Static lang:lang.SettingButtonChangePassword}"/>
+        <Button Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Content="{x:Static lang:lang.SettingButtonSignature}"/>
+        <!-- <Button Grid.Column="1" Grid.Row="1" Content="{x:Static lang:lang.SettingButtonChangePassword}"/> -->
     </Grid>
 </Window>
