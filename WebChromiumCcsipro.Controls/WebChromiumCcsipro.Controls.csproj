@@ -146,6 +146,7 @@
     <Compile Include="Extensions\LoggerExtensions.cs" />
     <Compile Include="Interfaces\IClosable.cs" />
     <Compile Include="Interfaces\IDiagnostics.cs" />
+    <Compile Include="Interfaces\IServices\IDialogService.cs" />
     <Compile Include="Interfaces\IServices\ISettingsService.cs" />
     <Compile Include="LoggerInitializer.cs" />
     <Compile Include="Messages\NotifiMessage.cs" />
@@ -163,6 +164,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Services\DialogService.cs" />
     <Compile Include="Services\SettingsService.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
