@@ -2,16 +2,19 @@
 using System.Windows;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using Serilog;
 using WebChromiumCcsipro.Controls.Interfaces.IServices;
+using WebChromiumCcsipro.Controls.Services;
 
 namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
 {
     public class SettingViewModel : ViewModelBase
     {
+        public ILogger Logger => Log.Logger.ForContext<SettingViewModel>();
+
         public RelayCommand ApplicationSettingCommand { get; set; }
         public RelayCommand ChangePasswordCommand { get; set; }
         private ISettingsService SettingService { get; set; }
-
 
         public SettingViewModel(ISettingsService settingService)
         {
@@ -33,7 +36,6 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
             return true;
         }
 
-
         public void ApplicationSetting()
         {
 
@@ -47,9 +49,7 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
         public void ChangePassword()
         {
 
-
         }
-
         #endregion
 
 
