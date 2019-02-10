@@ -8,5 +8,7 @@ namespace WebChromiumCcsipro.Controls.Interfaces.IServices
 {
     public interface ISettingsService
     {
+        void LoadSetting();
+        void SaveSetting();
     }
 }
