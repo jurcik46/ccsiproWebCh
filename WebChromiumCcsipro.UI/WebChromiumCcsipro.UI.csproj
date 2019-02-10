@@ -127,7 +127,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="ViewModels\SettingViewModel.cs" />
+    <Compile Include="ViewModels\SettingViewModel\SettingViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="Views\MainWindow\MainWindowView.xaml.cs">
       <DependentUpon>MainWindowView.xaml</DependentUpon>
