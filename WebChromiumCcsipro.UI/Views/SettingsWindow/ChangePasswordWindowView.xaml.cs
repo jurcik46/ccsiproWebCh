@@ -31,8 +31,7 @@ namespace WebChromiumCcsipro.UI.Views.SettingsWindow
             if (string.IsNullOrWhiteSpace(passwordBox.Password) || passwordBox.Password.Length < 5)
             {
                 passwordBox.BorderThickness = new Thickness(3);
-                passwordBox.ToolTip = lang.ChangePasswodWindowPasswordBoxTooltip;
-                //TODO Change tooltip By language
+                passwordBox.ToolTip = lang.ChangePasswordWindowPasswordBoxTooltip;
                 passwordBox.Background = Brushes.Red;
                 changePasswordButton.IsEnabled = false;
             }

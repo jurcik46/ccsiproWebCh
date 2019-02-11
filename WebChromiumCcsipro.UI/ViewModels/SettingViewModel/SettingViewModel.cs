@@ -51,9 +51,11 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
 
         public void ChangePassword()
         {
+
+
             var newPassword = DialogService.ChangePassword();
             //            Messenger.Default.Send<NotifiMessage>(new NotifiMessage() { Title = ViewModelLocator.rm.GetString("settingTitle"), Msg = ViewModelLocator.rm.GetString("savedSetting"), IconType = Notifications.Wpf.NotificationType.Success, ExpTime = 4 });
-            // Send notification for succel change password
+            //TODO Send notification for succel change password
             Console.WriteLine(newPassword);
         }
         #endregion

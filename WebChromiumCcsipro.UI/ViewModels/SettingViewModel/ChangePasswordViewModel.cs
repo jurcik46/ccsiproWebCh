@@ -58,7 +58,7 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
                 return true;
             }
 
-            ChangePasswordButtonTooltip = lang.ChangePasswodWindowChangeButtonTooltip;
+            ChangePasswordButtonTooltip = lang.ChangePasswordWindowChangeButtonTooltip;
             return false;
         }
 
