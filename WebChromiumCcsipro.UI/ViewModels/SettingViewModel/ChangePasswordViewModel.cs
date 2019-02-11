@@ -8,6 +8,7 @@ using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using Serilog;
 using WebChromiumCcsipro.Controls.Messages;
+using WebChromiumCcsipro.Resources.Language;
 
 namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
 {
@@ -18,6 +19,7 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
         private string _password1;
         private string _password2;
         private RelayCommand _changePassword;
+        public string ChangePasswordButtonTooltip { get; private set; }
 
         public string Password1
         {
@@ -50,7 +52,14 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
 
         private bool CanChange()
         {
-            return (!NotIdentical && !string.IsNullOrWhiteSpace(this.Password1) && Password1.Length >= 5);
+            if ((!NotIdentical && !string.IsNullOrWhiteSpace(this.Password1) && Password1.Length >= 5))
+            {
+                ChangePasswordButtonTooltip = "";
+                return true;
+            }
+
+            ChangePasswordButtonTooltip = lang.ChangePasswodWindowChangeButtonTooltip;
+            return false;
         }
 
         private void Change()

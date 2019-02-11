@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WebChromiumCcsipro.Resources.Language;
 using WebChromiumCcsipro.UI.ViewModels.SettingViewModel;
 
 namespace WebChromiumCcsipro.UI.Views.SettingsWindow
@@ -30,7 +31,7 @@ namespace WebChromiumCcsipro.UI.Views.SettingsWindow
             if (string.IsNullOrWhiteSpace(passwordBox.Password) || passwordBox.Password.Length < 5)
             {
                 passwordBox.BorderThickness = new Thickness(3);
-                passwordBox.ToolTip = "Heslo nemôže byť prázdne alebo obsahovať medzery a musí byť dlhšie ako 5 znakov!";
+                passwordBox.ToolTip = lang.ChangePasswodWindowPasswordBoxTooltip;
                 //TODO Change tooltip By language
                 passwordBox.Background = Brushes.Red;
                 changePasswordButton.IsEnabled = false;
