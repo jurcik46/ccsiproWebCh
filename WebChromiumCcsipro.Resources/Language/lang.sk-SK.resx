@@ -123,8 +123,14 @@
   <data name="ChangePasswodWindowChangeButton" xml:space="preserve">
     <value>Zmeniť Heslo</value>
   </data>
+  <data name="ChangePasswodWindowChangeButtonTooltip" xml:space="preserve">
+    <value>Hesla sa nezhodujú !</value>
+  </data>
   <data name="ChangePasswodWindowFirstPasswordTextBox" xml:space="preserve">
     <value>Nové heslo:</value>
+  </data>
+  <data name="ChangePasswodWindowPasswordBoxTooltip" xml:space="preserve">
+    <value>Heslo nemôže byť prázdne alebo obsahovať medzery a musí byť dlhšie ako 5 znakov!</value>
   </data>
   <data name="ChangePasswodWindowSecondPasswordTextBox" xml:space="preserve">
     <value>Heslo znova:</value>

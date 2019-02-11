@@ -79,11 +79,29 @@ namespace WebChromiumCcsipro.Resources.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Password doesnt match !.
+        /// </summary>
+        public static string ChangePasswodWindowChangeButtonTooltip {
+            get {
+                return ResourceManager.GetString("ChangePasswodWindowChangeButtonTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New password:.
         /// </summary>
         public static string ChangePasswodWindowFirstPasswordTextBox {
             get {
                 return ResourceManager.GetString("ChangePasswodWindowFirstPasswordTextBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password cant be empty or shorted than 5 character !.
+        /// </summary>
+        public static string ChangePasswodWindowPasswordBoxTooltip {
+            get {
+                return ResourceManager.GetString("ChangePasswodWindowPasswordBoxTooltip", resourceCulture);
             }
         }
         

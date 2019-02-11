@@ -123,8 +123,14 @@
   <data name="ChangePasswodWindowChangeButton" xml:space="preserve">
     <value>Change password</value>
   </data>
+  <data name="ChangePasswodWindowChangeButtonTooltip" xml:space="preserve">
+    <value>Password doesnt match !</value>
+  </data>
   <data name="ChangePasswodWindowFirstPasswordTextBox" xml:space="preserve">
     <value>New password:</value>
+  </data>
+  <data name="ChangePasswodWindowPasswordBoxTooltip" xml:space="preserve">
+    <value>Password cant be empty or shorted than 5 character !</value>
   </data>
   <data name="ChangePasswodWindowSecondPasswordTextBox" xml:space="preserve">
     <value>Again password:</value>
