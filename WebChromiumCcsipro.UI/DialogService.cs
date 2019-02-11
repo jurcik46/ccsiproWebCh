@@ -29,7 +29,7 @@ namespace WebChromiumCcsipro.UI
             var viewModel = new ChangePasswordViewModel();
             var window = new ChangePasswordWindowView();
             window.DataContext = viewModel;
-
+            //            window.Owner = Owner;
             viewModel.CloseAction = () => window.Close();
 
             var result = window.ShowDialog();
@@ -46,11 +46,16 @@ namespace WebChromiumCcsipro.UI
             return viewModel.NewPassword;
         }
 
-        public bool EnterSetting()
+        public string EnterSetting()
         {
             Logger.Debug(DialogServiceEvents.EnterSetting);
             var viewModel = new EnterSettingViewModel();
-            return true;
+            var window = new EnterSettingWindowView();
+            window.DataContext = viewModel;
+            viewModel.CloseAction = () => window.Close();
+
+            window.ShowDialog();
+            return viewModel.Password;
         }
 
         public Task ShowError(string message, string title, string buttonText, Action afterHideCallback)
