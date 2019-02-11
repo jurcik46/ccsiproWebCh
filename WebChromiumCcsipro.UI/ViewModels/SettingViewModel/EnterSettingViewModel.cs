@@ -5,11 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using Serilog;
+using WebChromiumCcsipro.Controls.Services;
 
 namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
 {
     public class EnterSettingViewModel : ViewModelBase
     {
+        public ILogger Logger => Log.Logger.ForContext<EnterSettingViewModel>();
+
         private RelayCommand _enterCommand;
 
         public RelayCommand EnterCommand

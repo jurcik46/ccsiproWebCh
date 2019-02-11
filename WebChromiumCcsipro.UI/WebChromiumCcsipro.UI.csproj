@@ -131,6 +131,7 @@
     <Compile Include="ViewModels\SettingViewModel\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModels\SettingViewModel\EnterSettingViewModel.cs" />
     <Compile Include="ViewModels\SettingViewModel\SettingViewModel.cs" />
+    <Compile Include="ViewModels\SettingViewModel\SignatureSettingViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="Views\MainWindow\MainWindowView.xaml.cs">
       <DependentUpon>MainWindowView.xaml</DependentUpon>
@@ -146,6 +147,9 @@
     </Compile>
     <Compile Include="Views\SettingsWindow\SettingWindowView.xaml.cs">
       <DependentUpon>SettingWindowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingsWindow\SignatureSettingWindowView.xaml.cs">
+      <DependentUpon>SignatureSettingWindowView.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\MainWindow\MainWindowView.xaml">
       <SubType>Designer</SubType>
@@ -164,6 +168,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SettingsWindow\SettingWindowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SettingsWindow\SignatureSettingWindowView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

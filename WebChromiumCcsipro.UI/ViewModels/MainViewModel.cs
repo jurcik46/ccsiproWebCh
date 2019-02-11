@@ -117,7 +117,7 @@ namespace WebChromiumCcsipro.UI.ViewModels
         private void OpenSetting()
         {
             Console.WriteLine(DialogService.EnterSetting());
-            //Todo Comper password
+            //Todo Comper password 
             SettingWindow = new SettingWindowView();
             var settingViewModel = new SettingViewModel.SettingViewModel(SettingService, DialogService);
             SettingWindow.DataContext = settingViewModel;
