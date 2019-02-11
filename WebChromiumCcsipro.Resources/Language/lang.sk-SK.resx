@@ -182,7 +182,7 @@
     <value>Uložiť</value>
   </data>
   <data name="SignatureSettingWindowSignatureTimeOutTextBox" xml:space="preserve">
-    <value>Čas pred podpisanie</value>
+    <value>Čas pre podpisanie</value>
   </data>
   <data name="SignatureSettingWindowTitle" xml:space="preserve">
     <value>Nastavenia pre BOZP podpisovanie</value>
