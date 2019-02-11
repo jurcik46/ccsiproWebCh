@@ -206,6 +206,69 @@ namespace WebChromiumCcsipro.Resources.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to API key.
+        /// </summary>
+        public static string SignatureSettingWindowApiKeyTextBox {
+            get {
+                return ResourceManager.GetString("SignatureSettingWindowApiKeyTextBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to API url.
+        /// </summary>
+        public static string SignatureSettingWindowApiTextBox {
+            get {
+                return ResourceManager.GetString("SignatureSettingWindowApiTextBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Process Name.
+        /// </summary>
+        public static string SignatureSettingWindowProcessTextBox {
+            get {
+                return ResourceManager.GetString("SignatureSettingWindowProcessTextBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Path to Program .
+        /// </summary>
+        public static string SignatureSettingWindowProgramPathTextBox {
+            get {
+                return ResourceManager.GetString("SignatureSettingWindowProgramPathTextBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string SignatureSettingWindowSaveButton {
+            get {
+                return ResourceManager.GetString("SignatureSettingWindowSaveButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Signature time out.
+        /// </summary>
+        public static string SignatureSettingWindowSignatureTimeOutTextBox {
+            get {
+                return ResourceManager.GetString("SignatureSettingWindowSignatureTimeOutTextBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BOZP Signature setting.
+        /// </summary>
+        public static string SignatureSettingWindowTitle {
+            get {
+                return ResourceManager.GetString("SignatureSettingWindowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Double click for signature.
         /// </summary>
         public static string TrayIconToolTipDefault {

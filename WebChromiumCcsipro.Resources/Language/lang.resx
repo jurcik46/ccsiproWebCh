@@ -166,6 +166,27 @@
   <data name="SettingWindowsTitle" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="SignatureSettingWindowApiKeyTextBox" xml:space="preserve">
+    <value>API key</value>
+  </data>
+  <data name="SignatureSettingWindowApiTextBox" xml:space="preserve">
+    <value>API url</value>
+  </data>
+  <data name="SignatureSettingWindowProcessTextBox" xml:space="preserve">
+    <value>Process Name</value>
+  </data>
+  <data name="SignatureSettingWindowProgramPathTextBox" xml:space="preserve">
+    <value>Path to Program </value>
+  </data>
+  <data name="SignatureSettingWindowSaveButton" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SignatureSettingWindowSignatureTimeOutTextBox" xml:space="preserve">
+    <value>Signature time out</value>
+  </data>
+  <data name="SignatureSettingWindowTitle" xml:space="preserve">
+    <value>BOZP Signature setting</value>
+  </data>
   <data name="TrayIconToolTipDefault" xml:space="preserve">
     <value>Double click for signature</value>
   </data>
