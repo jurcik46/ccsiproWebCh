@@ -117,26 +117,35 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ChangePasswodWindowCancelButton" xml:space="preserve">
-    <value>Zrušiť</value>
-  </data>
-  <data name="ChangePasswodWindowChangeButton" xml:space="preserve">
-    <value>Zmeniť Heslo</value>
-  </data>
-  <data name="ChangePasswodWindowChangeButtonTooltip" xml:space="preserve">
-    <value>Hesla sa nezhodujú !</value>
-  </data>
-  <data name="ChangePasswodWindowFirstPasswordTextBox" xml:space="preserve">
-    <value>Nové heslo:</value>
-  </data>
-  <data name="ChangePasswodWindowPasswordBoxTooltip" xml:space="preserve">
-    <value>Heslo nemôže byť prázdne alebo obsahovať medzery a musí byť dlhšie ako 5 znakov!</value>
-  </data>
-  <data name="ChangePasswodWindowSecondPasswordTextBox" xml:space="preserve">
-    <value>Heslo znova:</value>
-  </data>
   <data name="ChangePasswodWindowTitle" xml:space="preserve">
     <value>Zmena Hesla</value>
+  </data>
+  <data name="ChangePasswordWindowCancelButton" xml:space="preserve">
+    <value>Zrušiť</value>
+  </data>
+  <data name="ChangePasswordWindowChangeButton" xml:space="preserve">
+    <value>Zmeniť Heslo</value>
+  </data>
+  <data name="ChangePasswordWindowChangeButtonTooltip" xml:space="preserve">
+    <value>Hesla sa nezhodujú !</value>
+  </data>
+  <data name="ChangePasswordWindowFirstPasswordTextBox" xml:space="preserve">
+    <value>Nové heslo:</value>
+  </data>
+  <data name="ChangePasswordWindowPasswordBoxTooltip" xml:space="preserve">
+    <value>Heslo nemôže byť prázdne alebo obsahovať medzery a musí byť dlhšie ako 5 znakov!</value>
+  </data>
+  <data name="ChangePasswordWindowSecondPasswordTextBox" xml:space="preserve">
+    <value>Heslo znova:</value>
+  </data>
+  <data name="EnterSettingWindowEnterButton" xml:space="preserve">
+    <value>Vstúpiť</value>
+  </data>
+  <data name="EnterSettingWindowTextBlock" xml:space="preserve">
+    <value>Heslo</value>
+  </data>
+  <data name="EnterSettingWindowTitle" xml:space="preserve">
+    <value>Prihlasenie</value>
   </data>
   <data name="ErrorCaption" xml:space="preserve">
     <value>Application error</value>

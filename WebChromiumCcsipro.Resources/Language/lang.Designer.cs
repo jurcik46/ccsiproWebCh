@@ -61,65 +61,92 @@ namespace WebChromiumCcsipro.Resources.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Change password.
+        /// </summary>
+        public static string ChangePasswodWindowTitle {
+            get {
+                return ResourceManager.GetString("ChangePasswodWindowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
-        public static string ChangePasswodWindowCancelButton {
+        public static string ChangePasswordWindowCancelButton {
             get {
-                return ResourceManager.GetString("ChangePasswodWindowCancelButton", resourceCulture);
+                return ResourceManager.GetString("ChangePasswordWindowCancelButton", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Change password.
         /// </summary>
-        public static string ChangePasswodWindowChangeButton {
+        public static string ChangePasswordWindowChangeButton {
             get {
-                return ResourceManager.GetString("ChangePasswodWindowChangeButton", resourceCulture);
+                return ResourceManager.GetString("ChangePasswordWindowChangeButton", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Password doesnt match !.
         /// </summary>
-        public static string ChangePasswodWindowChangeButtonTooltip {
+        public static string ChangePasswordWindowChangeButtonTooltip {
             get {
-                return ResourceManager.GetString("ChangePasswodWindowChangeButtonTooltip", resourceCulture);
+                return ResourceManager.GetString("ChangePasswordWindowChangeButtonTooltip", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to New password:.
         /// </summary>
-        public static string ChangePasswodWindowFirstPasswordTextBox {
+        public static string ChangePasswordWindowFirstPasswordTextBox {
             get {
-                return ResourceManager.GetString("ChangePasswodWindowFirstPasswordTextBox", resourceCulture);
+                return ResourceManager.GetString("ChangePasswordWindowFirstPasswordTextBox", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Password cant be empty or shorted than 5 character !.
         /// </summary>
-        public static string ChangePasswodWindowPasswordBoxTooltip {
+        public static string ChangePasswordWindowPasswordBoxTooltip {
             get {
-                return ResourceManager.GetString("ChangePasswodWindowPasswordBoxTooltip", resourceCulture);
+                return ResourceManager.GetString("ChangePasswordWindowPasswordBoxTooltip", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Again password:.
         /// </summary>
-        public static string ChangePasswodWindowSecondPasswordTextBox {
+        public static string ChangePasswordWindowSecondPasswordTextBox {
             get {
-                return ResourceManager.GetString("ChangePasswodWindowSecondPasswordTextBox", resourceCulture);
+                return ResourceManager.GetString("ChangePasswordWindowSecondPasswordTextBox", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Change password.
+        ///   Looks up a localized string similar to Enter.
         /// </summary>
-        public static string ChangePasswodWindowTitle {
+        public static string EnterSettingWindowEnterButton {
             get {
-                return ResourceManager.GetString("ChangePasswodWindowTitle", resourceCulture);
+                return ResourceManager.GetString("EnterSettingWindowEnterButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        public static string EnterSettingWindowTextBlock {
+            get {
+                return ResourceManager.GetString("EnterSettingWindowTextBlock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login.
+        /// </summary>
+        public static string EnterSettingWindowTitle {
+            get {
+                return ResourceManager.GetString("EnterSettingWindowTitle", resourceCulture);
             }
         }
         

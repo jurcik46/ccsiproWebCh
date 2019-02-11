@@ -117,26 +117,35 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ChangePasswodWindowCancelButton" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="ChangePasswodWindowChangeButton" xml:space="preserve">
-    <value>Change password</value>
-  </data>
-  <data name="ChangePasswodWindowChangeButtonTooltip" xml:space="preserve">
-    <value>Password doesnt match !</value>
-  </data>
-  <data name="ChangePasswodWindowFirstPasswordTextBox" xml:space="preserve">
-    <value>New password:</value>
-  </data>
-  <data name="ChangePasswodWindowPasswordBoxTooltip" xml:space="preserve">
-    <value>Password cant be empty or shorted than 5 character !</value>
-  </data>
-  <data name="ChangePasswodWindowSecondPasswordTextBox" xml:space="preserve">
-    <value>Again password:</value>
-  </data>
   <data name="ChangePasswodWindowTitle" xml:space="preserve">
     <value>Change password</value>
+  </data>
+  <data name="ChangePasswordWindowCancelButton" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ChangePasswordWindowChangeButton" xml:space="preserve">
+    <value>Change password</value>
+  </data>
+  <data name="ChangePasswordWindowChangeButtonTooltip" xml:space="preserve">
+    <value>Password doesnt match !</value>
+  </data>
+  <data name="ChangePasswordWindowFirstPasswordTextBox" xml:space="preserve">
+    <value>New password:</value>
+  </data>
+  <data name="ChangePasswordWindowPasswordBoxTooltip" xml:space="preserve">
+    <value>Password cant be empty or shorted than 5 character !</value>
+  </data>
+  <data name="ChangePasswordWindowSecondPasswordTextBox" xml:space="preserve">
+    <value>Again password:</value>
+  </data>
+  <data name="EnterSettingWindowEnterButton" xml:space="preserve">
+    <value>Enter</value>
+  </data>
+  <data name="EnterSettingWindowTextBlock" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="EnterSettingWindowTitle" xml:space="preserve">
+    <value>Login</value>
   </data>
   <data name="ErrorCaption" xml:space="preserve">
     <value>Application error</value>
