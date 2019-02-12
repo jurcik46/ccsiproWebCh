@@ -6,6 +6,7 @@ using GalaSoft.MvvmLight.Command;
 using Serilog;
 using WebChromiumCcsipro.Controls.Interfaces.IServices;
 using WebChromiumCcsipro.Controls.Services;
+using WebChromiumCcsipro.UI.Views.SettingsWindow;
 
 namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
 {
@@ -14,6 +15,7 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
         public ILogger Logger => Log.Logger.ForContext<SettingViewModel>();
 
         public RelayCommand ApplicationSettingCommand { get; set; }
+        public RelayCommand SignatureSettingCommand { get; set; }
         public RelayCommand ChangePasswordCommand { get; set; }
         private ISettingsService SettingService { get; set; }
         private IDialogServiceWithOwner DialogService { get; set; }
@@ -30,26 +32,42 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
         private void CommandInit()
         {
             ApplicationSettingCommand = new RelayCommand(ApplicationSetting, CanApplicationSetting);
+            SignatureSettingCommand = new RelayCommand(SignatureSetting, CanSignatureSetting);
             ChangePasswordCommand = new RelayCommand(ChangePassword, CanChangePassword);
         }
 
 
-        public bool CanApplicationSetting()
+        private bool CanApplicationSetting()
         {
             return true;
         }
 
-        public void ApplicationSetting()
+        private void ApplicationSetting()
         {
 
         }
 
-        public bool CanChangePassword()
+        private bool CanSignatureSetting()
         {
             return true;
         }
 
-        public void ChangePassword()
+        private void SignatureSetting()
+        {
+            var viewModel = new SignatureSettingViewModel(SettingService);
+            var window = new SignatureSettingWindowView();
+            viewModel.CloseAction = () => window.Close();
+            window.DataContext = viewModel;
+            window.ShowDialog();
+        }
+
+
+        private bool CanChangePassword()
+        {
+            return true;
+        }
+
+        private void ChangePassword()
         {
 
 
