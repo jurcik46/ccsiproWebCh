@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,11 +17,21 @@ namespace WebChromiumCcsipro.Controls.Interfaces.IServices
         int SignatureTimeOut { get; set; }
         #endregion
 
+        #region Chromium setting
+        string ObjectId { get; set; }
+        string UserId { get; set; }
+        string HomePage { get; set; }
+        string Language { get; set; }
+        StringCollection AllowedUrl { get; set; }
+        string PasswordSalt { get; set; }
+        string PasswordSetting { get; set; }
+        #endregion
+        void CreatePassword(string password);
         void LoadAllSetting();
         void SaveSetting();
         void SignatureSettingLoad();
-
         void SignatureSettingSave(string apiLink, string apiKey, string programPath, string processName,
             int signatureTimeOut = 100);
+        void ChromiumSettingSave(string objectId, string userId, string homePage, string language);
     }
 }
