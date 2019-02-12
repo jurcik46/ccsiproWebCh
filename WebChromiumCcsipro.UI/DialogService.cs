@@ -37,6 +37,7 @@ namespace WebChromiumCcsipro.UI
             if (result == false)
             {
                 Logger.Warning(DialogServiceEvents.ChangePasswordCancel, "Change password dialog was canceled.");
+                return null;
             }
             if (result == true)
             {
