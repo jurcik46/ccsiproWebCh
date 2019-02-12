@@ -69,5 +69,10 @@ namespace WebChromiumCcsipro.UI.Views.SettingsWindow
             viewModel.Password2 = passwordBox.Password;
             VizualizePasswordValidation(passwordBox);
         }
+
+        private void ChangePasswordButton_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
+        }
     }
 }
