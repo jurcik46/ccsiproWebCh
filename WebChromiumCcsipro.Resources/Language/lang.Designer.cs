@@ -61,6 +61,78 @@ namespace WebChromiumCcsipro.Resources.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Allow web.
+        /// </summary>
+        public static string ApplicationSettingWindowAllowedUrlTextBox {
+            get {
+                return ResourceManager.GetString("ApplicationSettingWindowAllowedUrlTextBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home page.
+        /// </summary>
+        public static string ApplicationSettingWindowHomePageTextBox {
+            get {
+                return ResourceManager.GetString("ApplicationSettingWindowHomePageTextBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language.
+        /// </summary>
+        public static string ApplicationSettingWindowLanguageTextBox {
+            get {
+                return ResourceManager.GetString("ApplicationSettingWindowLanguageTextBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Object ID.
+        /// </summary>
+        public static string ApplicationSettingWindowObjectTextBox {
+            get {
+                return ResourceManager.GetString("ApplicationSettingWindowObjectTextBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CCSIpro Chromium application settings.
+        /// </summary>
+        public static string ApplicationSettingWindowTitle {
+            get {
+                return ResourceManager.GetString("ApplicationSettingWindowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User ID.
+        /// </summary>
+        public static string ApplicationSettingWindowUserTextBox {
+            get {
+                return ResourceManager.GetString("ApplicationSettingWindowUserTextBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password was successfully change.
+        /// </summary>
+        public static string ChangePasswodWindowNotificationInfoAbouChange {
+            get {
+                return ResourceManager.GetString("ChangePasswodWindowNotificationInfoAbouChange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password Change.
+        /// </summary>
+        public static string ChangePasswodWindowNotificationTitle {
+            get {
+                return ResourceManager.GetString("ChangePasswodWindowNotificationTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Change password.
         /// </summary>
         public static string ChangePasswodWindowTitle {
@@ -129,6 +201,33 @@ namespace WebChromiumCcsipro.Resources.Language {
         public static string EnterSettingWindowEnterButton {
             get {
                 return ResourceManager.GetString("EnterSettingWindowEnterButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wrong password.
+        /// </summary>
+        public static string EnterSettingWindowNotificationFailedLogin {
+            get {
+                return ResourceManager.GetString("EnterSettingWindowNotificationFailedLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password was correct.
+        /// </summary>
+        public static string EnterSettingWindowNotificationSuccessLogin {
+            get {
+                return ResourceManager.GetString("EnterSettingWindowNotificationSuccessLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter to Setting.
+        /// </summary>
+        public static string EnterSettingWindowNotificationTitle {
+            get {
+                return ResourceManager.GetString("EnterSettingWindowNotificationTitle", resourceCulture);
             }
         }
         

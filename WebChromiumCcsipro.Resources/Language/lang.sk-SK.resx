@@ -117,6 +117,30 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ApplicationSettingWindowAllowedUrlTextBox" xml:space="preserve">
+    <value>Povolené stránky</value>
+  </data>
+  <data name="ApplicationSettingWindowHomePageTextBox" xml:space="preserve">
+    <value>Domovksá stránka</value>
+  </data>
+  <data name="ApplicationSettingWindowLanguageTextBox" xml:space="preserve">
+    <value>Jazyk</value>
+  </data>
+  <data name="ApplicationSettingWindowObjectTextBox" xml:space="preserve">
+    <value>Objekt ID</value>
+  </data>
+  <data name="ApplicationSettingWindowTitle" xml:space="preserve">
+    <value>CCSIpro Chromium nastavenia aplikacie</value>
+  </data>
+  <data name="ApplicationSettingWindowUserTextBox" xml:space="preserve">
+    <value>Uživatelské ID</value>
+  </data>
+  <data name="ChangePasswodWindowNotificationInfoAbouChange" xml:space="preserve">
+    <value>Heslo bolo úspešne zmenene</value>
+  </data>
+  <data name="ChangePasswodWindowNotificationTitle" xml:space="preserve">
+    <value>Zmena hesla</value>
+  </data>
   <data name="ChangePasswodWindowTitle" xml:space="preserve">
     <value>Zmena Hesla</value>
   </data>
@@ -140,6 +164,15 @@
   </data>
   <data name="EnterSettingWindowEnterButton" xml:space="preserve">
     <value>Vstúpiť</value>
+  </data>
+  <data name="EnterSettingWindowNotificationFailedLogin" xml:space="preserve">
+    <value>Nesprávne heslo</value>
+  </data>
+  <data name="EnterSettingWindowNotificationSuccessLogin" xml:space="preserve">
+    <value>Heslo bolo správne</value>
+  </data>
+  <data name="EnterSettingWindowNotificationTitle" xml:space="preserve">
+    <value>Vstup do nastavenia</value>
   </data>
   <data name="EnterSettingWindowTextBlock" xml:space="preserve">
     <value>Heslo</value>

@@ -117,6 +117,30 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ApplicationSettingWindowAllowedUrlTextBox" xml:space="preserve">
+    <value>Allow web</value>
+  </data>
+  <data name="ApplicationSettingWindowHomePageTextBox" xml:space="preserve">
+    <value>Home page</value>
+  </data>
+  <data name="ApplicationSettingWindowLanguageTextBox" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="ApplicationSettingWindowObjectTextBox" xml:space="preserve">
+    <value>Object ID</value>
+  </data>
+  <data name="ApplicationSettingWindowTitle" xml:space="preserve">
+    <value>CCSIpro Chromium application settings</value>
+  </data>
+  <data name="ApplicationSettingWindowUserTextBox" xml:space="preserve">
+    <value>User ID</value>
+  </data>
+  <data name="ChangePasswodWindowNotificationInfoAbouChange" xml:space="preserve">
+    <value>Password was successfully change</value>
+  </data>
+  <data name="ChangePasswodWindowNotificationTitle" xml:space="preserve">
+    <value>Password Change</value>
+  </data>
   <data name="ChangePasswodWindowTitle" xml:space="preserve">
     <value>Change password</value>
   </data>
@@ -140,6 +164,15 @@
   </data>
   <data name="EnterSettingWindowEnterButton" xml:space="preserve">
     <value>Enter</value>
+  </data>
+  <data name="EnterSettingWindowNotificationFailedLogin" xml:space="preserve">
+    <value>Wrong password</value>
+  </data>
+  <data name="EnterSettingWindowNotificationSuccessLogin" xml:space="preserve">
+    <value>Password was correct</value>
+  </data>
+  <data name="EnterSettingWindowNotificationTitle" xml:space="preserve">
+    <value>Enter to Setting</value>
   </data>
   <data name="EnterSettingWindowTextBlock" xml:space="preserve">
     <value>Password</value>
