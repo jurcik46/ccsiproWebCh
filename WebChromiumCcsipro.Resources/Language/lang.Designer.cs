@@ -61,6 +61,195 @@ namespace WebChromiumCcsipro.Resources.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Allow web.
+        /// </summary>
+        public static string ApplicationSettingWindowAllowedUrlTextBox {
+            get {
+                return ResourceManager.GetString("ApplicationSettingWindowAllowedUrlTextBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home page.
+        /// </summary>
+        public static string ApplicationSettingWindowHomePageTextBox {
+            get {
+                return ResourceManager.GetString("ApplicationSettingWindowHomePageTextBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language.
+        /// </summary>
+        public static string ApplicationSettingWindowLanguageTextBox {
+            get {
+                return ResourceManager.GetString("ApplicationSettingWindowLanguageTextBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Object ID.
+        /// </summary>
+        public static string ApplicationSettingWindowObjectTextBox {
+            get {
+                return ResourceManager.GetString("ApplicationSettingWindowObjectTextBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CCSIpro Chromium application settings.
+        /// </summary>
+        public static string ApplicationSettingWindowTitle {
+            get {
+                return ResourceManager.GetString("ApplicationSettingWindowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User ID.
+        /// </summary>
+        public static string ApplicationSettingWindowUserTextBox {
+            get {
+                return ResourceManager.GetString("ApplicationSettingWindowUserTextBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password was successfully change.
+        /// </summary>
+        public static string ChangePasswodWindowNotificationInfoAbouChange {
+            get {
+                return ResourceManager.GetString("ChangePasswodWindowNotificationInfoAbouChange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password Change.
+        /// </summary>
+        public static string ChangePasswodWindowNotificationTitle {
+            get {
+                return ResourceManager.GetString("ChangePasswodWindowNotificationTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change password.
+        /// </summary>
+        public static string ChangePasswodWindowTitle {
+            get {
+                return ResourceManager.GetString("ChangePasswodWindowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string ChangePasswordWindowCancelButton {
+            get {
+                return ResourceManager.GetString("ChangePasswordWindowCancelButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change password.
+        /// </summary>
+        public static string ChangePasswordWindowChangeButton {
+            get {
+                return ResourceManager.GetString("ChangePasswordWindowChangeButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password doesnt match !.
+        /// </summary>
+        public static string ChangePasswordWindowChangeButtonTooltip {
+            get {
+                return ResourceManager.GetString("ChangePasswordWindowChangeButtonTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New password:.
+        /// </summary>
+        public static string ChangePasswordWindowFirstPasswordTextBox {
+            get {
+                return ResourceManager.GetString("ChangePasswordWindowFirstPasswordTextBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password cant be empty or shorted than 5 character !.
+        /// </summary>
+        public static string ChangePasswordWindowPasswordBoxTooltip {
+            get {
+                return ResourceManager.GetString("ChangePasswordWindowPasswordBoxTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Again password:.
+        /// </summary>
+        public static string ChangePasswordWindowSecondPasswordTextBox {
+            get {
+                return ResourceManager.GetString("ChangePasswordWindowSecondPasswordTextBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter.
+        /// </summary>
+        public static string EnterSettingWindowEnterButton {
+            get {
+                return ResourceManager.GetString("EnterSettingWindowEnterButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wrong password.
+        /// </summary>
+        public static string EnterSettingWindowNotificationFailedLogin {
+            get {
+                return ResourceManager.GetString("EnterSettingWindowNotificationFailedLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password was correct.
+        /// </summary>
+        public static string EnterSettingWindowNotificationSuccessLogin {
+            get {
+                return ResourceManager.GetString("EnterSettingWindowNotificationSuccessLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter to Setting.
+        /// </summary>
+        public static string EnterSettingWindowNotificationTitle {
+            get {
+                return ResourceManager.GetString("EnterSettingWindowNotificationTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        public static string EnterSettingWindowTextBlock {
+            get {
+                return ResourceManager.GetString("EnterSettingWindowTextBlock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login.
+        /// </summary>
+        public static string EnterSettingWindowTitle {
+            get {
+                return ResourceManager.GetString("EnterSettingWindowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Application error.
         /// </summary>
         public static string ErrorCaption {
@@ -80,11 +269,155 @@ namespace WebChromiumCcsipro.Resources.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Exit.
+        /// </summary>
+        public static string MainWindowTaskBarMenuExit {
+            get {
+                return ResourceManager.GetString("MainWindowTaskBarMenuExit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Options.
+        /// </summary>
+        public static string MainWindowTaskBarMenuOptions {
+            get {
+                return ResourceManager.GetString("MainWindowTaskBarMenuOptions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restart.
+        /// </summary>
+        public static string MainWindowTaskBarMenuRestart {
+            get {
+                return ResourceManager.GetString("MainWindowTaskBarMenuRestart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CCSIPro Chromium.
+        /// </summary>
+        public static string MainWindowTitle {
+            get {
+                return ResourceManager.GetString("MainWindowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CCSIpro Chromium.
+        /// </summary>
+        public static string SettingButtonApplication {
+            get {
+                return ResourceManager.GetString("SettingButtonApplication", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change settings password.
+        /// </summary>
+        public static string SettingButtonChangePassword {
+            get {
+                return ResourceManager.GetString("SettingButtonChangePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BOZP Signature.
+        /// </summary>
+        public static string SettingButtonSignature {
+            get {
+                return ResourceManager.GetString("SettingButtonSignature", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string SettingWindowsTitle {
+            get {
+                return ResourceManager.GetString("SettingWindowsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to API key.
+        /// </summary>
+        public static string SignatureSettingWindowApiKeyTextBox {
+            get {
+                return ResourceManager.GetString("SignatureSettingWindowApiKeyTextBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to API url.
+        /// </summary>
+        public static string SignatureSettingWindowApiTextBox {
+            get {
+                return ResourceManager.GetString("SignatureSettingWindowApiTextBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Process Name.
+        /// </summary>
+        public static string SignatureSettingWindowProcessTextBox {
+            get {
+                return ResourceManager.GetString("SignatureSettingWindowProcessTextBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Path to Program .
+        /// </summary>
+        public static string SignatureSettingWindowProgramPathTextBox {
+            get {
+                return ResourceManager.GetString("SignatureSettingWindowProgramPathTextBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string SignatureSettingWindowSaveButton {
+            get {
+                return ResourceManager.GetString("SignatureSettingWindowSaveButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Signature time out.
+        /// </summary>
+        public static string SignatureSettingWindowSignatureTimeOutTextBox {
+            get {
+                return ResourceManager.GetString("SignatureSettingWindowSignatureTimeOutTextBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BOZP Signature setting.
+        /// </summary>
+        public static string SignatureSettingWindowTitle {
+            get {
+                return ResourceManager.GetString("SignatureSettingWindowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Double click for signature.
         /// </summary>
         public static string TrayIconToolTipDefault {
             get {
                 return ResourceManager.GetString("TrayIconToolTipDefault", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning!.
+        /// </summary>
+        public static string WarningCaption {
+            get {
+                return ResourceManager.GetString("WarningCaption", resourceCulture);
             }
         }
     }

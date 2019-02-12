@@ -117,6 +117,69 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ApplicationSettingWindowAllowedUrlTextBox" xml:space="preserve">
+    <value>Povolené stránky</value>
+  </data>
+  <data name="ApplicationSettingWindowHomePageTextBox" xml:space="preserve">
+    <value>Domovksá stránka</value>
+  </data>
+  <data name="ApplicationSettingWindowLanguageTextBox" xml:space="preserve">
+    <value>Jazyk</value>
+  </data>
+  <data name="ApplicationSettingWindowObjectTextBox" xml:space="preserve">
+    <value>Objekt ID</value>
+  </data>
+  <data name="ApplicationSettingWindowTitle" xml:space="preserve">
+    <value>CCSIpro Chromium nastavenia aplikacie</value>
+  </data>
+  <data name="ApplicationSettingWindowUserTextBox" xml:space="preserve">
+    <value>Uživatelské ID</value>
+  </data>
+  <data name="ChangePasswodWindowNotificationInfoAbouChange" xml:space="preserve">
+    <value>Heslo bolo úspešne zmenene</value>
+  </data>
+  <data name="ChangePasswodWindowNotificationTitle" xml:space="preserve">
+    <value>Zmena hesla</value>
+  </data>
+  <data name="ChangePasswodWindowTitle" xml:space="preserve">
+    <value>Zmena Hesla</value>
+  </data>
+  <data name="ChangePasswordWindowCancelButton" xml:space="preserve">
+    <value>Zrušiť</value>
+  </data>
+  <data name="ChangePasswordWindowChangeButton" xml:space="preserve">
+    <value>Zmeniť Heslo</value>
+  </data>
+  <data name="ChangePasswordWindowChangeButtonTooltip" xml:space="preserve">
+    <value>Hesla sa nezhodujú !</value>
+  </data>
+  <data name="ChangePasswordWindowFirstPasswordTextBox" xml:space="preserve">
+    <value>Nové heslo:</value>
+  </data>
+  <data name="ChangePasswordWindowPasswordBoxTooltip" xml:space="preserve">
+    <value>Heslo nemôže byť prázdne alebo obsahovať medzery a musí byť dlhšie ako 5 znakov!</value>
+  </data>
+  <data name="ChangePasswordWindowSecondPasswordTextBox" xml:space="preserve">
+    <value>Heslo znova:</value>
+  </data>
+  <data name="EnterSettingWindowEnterButton" xml:space="preserve">
+    <value>Vstúpiť</value>
+  </data>
+  <data name="EnterSettingWindowNotificationFailedLogin" xml:space="preserve">
+    <value>Nesprávne heslo</value>
+  </data>
+  <data name="EnterSettingWindowNotificationSuccessLogin" xml:space="preserve">
+    <value>Heslo bolo správne</value>
+  </data>
+  <data name="EnterSettingWindowNotificationTitle" xml:space="preserve">
+    <value>Vstup do nastavenia</value>
+  </data>
+  <data name="EnterSettingWindowTextBlock" xml:space="preserve">
+    <value>Heslo</value>
+  </data>
+  <data name="EnterSettingWindowTitle" xml:space="preserve">
+    <value>Prihlasenie</value>
+  </data>
   <data name="ErrorCaption" xml:space="preserve">
     <value>Application error</value>
   </data>
@@ -124,7 +187,55 @@
     <value>An unexpected error occurred. Please restart the application.
 {0}</value>
   </data>
+  <data name="MainWindowTaskBarMenuExit" xml:space="preserve">
+    <value>Vypnuť</value>
+  </data>
+  <data name="MainWindowTaskBarMenuOptions" xml:space="preserve">
+    <value>Nastavenia</value>
+  </data>
+  <data name="MainWindowTaskBarMenuRestart" xml:space="preserve">
+    <value>Reštartovať</value>
+  </data>
+  <data name="MainWindowTitle" xml:space="preserve">
+    <value>CCSIPro Chromium</value>
+  </data>
+  <data name="SettingButtonApplication" xml:space="preserve">
+    <value>CCSIpro Chromium</value>
+  </data>
+  <data name="SettingButtonChangePassword" xml:space="preserve">
+    <value>Zmeniť heslo do nastavenia</value>
+  </data>
+  <data name="SettingButtonSignature" xml:space="preserve">
+    <value>BOZP Podpisovanie</value>
+  </data>
+  <data name="SettingWindowsTitle" xml:space="preserve">
+    <value>Nastavenia</value>
+  </data>
+  <data name="SignatureSettingWindowApiKeyTextBox" xml:space="preserve">
+    <value>API kľúč</value>
+  </data>
+  <data name="SignatureSettingWindowApiTextBox" xml:space="preserve">
+    <value>API url</value>
+  </data>
+  <data name="SignatureSettingWindowProcessTextBox" xml:space="preserve">
+    <value>Názov procesu</value>
+  </data>
+  <data name="SignatureSettingWindowProgramPathTextBox" xml:space="preserve">
+    <value>Cesta k programu</value>
+  </data>
+  <data name="SignatureSettingWindowSaveButton" xml:space="preserve">
+    <value>Uložiť</value>
+  </data>
+  <data name="SignatureSettingWindowSignatureTimeOutTextBox" xml:space="preserve">
+    <value>Čas pre podpisanie</value>
+  </data>
+  <data name="SignatureSettingWindowTitle" xml:space="preserve">
+    <value>Nastavenia pre BOZP podpisovanie</value>
+  </data>
   <data name="TrayIconToolTipDefault" xml:space="preserve">
     <value>Dvojklik pre podpísanie a kliknutím pravým tlačidlom pre menu</value>
+  </data>
+  <data name="WarningCaption" xml:space="preserve">
+    <value>Warning!</value>
   </data>
 </root>

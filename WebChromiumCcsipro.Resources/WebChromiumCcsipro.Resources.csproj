@@ -85,6 +85,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>lang.sk-SK.resx</DependentUpon>
     </Compile>
+    <Compile Include="Language\LanguageSource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -92,6 +93,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Settings\CCSIproChromiumSetting.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>CCSIproChromiumSetting.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\SignatureSetting.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>SignatureSetting.settings</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Language\lang.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -101,10 +112,19 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>lang.sk-SK.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Settings\CCSIproChromiumSetting.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>CCSIproChromiumSetting.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Settings\SignatureSetting.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>SignatureSetting.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup />
