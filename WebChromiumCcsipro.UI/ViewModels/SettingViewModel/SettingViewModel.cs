@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Windows;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
 using Serilog;
 using WebChromiumCcsipro.Controls.Interfaces.IServices;
+using WebChromiumCcsipro.Controls.Messages;
+using WebChromiumCcsipro.Resources.Language;
 using WebChromiumCcsipro.Controls.Services;
 using WebChromiumCcsipro.UI.Views.SettingsWindow;
 
@@ -44,6 +47,11 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
 
         private void ApplicationSetting()
         {
+            var viewModel = new ApplicationSettingViewModel(SettingService);
+            var window = new ApplicationSettingWindowView();
+            viewModel.CloseAction = () => window.Close();
+            window.DataContext = viewModel;
+            window.ShowDialog();
 
         }
 
@@ -69,12 +77,18 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
 
         private void ChangePassword()
         {
-
-
             var newPassword = DialogService.ChangePassword();
-            //            Messenger.Default.Send<NotifiMessage>(new NotifiMessage() { Title = ViewModelLocator.rm.GetString("settingTitle"), Msg = ViewModelLocator.rm.GetString("savedSetting"), IconType = Notifications.Wpf.NotificationType.Success, ExpTime = 4 });
-            //TODO Send notification for succel change password
-            Console.WriteLine(newPassword);
+            if (newPassword != null)
+            {
+                SettingService.CreatePassword(newPassword);
+                Messenger.Default.Send(new NotifiMessage()
+                {
+                    Title = lang.ChangePasswodWindowNotificationTitle,
+                    Msg = lang.ChangePasswodWindowNotificationInfoAbouChange,
+                    IconType = Notifications.Wpf.NotificationType.Success,
+                    ExpTime = 4
+                });
+            }
         }
         #endregion
 

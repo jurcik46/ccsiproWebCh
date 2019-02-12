@@ -10,10 +10,15 @@ using System.Windows;
 using System.Windows.Shapes;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
 using Serilog;
+using WebChromiumCcsipro.Controls.Extensions;
 using WebChromiumCcsipro.Controls.Interfaces;
 using WebChromiumCcsipro.Controls.Interfaces.IServices;
+using WebChromiumCcsipro.Controls.Messages;
 using WebChromiumCcsipro.Resources;
+using WebChromiumCcsipro.Resources.Language;
+using WebChromiumCcsipro.Resources.Settings;
 using WebChromiumCcsipro.UI.Views.SettingsWindow;
 using Path = System.IO.Path;
 
@@ -116,8 +121,16 @@ namespace WebChromiumCcsipro.UI.ViewModels
 
         private void OpenSetting()
         {
-            Console.WriteLine(DialogService.EnterSetting());
-            //Todo Comper password 
+            if (!CryptoExtension.VerifyPassword(DialogService.EnterSetting(),
+                CCSIproChromiumSetting.Default.PasswordSalt,
+                CCSIproChromiumSetting.Default.PasswordSetting))
+            {
+                Messenger.Default.Send(new NotifiMessage() { Title = lang.EnterSettingWindowNotificationTitle, Msg = lang.EnterSettingWindowNotificationFailedLogin, IconType = Notifications.Wpf.NotificationType.Error, ExpTime = 4 });
+
+                return;
+            }
+            Messenger.Default.Send(new NotifiMessage() { Title = lang.EnterSettingWindowNotificationTitle, Msg = lang.EnterSettingWindowNotificationSuccessLogin, IconType = Notifications.Wpf.NotificationType.Success, ExpTime = 4 });
+
             SettingWindow = new SettingWindowView();
             var settingViewModel = new SettingViewModel.SettingViewModel(SettingService, DialogService);
             SettingWindow.DataContext = settingViewModel;
