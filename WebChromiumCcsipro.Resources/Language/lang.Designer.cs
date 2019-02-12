@@ -269,6 +269,42 @@ namespace WebChromiumCcsipro.Resources.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Exit.
+        /// </summary>
+        public static string MainWindowTaskBarMenuExit {
+            get {
+                return ResourceManager.GetString("MainWindowTaskBarMenuExit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Options.
+        /// </summary>
+        public static string MainWindowTaskBarMenuOptions {
+            get {
+                return ResourceManager.GetString("MainWindowTaskBarMenuOptions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restart.
+        /// </summary>
+        public static string MainWindowTaskBarMenuRestart {
+            get {
+                return ResourceManager.GetString("MainWindowTaskBarMenuRestart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CCSIPro Chromium.
+        /// </summary>
+        public static string MainWindowTitle {
+            get {
+                return ResourceManager.GetString("MainWindowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CCSIpro Chromium.
         /// </summary>
         public static string SettingButtonApplication {

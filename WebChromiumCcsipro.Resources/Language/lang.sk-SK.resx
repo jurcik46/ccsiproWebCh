@@ -187,6 +187,18 @@
     <value>An unexpected error occurred. Please restart the application.
 {0}</value>
   </data>
+  <data name="MainWindowTaskBarMenuExit" xml:space="preserve">
+    <value>Vypnuť</value>
+  </data>
+  <data name="MainWindowTaskBarMenuOptions" xml:space="preserve">
+    <value>Nastavenia</value>
+  </data>
+  <data name="MainWindowTaskBarMenuRestart" xml:space="preserve">
+    <value>Reštartovať</value>
+  </data>
+  <data name="MainWindowTitle" xml:space="preserve">
+    <value>CCSIPro Chromium</value>
+  </data>
   <data name="SettingButtonApplication" xml:space="preserve">
     <value>CCSIpro Chromium</value>
   </data>

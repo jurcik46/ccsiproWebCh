@@ -106,7 +106,7 @@ namespace WebChromiumCcsipro.UI.ViewModels
             {
                 win.Close();
             }
-
+            //TODO restart app 
             //Application.Current.Shutdown();
             //System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
         }

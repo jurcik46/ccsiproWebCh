@@ -143,6 +143,7 @@
     <Compile Include="Enums\ApplicationEvents.cs" />
     <Compile Include="Enums\DialogServiceEvents.cs" />
     <Compile Include="Enums\TrayIconsStatus.cs" />
+    <Compile Include="Extensions\CryptoExtension.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Extensions\LoggerExtensions.cs" />
     <Compile Include="Interfaces\IClosable.cs" />

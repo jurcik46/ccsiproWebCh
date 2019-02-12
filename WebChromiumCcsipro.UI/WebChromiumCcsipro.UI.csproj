@@ -128,6 +128,7 @@
   <ItemGroup>
     <Compile Include="DialogService.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\SettingViewModel\ApplicationSettingViewModel.cs" />
     <Compile Include="ViewModels\SettingViewModel\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModels\SettingViewModel\EnterSettingViewModel.cs" />
     <Compile Include="ViewModels\SettingViewModel\SettingViewModel.cs" />
@@ -138,6 +139,9 @@
     </Compile>
     <Compile Include="Views\MainWindow\NotifiWindowView.xaml.cs">
       <DependentUpon>NotifiWindowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingsWindow\ApplicationSettingWindowView.xaml.cs">
+      <DependentUpon>ApplicationSettingWindowView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SettingsWindow\ChangePasswordWindowView.xaml.cs">
       <DependentUpon>ChangePasswordWindowView.xaml</DependentUpon>
@@ -156,6 +160,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainWindow\NotifiWindowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SettingsWindow\ApplicationSettingWindowView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

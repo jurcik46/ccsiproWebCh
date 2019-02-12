@@ -50,12 +50,83 @@ namespace WebChromiumCcsipro.Resources.Settings {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string passwordSetting {
+        public string PasswordSetting {
             get {
-                return ((string)(this["passwordSetting"]));
+                return ((string)(this["PasswordSetting"]));
             }
             set {
-                this["passwordSetting"] = value;
+                this["PasswordSetting"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("sk-SK")]
+        public string Language {
+            get {
+                return ((string)(this["Language"]));
+            }
+            set {
+                this["Language"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string HomePage {
+            get {
+                return ((string)(this["HomePage"]));
+            }
+            set {
+                this["HomePage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Specialized.StringCollection AllowedUrl {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["AllowedUrl"]));
+            }
+            set {
+                this["AllowedUrl"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string PasswordSalt {
+            get {
+                return ((string)(this["PasswordSalt"]));
+            }
+            set {
+                this["PasswordSalt"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("CCSIPro Web Chromium V1")]
+        public string ApplicationName {
+            get {
+                return ((string)(this["ApplicationName"]));
+            }
+            set {
+                this["ApplicationName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("CCSIPro.sk")]
+        public string CompanyName {
+            get {
+                return ((string)(this["CompanyName"]));
+            }
+            set {
+                this["CompanyName"] = value;
             }
         }
     }
