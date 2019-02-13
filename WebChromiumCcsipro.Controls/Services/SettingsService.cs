@@ -94,6 +94,7 @@ namespace WebChromiumCcsipro.Controls.Services
             SignatureSetting.Default.ProcessName = processName;
             SignatureSetting.Default.singTimeOut = signatureTimeOut;
             SignatureSetting.Default.Save();
+            SignatureSettingLoad();
         }
 
         public void ChromiumSettingSave(string objectId, string userId, string homePage, string language)
@@ -106,6 +107,7 @@ namespace WebChromiumCcsipro.Controls.Services
             CCSIproChromiumSetting.Default.PasswordSalt = PasswordSalt;
             CCSIproChromiumSetting.Default.PasswordSetting = PasswordSetting;
             CCSIproChromiumSetting.Default.Save();
+            ChromiumSettingLoad();
         }
 
 
