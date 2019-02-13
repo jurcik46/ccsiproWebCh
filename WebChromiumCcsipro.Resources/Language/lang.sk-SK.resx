@@ -217,6 +217,15 @@
   <data name="SettingWindowsTitle" xml:space="preserve">
     <value>Nastavenia</value>
   </data>
+  <data name="SignatureServiceNotificationNotFoundDocument" xml:space="preserve">
+    <value>Nenašiel sa žiadny dokument na podpísanie</value>
+  </data>
+  <data name="SignatureServiceNotificationSuccessOpenDocument" xml:space="preserve">
+    <value>Čakám na podpísanie dokumentu</value>
+  </data>
+  <data name="SignatureServiceNotificationTitle" xml:space="preserve">
+    <value>Podpisovanie</value>
+  </data>
   <data name="SignatureSettingWindowApiKeyTextBox" xml:space="preserve">
     <value>API kľúč</value>
   </data>
