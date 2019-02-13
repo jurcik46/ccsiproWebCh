@@ -74,14 +74,20 @@ namespace WebChromiumCcsipro.V1
             {
                 return;
             }
+
+            foreach (var window in application.Windows.Cast<Window>())
+            {
+                window.Close();
+            }
+            Application.Current.Shutdown();
+            Thread.Sleep(100);
+            System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+            return;
             SimpleIoc.Default.Unregister<MainViewModel>();
             SimpleIoc.Default.Register<MainViewModel>();
             var newWindow = newWindowFunc();
             newWindow.Show();
-            foreach (var window in application.Windows.Cast<Window>().Where(win => !Equals(newWindow, win)))
-            {
-                window.Close();
-            }
+
         }
 
         public static void OnExit(ILogger logger)
