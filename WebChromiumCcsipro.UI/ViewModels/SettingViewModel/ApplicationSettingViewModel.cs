@@ -18,12 +18,22 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
         public RelayCommand SaveCommand { get; set; }
 
         private ISettingsService SettingsService { get; set; }
-
+        private string _selectedLanguage;
 
         public string ObjectId { get; set; }
         public string UserId { get; set; }
         public string HomePage { get; set; }
-        public string SelectedLanguage { get; set; }
+
+        public string SelectedLanguage
+        {
+            get { return _selectedLanguage; }
+            set
+            {
+                _selectedLanguage = value;
+                RaisePropertyChanged();
+            }
+        }
+
         public ObservableCollection<string> Language { get; set; }
 
         public Action CloseAction { get; set; }
@@ -35,7 +45,7 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
             ObjectId = SettingsService.ObjectId;
             UserId = SettingsService.UserId;
             HomePage = SettingsService.HomePage;
-            SelectedLanguage = SettingsService.Language;
+            SelectedLanguage = LanguageSource.GetValues()[SettingsService.Language];
             SaveCommand = new RelayCommand(Save, CanSave);
             Language = new ObservableCollection<string>();
             foreach (var lang in LanguageSource.GetValues())
@@ -55,14 +65,8 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
 
         private void Save()
         {
-            foreach (var lang in LanguageSource.GetValues())
-            {
-                //                if (SelectedLanguage == lang.Value)
-                //                {
-                SettingsService.ChromiumSettingSave(ObjectId, UserId, HomePage, lang.Key);
-                //TODO add language
-                //                }
-            }
+            var langKey = LanguageSource.GetValues().FirstOrDefault(x => x.Value == SelectedLanguage).Key;
+            SettingsService.ChromiumSettingSave(ObjectId, UserId, HomePage, langKey);
             if (CloseAction != null)
             {
                 CloseAction();
