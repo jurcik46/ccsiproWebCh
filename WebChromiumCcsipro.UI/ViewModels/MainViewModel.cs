@@ -12,12 +12,13 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using Serilog;
-using WebChromiumCcsipro.Controls.Extensions;
-using WebChromiumCcsipro.Controls.Interfaces;
-using WebChromiumCcsipro.Controls.Interfaces.IServices;
-using WebChromiumCcsipro.Controls.Messages;
+using WebChromiumCcsipro.Controls;
 using WebChromiumCcsipro.Resources;
+using WebChromiumCcsipro.Resources.Extensions;
+using WebChromiumCcsipro.Resources.Interfaces;
+using WebChromiumCcsipro.Resources.Interfaces.IServices;
 using WebChromiumCcsipro.Resources.Language;
+using WebChromiumCcsipro.Resources.Messages;
 using WebChromiumCcsipro.Resources.Settings;
 using WebChromiumCcsipro.UI.Views.SettingsWindow;
 using Path = System.IO.Path;
@@ -26,6 +27,30 @@ namespace WebChromiumCcsipro.UI.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
+
+        public string Version
+        {
+            get
+            {
+                if (IsInDesignModeStatic)
+                {
+                    return "1.0.0.0";
+                }
+                return LoggerInitializer.Version;
+            }
+        }
+
+        public string VersionDeploy
+        {
+            get
+            {
+                if (IsInDesignModeStatic)
+                {
+                    return "1.0.0.0";
+                }
+                return LoggerInitializer.VersionDeploy;
+            }
+        }
         public ILogger Logger => Log.Logger.ForContext<MainViewModel>();
 
         private string _urlAddress;

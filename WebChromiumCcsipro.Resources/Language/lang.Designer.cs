@@ -61,6 +61,24 @@ namespace WebChromiumCcsipro.Resources.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to asda.
+        /// </summary>
+        public static string ApiNotificationExecuteConnectionInfo {
+            get {
+                return ResourceManager.GetString("ApiNotificationExecuteConnectionInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Connection.
+        /// </summary>
+        public static string ApiNotificationExecuteConnectionTitle {
+            get {
+                return ResourceManager.GetString("ApiNotificationExecuteConnectionTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Allow web.
         /// </summary>
         public static string ApplicationSettingWindowAllowedUrlTextBox {

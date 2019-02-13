@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
-namespace WebChromiumCcsipro.Controls.Extensions
+namespace WebChromiumCcsipro.Resources.Extensions
 {
     public static class EnumExtensions
     {

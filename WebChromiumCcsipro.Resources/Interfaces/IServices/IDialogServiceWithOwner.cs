@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace WebChromiumCcsipro.Controls.Interfaces.IServices
+namespace WebChromiumCcsipro.Resources.Interfaces.IServices
 {
     public interface IDialogServiceWithOwner : GalaSoft.MvvmLight.Views.IDialogService
     {

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using Serilog;
-using WebChromiumCcsipro.Controls.Interfaces.IServices;
 using WebChromiumCcsipro.Controls.Services;
+using WebChromiumCcsipro.Resources.Interfaces.IServices;
 
 namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
 {

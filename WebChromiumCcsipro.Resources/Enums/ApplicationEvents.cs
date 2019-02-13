@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace WebChromiumCcsipro.Controls.Enums
+namespace WebChromiumCcsipro.Resources.Enums
 {
     public enum ApplicationEvents
     {

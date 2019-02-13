@@ -138,21 +138,9 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants.cs" />
     <Compile Include="Diagnostics.cs" />
-    <Compile Include="Enums\ApplicationEvents.cs" />
-    <Compile Include="Enums\DialogServiceEvents.cs" />
-    <Compile Include="Enums\TrayIconsStatus.cs" />
-    <Compile Include="Extensions\CryptoExtension.cs" />
-    <Compile Include="Extensions\EnumExtensions.cs" />
-    <Compile Include="Extensions\LoggerExtensions.cs" />
-    <Compile Include="Interfaces\IClosable.cs" />
-    <Compile Include="Interfaces\IDiagnostics.cs" />
-    <Compile Include="Interfaces\IServices\IDialogServiceWithOwner.cs" />
-    <Compile Include="Interfaces\IServices\ISettingsService.cs" />
     <Compile Include="LoggerInitializer.cs" />
-    <Compile Include="Messages\NotifiMessage.cs" />
-    <Compile Include="Messages\TrayIconsStatusMessage.cs" />
+    <Compile Include="Models\SignatureFileModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -166,7 +154,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Services\ApiService.cs" />
     <Compile Include="Services\SettingsService.cs" />
+    <Compile Include="Services\SignatureService.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -178,10 +168,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WebChromiumCcsipro.API\WebChromiumCcsipro.API.csproj">
+      <Project>{f89364f2-62e8-4799-8be9-1665dd9ed6ed}</Project>
+      <Name>WebChromiumCcsipro.API</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WebChromiumCcsipro.Resources\WebChromiumCcsipro.Resources.csproj">
       <Project>{11c2fbd5-8960-42f2-a9bc-e6494d3c55e2}</Project>
       <Name>WebChromiumCcsipro.Resources</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

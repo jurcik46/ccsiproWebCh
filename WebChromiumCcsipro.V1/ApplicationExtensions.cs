@@ -14,10 +14,11 @@ using GalaSoft.MvvmLight.Threading;
 using Serilog;
 using Serilog.Events;
 using WebChromiumCcsipro.Controls;
-using WebChromiumCcsipro.Controls.Enums;
-using WebChromiumCcsipro.Controls.Extensions;
+using WebChromiumCcsipro.Resources;
+using WebChromiumCcsipro.Resources.Enums;
+using WebChromiumCcsipro.Resources.Extensions;
 using WebChromiumCcsipro.UI.ViewModels;
-using LoggerExtensions = WebChromiumCcsipro.Controls.Extensions.LoggerExtensions;
+using LoggerExtensions = WebChromiumCcsipro.Resources.Extensions.LoggerExtensions;
 
 namespace WebChromiumCcsipro.V1
 {
@@ -34,7 +35,7 @@ namespace WebChromiumCcsipro.V1
             var currentCulture = Thread.CurrentThread.CurrentCulture;
             var currentUICulture = Thread.CurrentThread.CurrentUICulture;
             Log.Logger = LoggerInitializer.InitializeApplicationLogger(ViewModelLocator.SettingsService, ViewModelLocator.LoggingLevelSwitch, currentCulture, currentUICulture, app.GetType());
-            logger.Debug(ApplicationEvents.DispatcherThread, "Dispatcher thread: {ThreadId}", DispatcherHelper.UIDispatcher.Thread.ManagedThreadId);
+            LoggerExtensions.Debug(logger, ApplicationEvents.DispatcherThread, "Dispatcher thread: {ThreadId}", DispatcherHelper.UIDispatcher.Thread.ManagedThreadId);
             var errorsTimer = new DispatcherTimer(Constants.ErrorCountInterval, DispatcherPriority.ApplicationIdle, (sender, args) => LoggerExtensions.SendErrorsWarningMessage(logger), DispatcherHelper.UIDispatcher);
             errorsTimer.Start();
 
@@ -56,7 +57,7 @@ namespace WebChromiumCcsipro.V1
 
         public static void SetLanguage(ILogger logger, CultureInfo culture, bool reloadWindow, Application application, Func<Window> newWindowFunc, Action<CultureInfo> appResourcesAction)
         {
-            logger.Information(ApplicationEvents.SetLanguage, "{culture}, {reloadWindow}", culture, reloadWindow);
+            LoggerExtensions.Information(logger, ApplicationEvents.SetLanguage, "{culture}, {reloadWindow}", culture, reloadWindow);
             if (Thread.CurrentThread.CurrentUICulture.Name == culture.Name)
             {
                 return;
@@ -84,7 +85,7 @@ namespace WebChromiumCcsipro.V1
 
         public static void OnExit(ILogger logger)
         {
-            logger.Information(ApplicationEvents.ApplicationEnded, "Application ended at {DateTime}", DateTime.Now);
+            LoggerExtensions.Information(logger, ApplicationEvents.ApplicationEnded, "Application ended at {DateTime}", DateTime.Now);
             ((IDisposable)Log.Logger).Dispose();
         }
 

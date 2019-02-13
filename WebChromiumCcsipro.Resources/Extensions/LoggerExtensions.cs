@@ -2,15 +2,14 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using GalaSoft.MvvmLight.Messaging;
 using Serilog;
+using Serilog.Core;
 using Serilog.Events;
-using WebChromiumCcsipro.Controls.Enums;
-using WebChromiumCcsipro.Controls.Interfaces;
+using WebChromiumCcsipro.Resources.Enums;
+using WebChromiumCcsipro.Resources.Interfaces;
 
-namespace WebChromiumCcsipro.Controls.Extensions
+namespace WebChromiumCcsipro.Resources.Extensions
 {
     public static class LoggerExtensions
     {
@@ -33,7 +32,7 @@ namespace WebChromiumCcsipro.Controls.Extensions
 
         public static ILogger With(this ILogger logger, string propertyName, object value)
         {
-            return logger.With(propertyName, value, false);
+            return With(logger, propertyName, value, false);
         }
 
         public static void LogMessage(this ILogger logger, MessageBase message, object sender)
@@ -173,7 +172,7 @@ namespace WebChromiumCcsipro.Controls.Extensions
             }
             var allPropertyValues = new object[] { eventId.GetType().Name, eventId }.Concat(propertyValues).ToArray();
             var allMessageTemplate = string.Format(EventIdFormat, messageTemplate);
-            logger = logger.With("Diagnostics", DiagnosticsFunc?.Invoke(includeStackTrace));
+            logger = With(logger, "Diagnostics", DiagnosticsFunc?.Invoke(includeStackTrace));
             logger.Fatal(allMessageTemplate, allPropertyValues);
         }
 
@@ -185,7 +184,7 @@ namespace WebChromiumCcsipro.Controls.Extensions
             }
             var allPropertyValues = new object[] { eventId.GetType().Name, eventId }.Concat(propertyValues).ToArray();
             var allMessageTemplate = string.Format(EventIdFormat, messageTemplate);
-            logger = logger.With("Diagnostics", DiagnosticsFunc?.Invoke(includeStackTrace));
+            logger = With(logger, "Diagnostics", DiagnosticsFunc?.Invoke(includeStackTrace));
             logger.Fatal(ex, allMessageTemplate, allPropertyValues);
         }
 
@@ -196,7 +195,7 @@ namespace WebChromiumCcsipro.Controls.Extensions
                 return;
             }
             var allMessageTemplate = string.Format(EventIdFormat, eventId.GetDescription());
-            logger = logger.With("Diagnostics", DiagnosticsFunc?.Invoke(includeStackTrace));
+            logger = With(logger, "Diagnostics", DiagnosticsFunc?.Invoke(includeStackTrace));
             logger.Fatal(ex, allMessageTemplate, eventId.GetType().Name, eventId);
         }
 
@@ -226,7 +225,7 @@ namespace WebChromiumCcsipro.Controls.Extensions
                     renderedErrors.AddRange(entry.Value);
                 }
                 const string message = "Too many errors ({ErrorCount}) occured in specified interval of {Interval}s.\n\nList of events:\n{@ErrorsDictionary}\n\nRendered errors:\n{@RenderedErrorsDictionary:l}";
-                logger.Fatal(ApplicationEvents.CheckErrors, message, false, errorCount, Constants.ErrorCountInterval.TotalSeconds, ErrorsDictionary, renderedErrors);
+                Fatal(logger, ApplicationEvents.CheckErrors, message, false, errorCount, Constants.ErrorCountInterval.TotalSeconds, ErrorsDictionary, renderedErrors);
                 ErrorsWarningSent = true;
             }
             RenderedErrorsDictionary.Clear();

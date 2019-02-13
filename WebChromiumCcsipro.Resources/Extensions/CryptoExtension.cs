@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace WebChromiumCcsipro.Controls.Extensions
+namespace WebChromiumCcsipro.Resources.Extensions
 {
     public static class CryptoExtension
     {

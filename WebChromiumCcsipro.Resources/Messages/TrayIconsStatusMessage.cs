@@ -1,6 +1,6 @@
-﻿using WebChromiumCcsipro.Controls.Enums;
+﻿using WebChromiumCcsipro.Resources.Enums;
 
-namespace WebChromiumCcsipro.Controls.Messages
+namespace WebChromiumCcsipro.Resources.Messages
 {
     public class TrayIconsStatusMessage
     {

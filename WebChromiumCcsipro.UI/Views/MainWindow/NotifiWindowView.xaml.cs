@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using GalaSoft.MvvmLight.Messaging;
 using Notifications.Wpf;
-using WebChromiumCcsipro.Controls.Messages;
+using WebChromiumCcsipro.Resources.Messages;
 
 namespace WebChromiumCcsipro.UI.Views.MainWindow
 {
