@@ -1,4 +1,5 @@
 ﻿using System.Collections.Specialized;
+using System.Globalization;
 
 namespace WebChromiumCcsipro.Resources.Interfaces.IServices
 {
@@ -16,6 +17,7 @@ namespace WebChromiumCcsipro.Resources.Interfaces.IServices
         string ObjectId { get; set; }
         string UserId { get; set; }
         string HomePage { get; set; }
+        CultureInfo Culture { get; set; }
         string Language { get; set; }
         StringCollection AllowedUrl { get; set; }
         string PasswordSalt { get; set; }
