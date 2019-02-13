@@ -34,6 +34,8 @@ namespace WebChromiumCcsipro.UI.ViewModels
                 //SimpleIoc.Default.Register<ITestService, TestService>();
                 //                SimpleIoc.Default.Register<ISettingsService, SettingsService>();
                 SimpleIoc.Default.Register<IDialogServiceWithOwner, DialogService>();
+                SimpleIoc.Default.Register<IApiService, ApiService>();
+                SimpleIoc.Default.Register<ISignatureService, SignatureService>();
             }
             RegisterViewModels();
 
