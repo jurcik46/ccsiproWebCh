@@ -98,16 +98,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="Enums\ApiServiceEvents.cs" />
     <Compile Include="Enums\ApplicationEvents.cs" />
     <Compile Include="Enums\DialogServiceEvents.cs" />
+    <Compile Include="Enums\SignatureServiceEvents.cs" />
     <Compile Include="Enums\TrayIconsStatus.cs" />
     <Compile Include="Extensions\CryptoExtension.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Extensions\LoggerExtensions.cs" />
     <Compile Include="Interfaces\IClosable.cs" />
     <Compile Include="Interfaces\IDiagnostics.cs" />
+    <Compile Include="Interfaces\IServices\IApiService.cs" />
     <Compile Include="Interfaces\IServices\IDialogServiceWithOwner.cs" />
     <Compile Include="Interfaces\IServices\ISettingsService.cs" />
+    <Compile Include="Interfaces\IServices\ISignatureService.cs" />
+    <Compile Include="Interfaces\ISignatureFileModel.cs" />
     <Compile Include="Language\lang.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

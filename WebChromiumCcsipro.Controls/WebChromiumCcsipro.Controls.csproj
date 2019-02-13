@@ -140,6 +140,7 @@
   <ItemGroup>
     <Compile Include="Diagnostics.cs" />
     <Compile Include="LoggerInitializer.cs" />
+    <Compile Include="Models\SignatureFileModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -153,7 +154,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Services\ApiService.cs" />
     <Compile Include="Services\SettingsService.cs" />
+    <Compile Include="Services\SignatureService.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -165,6 +168,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WebChromiumCcsipro.API\WebChromiumCcsipro.API.csproj">
+      <Project>{f89364f2-62e8-4799-8be9-1665dd9ed6ed}</Project>
+      <Name>WebChromiumCcsipro.API</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WebChromiumCcsipro.Resources\WebChromiumCcsipro.Resources.csproj">
       <Project>{11c2fbd5-8960-42f2-a9bc-e6494d3c55e2}</Project>
       <Name>WebChromiumCcsipro.Resources</Name>
