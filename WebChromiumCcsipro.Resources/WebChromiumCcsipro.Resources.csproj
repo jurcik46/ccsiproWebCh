@@ -101,6 +101,7 @@
     <Compile Include="Enums\ApiServiceEvents.cs" />
     <Compile Include="Enums\ApplicationEvents.cs" />
     <Compile Include="Enums\DialogServiceEvents.cs" />
+    <Compile Include="Enums\SettingsServiceEvents.cs" />
     <Compile Include="Enums\SignatureServiceEvents.cs" />
     <Compile Include="Enums\TrayIconsStatus.cs" />
     <Compile Include="Extensions\CryptoExtension.cs" />
@@ -125,6 +126,7 @@
     </Compile>
     <Compile Include="Language\LanguageSource.cs" />
     <Compile Include="Messages\ChangeIconMessage.cs" />
+    <Compile Include="Messages\ChangeLanguageMessage.cs" />
     <Compile Include="Messages\NotifiMessage.cs" />
     <Compile Include="Messages\TrayIconsStatusMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
