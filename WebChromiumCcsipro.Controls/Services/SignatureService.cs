@@ -42,14 +42,14 @@ namespace WebChromiumCcsipro.Controls.Services
             using (Logger.BeginTimedOperation(SignatureServiceEvents.StartSign))
             {
                 InProcces = true;
-                Messenger.Default.Send<ChangeIconMessage>(new ChangeIconMessage() { Icon = TrayIconsStatus.Working });
-                _appRomaingPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "CCSIPRO", "bozp");
+                Messenger.Default.Send(new ChangeIconMessage() { Icon = TrayIconsStatus.Working });
+                _appRomaingPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "CCSIPRO");
 
-                Messenger.Default.Send<NotifiMessage>(new NotifiMessage() { Title = lang.SignatureServiceNotificationTitle, Msg = lang.SignatureServiceNotificationSearchingDocument, IconType = Notifications.Wpf.NotificationType.Information, ExpTime = 300 });
+                Messenger.Default.Send(new NotifiMessage() { Title = lang.SignatureServiceNotificationTitle, Msg = lang.SignatureServiceNotificationSearchingDocument, IconType = Notifications.Wpf.NotificationType.Information, ExpTime = 300 });
                 SignatureFileModel = ApiService.GetDocumentToSignature();
                 if (SignatureFileModel != null)
                 {
-                    Messenger.Default.Send<NotifiMessage>(new NotifiMessage() { Title = lang.SignatureServiceNotificationTitle, Msg = lang.SignatureServiceNotificationSavingDocument, IconType = Notifications.Wpf.NotificationType.Information, ExpTime = 300 });
+                    Messenger.Default.Send(new NotifiMessage() { Title = lang.SignatureServiceNotificationTitle, Msg = lang.SignatureServiceNotificationSavingDocument, IconType = Notifications.Wpf.NotificationType.Information, ExpTime = 300 });
                     // prehodi lomku 
                     string directhoryPath = SignatureFileModel.PdfFilePath.Replace('/', '\\');
                     // prida typ suboru na konci hashu
@@ -65,48 +65,48 @@ namespace WebChromiumCcsipro.Controls.Services
                         {
                             string filePath = directhoryPath + fileName;
 
-                            Messenger.Default.Send<NotifiMessage>(new NotifiMessage() { Title = lang.SignatureServiceNotificationTitle, Msg = lang.SignatureServiceNotificationStarginSingSoftware, IconType = Notifications.Wpf.NotificationType.Information, ExpTime = 300 });
+                            Messenger.Default.Send(new NotifiMessage() { Title = lang.SignatureServiceNotificationTitle, Msg = lang.SignatureServiceNotificationStarginSingSoftware, IconType = Notifications.Wpf.NotificationType.Information, ExpTime = 300 });
                             // spusti podpisovaci program 
                             if (SignFile(processName, SettingsService.ProgramPath, filePath))
                             {
                                 //  Messenger.Default.Send<NotifiMessage>(new NotifiMessage() { Title = ViewModelLocator.rm.GetString("signatureTitle"), Msg = ViewModelLocator.rm.GetString("successSignDocumet"), IconType = Notifications.Wpf.NotificationType.Success });
-                                Messenger.Default.Send<NotifiMessage>(new NotifiMessage() { Title = lang.SignatureServiceNotificationTitle, Msg = lang.SignatureServiceNotificationUploadingDocument, IconType = Notifications.Wpf.NotificationType.Information, ExpTime = 300 });
+                                Messenger.Default.Send(new NotifiMessage() { Title = lang.SignatureServiceNotificationTitle, Msg = lang.SignatureServiceNotificationUploadingDocument, IconType = Notifications.Wpf.NotificationType.Information, ExpTime = 300 });
 
                                 if (ApiService.UploadSignedDocument(SignatureFileModel.Hash, SignatureFileModel.PdfFilePath.Substring(1, SignatureFileModel.PdfFilePath.Length - 1), filePath))
                                 {
                                     //                                    Messenger.Default.Send<BozpStatusPusherMessage>(new BozpStatusPusherMessage() { Status = "200" });
-                                    Messenger.Default.Send<NotifiMessage>(new NotifiMessage() { Title = lang.SignatureServiceNotificationTitle, Msg = lang.SignatureServiceNotificationSuccessUploadedDocument, IconType = Notifications.Wpf.NotificationType.Success, ExpTime = 10 });
+                                    Messenger.Default.Send(new NotifiMessage() { Title = lang.SignatureServiceNotificationTitle, Msg = lang.SignatureServiceNotificationSuccessUploadedDocument, IconType = Notifications.Wpf.NotificationType.Success, ExpTime = 10 });
                                 }
                                 else
                                 {
                                     //                                    Messenger.Default.Send<BozpStatusPusherMessage>(new BozpStatusPusherMessage() { Status = "500" });
-                                    Messenger.Default.Send<NotifiMessage>(new NotifiMessage() { Title = lang.SignatureServiceNotificationTitle, Msg = lang.SignatureServiceNotificationFialedUploadedDocument, IconType = Notifications.Wpf.NotificationType.Error });
+                                    Messenger.Default.Send(new NotifiMessage() { Title = lang.SignatureServiceNotificationTitle, Msg = lang.SignatureServiceNotificationFialedUploadedDocument, IconType = Notifications.Wpf.NotificationType.Error });
                                 }
                             }
                             else
                             {
 
                                 //                                Messenger.Default.Send<BozpStatusPusherMessage>(new BozpStatusPusherMessage() { Status = "408" });
-                                Messenger.Default.Send<NotifiMessage>(new NotifiMessage() { Title = lang.SignatureServiceNotificationTitle, Msg = lang.SignatureServiceNotificationClosedDocument, IconType = Notifications.Wpf.NotificationType.Warning });
+                                Messenger.Default.Send(new NotifiMessage() { Title = lang.SignatureServiceNotificationTitle, Msg = lang.SignatureServiceNotificationClosedDocument, IconType = Notifications.Wpf.NotificationType.Warning });
                             }
                         }
                         else
                         {
-                            Messenger.Default.Send<NotifiMessage>(new NotifiMessage() { Title = lang.SignatureServiceNotificationTitle, Msg = lang.SignatureServiceNotificationFailedSavingDocument, IconType = Notifications.Wpf.NotificationType.Error });
+                            Messenger.Default.Send(new NotifiMessage() { Title = lang.SignatureServiceNotificationTitle, Msg = lang.SignatureServiceNotificationFailedSavingDocument, IconType = Notifications.Wpf.NotificationType.Error });
                         }
                     }
                     else
                     {
-                        Messenger.Default.Send<NotifiMessage>(new NotifiMessage() { Title = lang.SignatureServiceNotificationTitle, Msg = lang.SignatureServiceNotificationFailedSavingDocument, IconType = Notifications.Wpf.NotificationType.Error });
+                        Messenger.Default.Send(new NotifiMessage() { Title = lang.SignatureServiceNotificationTitle, Msg = lang.SignatureServiceNotificationFailedSavingDocument, IconType = Notifications.Wpf.NotificationType.Error });
                     }
                 }
                 else
                 {
-                    Messenger.Default.Send<NotifiMessage>(new NotifiMessage() { Title = lang.SignatureServiceNotificationTitle, Msg = lang.SignatureServiceNotificationNotFoundDocument, IconType = Notifications.Wpf.NotificationType.Warning });
+                    Messenger.Default.Send(new NotifiMessage() { Title = lang.SignatureServiceNotificationTitle, Msg = lang.SignatureServiceNotificationNotFoundDocument, IconType = Notifications.Wpf.NotificationType.Warning });
                     //                    Messenger.Default.Send<BozpStatusPusherMessage>(new BozpStatusPusherMessage() { Status = "404" });
                 }
 
-                Messenger.Default.Send<ChangeIconMessage>(new ChangeIconMessage() { Icon = TrayIconsStatus.Online });
+                Messenger.Default.Send(new ChangeIconMessage() { Icon = TrayIconsStatus.Online });
                 InProcces = false;
             }
         }
@@ -223,7 +223,7 @@ namespace WebChromiumCcsipro.Controls.Services
                     {
                         Logger.Debug(SignatureServiceEvents.SignFileWindowFound, "Sign application window found for the first time in {Iteration}. iteration.", counter);
                         foundWindow = true;
-                        Messenger.Default.Send<NotifiMessage>(new NotifiMessage() { Title = lang.SignatureServiceNotificationTitle, Msg = lang.SignatureServiceNotificationSuccessOpenDocument, IconType = Notifications.Wpf.NotificationType.Information, ExpTime = 300 });
+                        Messenger.Default.Send(new NotifiMessage() { Title = lang.SignatureServiceNotificationTitle, Msg = lang.SignatureServiceNotificationSuccessOpenDocument, IconType = Notifications.Wpf.NotificationType.Information, ExpTime = 300 });
                     }
                     if (counter <= 4 || !foundWindow || (found))
                     {
