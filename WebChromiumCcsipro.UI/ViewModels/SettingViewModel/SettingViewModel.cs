@@ -5,10 +5,10 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using Serilog;
-using WebChromiumCcsipro.Controls.Interfaces.IServices;
-using WebChromiumCcsipro.Controls.Messages;
 using WebChromiumCcsipro.Resources.Language;
 using WebChromiumCcsipro.Controls.Services;
+using WebChromiumCcsipro.Resources.Interfaces.IServices;
+using WebChromiumCcsipro.Resources.Messages;
 using WebChromiumCcsipro.UI.Views.SettingsWindow;
 
 namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel

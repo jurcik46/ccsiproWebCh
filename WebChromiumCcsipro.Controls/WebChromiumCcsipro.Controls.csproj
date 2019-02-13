@@ -138,21 +138,8 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants.cs" />
     <Compile Include="Diagnostics.cs" />
-    <Compile Include="Enums\ApplicationEvents.cs" />
-    <Compile Include="Enums\DialogServiceEvents.cs" />
-    <Compile Include="Enums\TrayIconsStatus.cs" />
-    <Compile Include="Extensions\CryptoExtension.cs" />
-    <Compile Include="Extensions\EnumExtensions.cs" />
-    <Compile Include="Extensions\LoggerExtensions.cs" />
-    <Compile Include="Interfaces\IClosable.cs" />
-    <Compile Include="Interfaces\IDiagnostics.cs" />
-    <Compile Include="Interfaces\IServices\IDialogServiceWithOwner.cs" />
-    <Compile Include="Interfaces\IServices\ISettingsService.cs" />
     <Compile Include="LoggerInitializer.cs" />
-    <Compile Include="Messages\NotifiMessage.cs" />
-    <Compile Include="Messages\TrayIconsStatusMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -183,5 +170,6 @@
       <Name>WebChromiumCcsipro.Resources</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

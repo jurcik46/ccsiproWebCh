@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WebChromiumCcsipro.Controls.Interfaces;
+using WebChromiumCcsipro.Resources.Interfaces;
 
 namespace WebChromiumCcsipro.Controls
 {

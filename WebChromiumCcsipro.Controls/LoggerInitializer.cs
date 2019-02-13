@@ -12,9 +12,10 @@ using Serilog.Exceptions;
 using Serilog.Formatting.Json;
 using Serilog.Sinks.RollingFile;
 using Destructurama;
-using WebChromiumCcsipro.Controls.Enums;
-using WebChromiumCcsipro.Controls.Extensions;
-using WebChromiumCcsipro.Controls.Interfaces.IServices;
+using WebChromiumCcsipro.Resources.Enums;
+using WebChromiumCcsipro.Resources.Interfaces.IServices;
+using Constants = WebChromiumCcsipro.Resources.Constants;
+using LoggerExtensions = WebChromiumCcsipro.Resources.Extensions.LoggerExtensions;
 
 namespace WebChromiumCcsipro.Controls
 {
@@ -58,7 +59,7 @@ namespace WebChromiumCcsipro.Controls
                 .Destructure.UsingAttributes()
                 .Destructure.AsScalar<CultureInfo>()
                 .CreateLogger();
-            Log.Logger.ForContext(applicationType).Information(ApplicationEvents.ApplicationStarted,
+            LoggerExtensions.Information(Log.Logger.ForContext(applicationType), ApplicationEvents.ApplicationStarted,
                 "Application started at {DateTime}, Version {Version:l}, Deploy {VersionDeploy:l}, Logging level: {level}, CurrentCulture: {CurrentCulture}, CurrentUICulture: {CurrentUICulture}",
                 DateStart, Version, VersionDeploy, loggingLevelSwitch.MinimumLevel, culture, uiCulture);
             return Log.Logger;

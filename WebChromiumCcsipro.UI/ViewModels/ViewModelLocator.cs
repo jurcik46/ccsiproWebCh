@@ -8,8 +8,8 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Threading;
 using Serilog.Core;
-using WebChromiumCcsipro.Controls.Interfaces.IServices;
 using WebChromiumCcsipro.Controls.Services;
+using WebChromiumCcsipro.Resources.Interfaces.IServices;
 
 namespace WebChromiumCcsipro.UI.ViewModels
 {
@@ -52,10 +52,13 @@ namespace WebChromiumCcsipro.UI.ViewModels
             //            }
         }
 
+
+
         public static LoggingLevelSwitch LoggingLevelSwitch => _loggingLevelSwitch ?? (_loggingLevelSwitch = new LoggingLevelSwitch());
         public static SplashScreen SplashScreen { get; set; }
 
         public static ISettingsService SettingsService => ServiceLocator.Current.GetInstance<ISettingsService>();
+        public static IDialogServiceWithOwner DialogService => ServiceLocator.Current.GetInstance<IDialogServiceWithOwner>();
         public static MainViewModel MainViewModel => ServiceLocator.Current.GetInstance<MainViewModel>();
         //        public static SettingViewModel.SettingViewModel SettingViewModel => ServiceLocator.Current.GetInstance<SettingViewModel.SettingViewModel>();
 

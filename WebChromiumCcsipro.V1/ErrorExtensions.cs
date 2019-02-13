@@ -8,22 +8,25 @@ using System.Windows;
 using System.Windows.Threading;
 using Serilog;
 using WebChromiumCcsipro.Controls;
-using WebChromiumCcsipro.Controls.Enums;
-using WebChromiumCcsipro.Controls.Extensions;
-using WebChromiumCcsipro.Controls.Interfaces;
 using WebChromiumCcsipro.Resource.Properties;
+using WebChromiumCcsipro.Resources.Enums;
+using WebChromiumCcsipro.Resources.Extensions;
+using WebChromiumCcsipro.Resources.Interfaces;
+using WebChromiumCcsipro.UI.ViewModels;
+
 
 namespace WebChromiumCcsipro.V1
 {
     public static class ErrorExtensions
     {
+
         public static IDiagnostics DiagnosticsFunc(bool includeStackTrace)
         {
             var result = new Diagnostics
             {
                 CommandLine = Environment.CommandLine,
-                //                Version = ViewModelLocator.MainViewModel?.Version,
-                //                VersionDeploy = ViewModelLocator.MainViewModel?.VersionDeploy,
+                Version = ViewModelLocator.MainViewModel?.Version,
+                VersionDeploy = ViewModelLocator.MainViewModel?.VersionDeploy,
                 //                IsNetworkDeployed = ApplicationDeployment.IsNetworkDeployed,
                 CurrentDirectory = Environment.CurrentDirectory,
                 UserDomainName = Environment.UserDomainName,
@@ -46,15 +49,15 @@ namespace WebChromiumCcsipro.V1
         {
             logger.Fatal(e.Exception, ApplicationEvents.DispatcherUnhandledException, "Dispatcher unhandled exception: {ErrorMessage}", true, e.Exception.Message);
             var errorMessage = string.Format(CultureInfo.CurrentCulture, Resources.Language.lang.ErrorMessageFormat, e.Exception.Message);
-            //            var dialogService = ViewModelLocator.DialogService;
-            //            if (dialogService != null)
-            //            {
-            //                dialogService.ShowError(errorMessage, Resources.ErrorCaption, null, null, true);
-            //            }
-            //            else
-            //            {
-            MessageBox.Show(errorMessage, Resources.Language.lang.ErrorCaption, MessageBoxButton.OK, MessageBoxImage.Error);
-            //            }
+            var dialogService = ViewModelLocator.DialogService;
+            if (dialogService != null)
+            {
+                dialogService.ShowError(errorMessage, Resources.Language.lang.ErrorCaption, null, null, true);
+            }
+            else
+            {
+                MessageBox.Show(errorMessage, Resources.Language.lang.ErrorCaption, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
             ((IDisposable)Log.Logger).Dispose();
             Environment.Exit(1);
         }
@@ -87,16 +90,16 @@ namespace WebChromiumCcsipro.V1
             {
                 errorMessage = string.Format(CultureInfo.CurrentCulture, Resources.Language.lang.ErrorMessageFormat, ex.Message);
             }
-            //            var dialogService = ViewModelLocator.DialogService;
-            //            if (dialogService != null)
-            //            {
-            //                dialogService.ShowError(errorMessage, Resources.Properties.Resource.ErrorCaption, null, null);
-            //            }
-            //            else
-            //            {
-            MessageBox.Show(errorMessage, Resources.Language.lang.ErrorCaption, MessageBoxButton.OK, MessageBoxImage.Error);
-            //            }
-            ((IDisposable)Log.Logger).Dispose();
+            var dialogService = ViewModelLocator.DialogService;
+            if (dialogService != null)
+            {
+                dialogService.ShowError(errorMessage, Resources.Language.lang.ErrorCaption, null, null);
+            }
+            else
+            {
+                MessageBox.Show(errorMessage, Resources.Language.lang.ErrorCaption, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+                ((IDisposable)Log.Logger).Dispose();
         }
 
         public static void TaskSchedulerOnUnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e, ILogger logger)

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using Serilog;
-using WebChromiumCcsipro.Controls.Interfaces.IServices;
+using WebChromiumCcsipro.Resources.Interfaces.IServices;
 using WebChromiumCcsipro.Resources.Language;
 
 namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel

@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Notifications.Wpf;
+﻿using Notifications.Wpf;
 using WebChromiumCcsipro.Resources.Settings;
 
-namespace WebChromiumCcsipro.Controls.Messages
+namespace WebChromiumCcsipro.Resources.Messages
 {
     public class NotifiMessage
     {

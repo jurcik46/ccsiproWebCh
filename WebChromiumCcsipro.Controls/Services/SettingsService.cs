@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Destructurama.Attributed;
 using Serilog;
-using WebChromiumCcsipro.Controls.Extensions;
 using WebChromiumCcsipro.Resources.Settings;
-using WebChromiumCcsipro.Controls.Interfaces.IServices;
+using WebChromiumCcsipro.Resources.Extensions;
+using WebChromiumCcsipro.Resources.Interfaces.IServices;
 
 namespace WebChromiumCcsipro.Controls.Services
 {

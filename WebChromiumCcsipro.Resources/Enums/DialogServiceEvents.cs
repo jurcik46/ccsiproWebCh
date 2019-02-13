@@ -1,4 +1,4 @@
-﻿namespace WebChromiumCcsipro.Controls.Enums
+﻿namespace WebChromiumCcsipro.Resources.Enums
 {
     public enum DialogServiceEvents
     {
