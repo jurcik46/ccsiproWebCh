@@ -359,6 +359,105 @@ namespace WebChromiumCcsipro.Resources.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Podpisovanie bolo zrušené.
+        /// </summary>
+        public static string SignatureServiceNotificationClosedDocument {
+            get {
+                return ResourceManager.GetString("SignatureServiceNotificationClosedDocument", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nepodarilo sa uložiť dokument.
+        /// </summary>
+        public static string SignatureServiceNotificationFailedSavingDocument {
+            get {
+                return ResourceManager.GetString("SignatureServiceNotificationFailedSavingDocument", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dokument sa nepodarilo nahrať na server.
+        /// </summary>
+        public static string SignatureServiceNotificationFialedUploadedDocument {
+            get {
+                return ResourceManager.GetString("SignatureServiceNotificationFialedUploadedDocument", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nenašiel sa žiadny dokument na podpisanie.
+        /// </summary>
+        public static string SignatureServiceNotificationNotFoundDocument {
+            get {
+                return ResourceManager.GetString("SignatureServiceNotificationNotFoundDocument", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ukladám dokument.
+        /// </summary>
+        public static string SignatureServiceNotificationSavingDocument {
+            get {
+                return ResourceManager.GetString("SignatureServiceNotificationSavingDocument", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hľadám nový dokument na podpísanie.
+        /// </summary>
+        public static string SignatureServiceNotificationSearchingDocument {
+            get {
+                return ResourceManager.GetString("SignatureServiceNotificationSearchingDocument", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Spúšťam aplikáciu na podpísanie.
+        /// </summary>
+        public static string SignatureServiceNotificationStarginSingSoftware {
+            get {
+                return ResourceManager.GetString("SignatureServiceNotificationStarginSingSoftware", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Čakám na podpísanie dokumentu.
+        /// </summary>
+        public static string SignatureServiceNotificationSuccessOpenDocument {
+            get {
+                return ResourceManager.GetString("SignatureServiceNotificationSuccessOpenDocument", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dokument bol úspešne nahraný.
+        /// </summary>
+        public static string SignatureServiceNotificationSuccessUploadedDocument {
+            get {
+                return ResourceManager.GetString("SignatureServiceNotificationSuccessUploadedDocument", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Signing.
+        /// </summary>
+        public static string SignatureServiceNotificationTitle {
+            get {
+                return ResourceManager.GetString("SignatureServiceNotificationTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prebieha nahrávanie dokumentu na server.
+        /// </summary>
+        public static string SignatureServiceNotificationUploadingDocument {
+            get {
+                return ResourceManager.GetString("SignatureServiceNotificationUploadingDocument", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to API key.
         /// </summary>
         public static string SignatureSettingWindowApiKeyTextBox {
