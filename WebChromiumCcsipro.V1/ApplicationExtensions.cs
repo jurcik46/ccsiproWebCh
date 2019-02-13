@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -54,6 +55,8 @@ namespace WebChromiumCcsipro.V1
 
             //TODO Regiter messages for change language and add to Setting culture
         }
+
+
 
         public static void SetLanguage(ILogger logger, CultureInfo culture, bool reloadWindow, Application application, Func<Window> newWindowFunc, Action<CultureInfo> appResourcesAction)
         {

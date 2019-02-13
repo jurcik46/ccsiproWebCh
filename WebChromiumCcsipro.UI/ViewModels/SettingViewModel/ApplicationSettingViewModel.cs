@@ -47,6 +47,7 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
         }
 
 
+
         private bool CanSave()
         {
             return true;
@@ -56,10 +57,11 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
         {
             foreach (var lang in LanguageSource.GetValues())
             {
-                if (SelectedLanguage == lang.Value)
-                {
-                    SettingsService.ChromiumSettingSave(ObjectId, UserId, HomePage, lang.Key);
-                }
+                //                if (SelectedLanguage == lang.Value)
+                //                {
+                SettingsService.ChromiumSettingSave(ObjectId, UserId, HomePage, lang.Key);
+                //TODO add language
+                //                }
             }
             if (CloseAction != null)
             {

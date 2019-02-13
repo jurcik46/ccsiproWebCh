@@ -37,7 +37,6 @@ namespace WebChromiumCcsipro.UI.ViewModels
                 {
                     return "1.0.0.0";
                 }
-
                 return LoggerInitializer.Version;
             }
         }
@@ -50,7 +49,6 @@ namespace WebChromiumCcsipro.UI.ViewModels
                 {
                     return "1.0.0.0";
                 }
-
                 return LoggerInitializer.VersionDeploy;
             }
         }

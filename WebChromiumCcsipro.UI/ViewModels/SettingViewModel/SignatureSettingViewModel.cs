@@ -43,11 +43,7 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
 
         private void Save()
         {
-            SettingsService.ApiLink = ApiLink;
-            SettingsService.ApiKey = ApiKey;
-            SettingsService.ProgramPath = ProgramPath;
-            SettingsService.ProcessName = ProcessName;
-            SettingsService.SignatureTimeOut = SignatureTimeOut;
+            SettingsService.SignatureSettingSave(ApiLink, ApiKey, ProgramPath, ProcessName, SignatureTimeOut);
             if (CloseAction != null)
             {
                 CloseAction();
