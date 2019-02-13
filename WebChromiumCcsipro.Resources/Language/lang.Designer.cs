@@ -359,7 +359,7 @@ namespace WebChromiumCcsipro.Resources.Language {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Podpisovanie bolo zrušené.
+        ///   Looks up a localized string similar to Signing has been canceled.
         /// </summary>
         public static string SignatureServiceNotificationClosedDocument {
             get {
@@ -368,7 +368,7 @@ namespace WebChromiumCcsipro.Resources.Language {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nepodarilo sa uložiť dokument.
+        ///   Looks up a localized string similar to Unable to save document.
         /// </summary>
         public static string SignatureServiceNotificationFailedSavingDocument {
             get {
@@ -377,7 +377,7 @@ namespace WebChromiumCcsipro.Resources.Language {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dokument sa nepodarilo nahrať na server.
+        ///   Looks up a localized string similar to The document could not be uploaded to the server.
         /// </summary>
         public static string SignatureServiceNotificationFialedUploadedDocument {
             get {
@@ -386,7 +386,7 @@ namespace WebChromiumCcsipro.Resources.Language {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nenašiel sa žiadny dokument na podpisanie.
+        ///   Looks up a localized string similar to There was no document to sign.
         /// </summary>
         public static string SignatureServiceNotificationNotFoundDocument {
             get {
@@ -395,7 +395,7 @@ namespace WebChromiumCcsipro.Resources.Language {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ukladám dokument.
+        ///   Looks up a localized string similar to Saving document.
         /// </summary>
         public static string SignatureServiceNotificationSavingDocument {
             get {
@@ -404,7 +404,7 @@ namespace WebChromiumCcsipro.Resources.Language {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hľadám nový dokument na podpísanie.
+        ///   Looks up a localized string similar to Looking for a new document for signing.
         /// </summary>
         public static string SignatureServiceNotificationSearchingDocument {
             get {
@@ -413,7 +413,7 @@ namespace WebChromiumCcsipro.Resources.Language {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Spúšťam aplikáciu na podpísanie.
+        ///   Looks up a localized string similar to Run the application for signing.
         /// </summary>
         public static string SignatureServiceNotificationStarginSingSoftware {
             get {
@@ -422,7 +422,7 @@ namespace WebChromiumCcsipro.Resources.Language {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Čakám na podpísanie dokumentu.
+        ///   Looks up a localized string similar to Waiting to sign document.
         /// </summary>
         public static string SignatureServiceNotificationSuccessOpenDocument {
             get {
@@ -431,7 +431,7 @@ namespace WebChromiumCcsipro.Resources.Language {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dokument bol úspešne nahraný.
+        ///   Looks up a localized string similar to The document was successfully recorded.
         /// </summary>
         public static string SignatureServiceNotificationSuccessUploadedDocument {
             get {
@@ -449,7 +449,7 @@ namespace WebChromiumCcsipro.Resources.Language {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Prebieha nahrávanie dokumentu na server.
+        ///   Looks up a localized string similar to Uploading document to the server.
         /// </summary>
         public static string SignatureServiceNotificationUploadingDocument {
             get {

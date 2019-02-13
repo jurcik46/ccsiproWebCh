@@ -218,37 +218,37 @@
     <value>Settings</value>
   </data>
   <data name="SignatureServiceNotificationClosedDocument" xml:space="preserve">
-    <value>Podpisovanie bolo zrušené</value>
+    <value>Signing has been canceled</value>
   </data>
   <data name="SignatureServiceNotificationFailedSavingDocument" xml:space="preserve">
-    <value>Nepodarilo sa uložiť dokument</value>
+    <value>Unable to save document</value>
   </data>
   <data name="SignatureServiceNotificationFialedUploadedDocument" xml:space="preserve">
-    <value>Dokument sa nepodarilo nahrať na server</value>
+    <value>The document could not be uploaded to the server</value>
   </data>
   <data name="SignatureServiceNotificationNotFoundDocument" xml:space="preserve">
-    <value>Nenašiel sa žiadny dokument na podpisanie</value>
+    <value>There was no document to sign</value>
   </data>
   <data name="SignatureServiceNotificationSavingDocument" xml:space="preserve">
-    <value>Ukladám dokument</value>
+    <value>Saving document</value>
   </data>
   <data name="SignatureServiceNotificationSearchingDocument" xml:space="preserve">
-    <value>Hľadám nový dokument na podpísanie</value>
+    <value>Looking for a new document for signing</value>
   </data>
   <data name="SignatureServiceNotificationStarginSingSoftware" xml:space="preserve">
-    <value>Spúšťam aplikáciu na podpísanie</value>
+    <value>Run the application for signing</value>
   </data>
   <data name="SignatureServiceNotificationSuccessOpenDocument" xml:space="preserve">
-    <value>Čakám na podpísanie dokumentu</value>
+    <value>Waiting to sign document</value>
   </data>
   <data name="SignatureServiceNotificationSuccessUploadedDocument" xml:space="preserve">
-    <value>Dokument bol úspešne nahraný</value>
+    <value>The document was successfully recorded</value>
   </data>
   <data name="SignatureServiceNotificationTitle" xml:space="preserve">
     <value>Signing</value>
   </data>
   <data name="SignatureServiceNotificationUploadingDocument" xml:space="preserve">
-    <value>Prebieha nahrávanie dokumentu na server</value>
+    <value>Uploading document to the server</value>
   </data>
   <data name="SignatureSettingWindowApiKeyTextBox" xml:space="preserve">
     <value>API key</value>
