@@ -274,6 +274,12 @@
   <data name="TrayIconToolTipDefault" xml:space="preserve">
     <value>Double click for signature</value>
   </data>
+  <data name="TrayIconToolTipLostConnection" xml:space="preserve">
+    <value>Application lost Internet connection</value>
+  </data>
+  <data name="TrayIconToolTipSignatureWorking" xml:space="preserve">
+    <value>Signature is in process</value>
+  </data>
   <data name="WarningCaption" xml:space="preserve">
     <value>Warning!</value>
   </data>

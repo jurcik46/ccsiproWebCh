@@ -14,6 +14,7 @@ using GalaSoft.MvvmLight.Messaging;
 using Serilog;
 using WebChromiumCcsipro.Controls;
 using WebChromiumCcsipro.Resources;
+using WebChromiumCcsipro.Resources.Enums;
 using WebChromiumCcsipro.Resources.Extensions;
 using WebChromiumCcsipro.Resources.Interfaces;
 using WebChromiumCcsipro.Resources.Interfaces.IServices;
@@ -36,6 +37,7 @@ namespace WebChromiumCcsipro.UI.ViewModels
                 {
                     return "1.0.0.0";
                 }
+
                 return LoggerInitializer.Version;
             }
         }
@@ -48,9 +50,11 @@ namespace WebChromiumCcsipro.UI.ViewModels
                 {
                     return "1.0.0.0";
                 }
+
                 return LoggerInitializer.VersionDeploy;
             }
         }
+
         public ILogger Logger => Log.Logger.ForContext<MainViewModel>();
 
         private string _urlAddress;
@@ -86,22 +90,57 @@ namespace WebChromiumCcsipro.UI.ViewModels
             SettingService = settingService;
             DialogService = dialogService;
             CommandInit();
+            MessagesInit();
             UrlAddress =
                 @"https://stackoverflow.com/questions/6925584/the-name-initializecomponent-does-not-exist-in-the-current-context";
             ToolTipText = Resources.Language.lang.TrayIconToolTipDefault;
         }
 
 
+        #region Message and Command Init
+        private void MessagesInit()
+        {
+            Messenger.Default.Register<ChangeIconMessage>(this, (message) =>
+            {
+                switch (message.Icon)
+                {
+                    case TrayIconsStatus.Online:
+                        ToolTipText = lang.TrayIconToolTipDefault;
+                        break;
+                    case TrayIconsStatus.Offline:
+                        ToolTipText = lang.TrayIconToolTipLostConnection;
+                        break;
+                    case TrayIconsStatus.Working:
+                        ToolTipText = lang.TrayIconToolTipSignatureWorking;
+                        break;
+                    default:
+                        break;
+                }
+            });
+        }
+        #endregion
         #region Commands
 
         private void CommandInit()
         {
-            //this.Options = new RelayCommand(this.ShowOptionsLogin, this.CanShowOptionsLogin);
+            SignatureCommand = new RelayCommand(SingDocument, CanSing);
             SettingsCommand = new RelayCommand(OpenSetting, CanOpenSetting);
             RestartCommand = new RelayCommand<IClosable>(RestartApplication, CanRestartRestartApplication);
             ExitCommand = new RelayCommand<IClosable>(ExitApplication, CanExitApplication);
 
         }
+
+        private bool CanSing()
+        {
+
+        }
+
+        private void SingDocument()
+        {
+
+        }
+
+
 
         private bool CanExitApplication(IClosable win)
         {

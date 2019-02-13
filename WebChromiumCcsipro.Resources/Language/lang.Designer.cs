@@ -530,6 +530,24 @@ namespace WebChromiumCcsipro.Resources.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Application lost Internet connection.
+        /// </summary>
+        public static string TrayIconToolTipLostConnection {
+            get {
+                return ResourceManager.GetString("TrayIconToolTipLostConnection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Signature is in process.
+        /// </summary>
+        public static string TrayIconToolTipSignatureWorking {
+            get {
+                return ResourceManager.GetString("TrayIconToolTipSignatureWorking", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Warning!.
         /// </summary>
         public static string WarningCaption {
