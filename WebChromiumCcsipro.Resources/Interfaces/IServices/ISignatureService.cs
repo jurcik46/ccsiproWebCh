@@ -2,6 +2,7 @@
 {
     public interface ISignatureService
     {
-
+        bool InProcces { get; set; }
+        void StartSign();
     }
 }
