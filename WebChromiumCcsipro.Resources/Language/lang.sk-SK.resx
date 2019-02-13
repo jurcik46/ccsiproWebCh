@@ -217,14 +217,38 @@
   <data name="SettingWindowsTitle" xml:space="preserve">
     <value>Nastavenia</value>
   </data>
+  <data name="SignatureServiceNotificationClosedDocument" xml:space="preserve">
+    <value>Podpisovanie bolo zrušené</value>
+  </data>
+  <data name="SignatureServiceNotificationFailedSavingDocument" xml:space="preserve">
+    <value>Nepodarilo sa uložiť dokument</value>
+  </data>
+  <data name="SignatureServiceNotificationFialedUploadedDocument" xml:space="preserve">
+    <value>Dokument sa nepodarilo nahrať na server</value>
+  </data>
   <data name="SignatureServiceNotificationNotFoundDocument" xml:space="preserve">
     <value>Nenašiel sa žiadny dokument na podpísanie</value>
+  </data>
+  <data name="SignatureServiceNotificationSavingDocument" xml:space="preserve">
+    <value>Ukladám dokument</value>
+  </data>
+  <data name="SignatureServiceNotificationSearchingDocument" xml:space="preserve">
+    <value>Hľadám nový dokument na podpísanie</value>
+  </data>
+  <data name="SignatureServiceNotificationStarginSingSoftware" xml:space="preserve">
+    <value>Spúšťam aplikáciu na podpísanie</value>
   </data>
   <data name="SignatureServiceNotificationSuccessOpenDocument" xml:space="preserve">
     <value>Čakám na podpísanie dokumentu</value>
   </data>
+  <data name="SignatureServiceNotificationSuccessUploadedDocument" xml:space="preserve">
+    <value>Dokument bol úspešne nahraný</value>
+  </data>
   <data name="SignatureServiceNotificationTitle" xml:space="preserve">
     <value>Podpisovanie</value>
+  </data>
+  <data name="SignatureServiceNotificationUploadingDocument" xml:space="preserve">
+    <value>Prebieha nahrávanie dokumentu na server</value>
   </data>
   <data name="SignatureSettingWindowApiKeyTextBox" xml:space="preserve">
     <value>API kľúč</value>
