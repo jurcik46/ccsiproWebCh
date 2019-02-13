@@ -42,7 +42,15 @@ namespace WebChromiumCcsipro.Controls
                 throw new ArgumentNullException(nameof(Version));
             }
             //            VersionDeploy = applicationDeployment != null ? ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString() : Constants.NotAvailable;
-            var logPath = Path.Combine(RoamingPath, ApplicationName + "-{Date}.log");
+            var logPathFoldere = Path.Combine(RoamingPath, "CCSIPRO", ApplicationName);
+
+            if (!Directory.Exists(logPathFoldere))
+            {
+                Directory.CreateDirectory(logPathFoldere);
+            }
+            var logPath = Path.Combine(logPathFoldere, ApplicationName + "-{Date}.log");
+
+
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.ControlledBy(loggingLevelSwitch)
                 .Enrich.WithThreadId()
