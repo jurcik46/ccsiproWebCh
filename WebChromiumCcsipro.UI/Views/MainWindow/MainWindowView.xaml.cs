@@ -45,6 +45,7 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
                 //                viewModel.ToolTipText = "asdasda";
                 return;
             }
+
         }
 
         private void MainWindowView_OnLoaded(object sender, RoutedEventArgs e)
@@ -56,13 +57,14 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
             }
             splashScreen.Close(TimeSpan.FromMilliseconds(200));
             ViewModelLocator.SplashScreen = null;
-
         }
 
         private void MainWindowView_OnClosed(object sender, EventArgs e)
         {
             Cef.Shutdown();
-            trayIconTaskbar = null;
+            trayIconTaskbar.Visibility = Visibility.Hidden;
+            trayIconTaskbar.Icon = null;
+
         }
 
         #region Message Registration
