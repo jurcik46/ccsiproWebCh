@@ -130,7 +130,7 @@
     <value>Objekt ID</value>
   </data>
   <data name="ApplicationSettingWindowTitle" xml:space="preserve">
-    <value>CCSIpro Chromium nastavenia aplikacie</value>
+    <value>CCSIpro Chromium nastavenia aplikácie</value>
   </data>
   <data name="ApplicationSettingWindowUserTextBox" xml:space="preserve">
     <value>Uživatelské ID</value>
@@ -139,10 +139,10 @@
     <value>Heslo bolo úspešne zmenene</value>
   </data>
   <data name="ChangePasswodWindowNotificationTitle" xml:space="preserve">
-    <value>Zmena hesla</value>
+    <value>Zmena heslá</value>
   </data>
   <data name="ChangePasswodWindowTitle" xml:space="preserve">
-    <value>Zmena Hesla</value>
+    <value>Zmena Heslá</value>
   </data>
   <data name="ChangePasswordWindowCancelButton" xml:space="preserve">
     <value>Zrušiť</value>
@@ -151,7 +151,7 @@
     <value>Zmeniť Heslo</value>
   </data>
   <data name="ChangePasswordWindowChangeButtonTooltip" xml:space="preserve">
-    <value>Hesla sa nezhodujú !</value>
+    <value>Heslá sa nezhodujú !</value>
   </data>
   <data name="ChangePasswordWindowFirstPasswordTextBox" xml:space="preserve">
     <value>Nové heslo:</value>
@@ -178,7 +178,7 @@
     <value>Heslo</value>
   </data>
   <data name="EnterSettingWindowTitle" xml:space="preserve">
-    <value>Prihlasenie</value>
+    <value>Prihlásenie</value>
   </data>
   <data name="ErrorCaption" xml:space="preserve">
     <value>Application error</value>
@@ -206,7 +206,7 @@
     <value>Zmeniť heslo do nastavenia</value>
   </data>
   <data name="SettingButtonSignature" xml:space="preserve">
-    <value>BOZP Podpisovanie</value>
+    <value>BOZP Podpísovanie</value>
   </data>
   <data name="SettingWindowsTitle" xml:space="preserve">
     <value>Nastavenia</value>
@@ -227,10 +227,10 @@
     <value>Uložiť</value>
   </data>
   <data name="SignatureSettingWindowSignatureTimeOutTextBox" xml:space="preserve">
-    <value>Čas pre podpisanie</value>
+    <value>Čas pre podpísanie</value>
   </data>
   <data name="SignatureSettingWindowTitle" xml:space="preserve">
-    <value>Nastavenia pre BOZP podpisovanie</value>
+    <value>Nastavenia pre BOZP podpísovanie</value>
   </data>
   <data name="TrayIconToolTipDefault" xml:space="preserve">
     <value>Dvojklik pre podpísanie a kliknutím pravým tlačidlom pre menu</value>
