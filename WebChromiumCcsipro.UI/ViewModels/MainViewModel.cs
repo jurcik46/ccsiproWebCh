@@ -101,9 +101,9 @@ namespace WebChromiumCcsipro.UI.ViewModels
         #region Message and Command Init
         private void MessagesInit()
         {
-            Messenger.Default.Register<ChangeIconMessage>(this, (message) =>
+            Messenger.Default.Register<TrayIconsStatusMessage>(this, (message) =>
             {
-                switch (message.Icon)
+                switch (message.IconStatus)
                 {
                     case TrayIconsStatus.Online:
                         ToolTipText = lang.TrayIconToolTipDefault;
@@ -168,7 +168,6 @@ namespace WebChromiumCcsipro.UI.ViewModels
                 win.Close();
 
             }
-
             Application.Current.Shutdown();
         }
 

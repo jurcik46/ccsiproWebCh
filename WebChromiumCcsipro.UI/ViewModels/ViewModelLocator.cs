@@ -48,10 +48,6 @@ namespace WebChromiumCcsipro.UI.ViewModels
                 SimpleIoc.Default.Register<MainViewModel>();
             }
 
-            //            if (!SimpleIoc.Default.IsRegistered<SettingViewModel.SettingViewModel>())
-            //            {
-            //                SimpleIoc.Default.Register<SettingViewModel.SettingViewModel>();
-            //            }
         }
 
 

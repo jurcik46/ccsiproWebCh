@@ -33,6 +33,7 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
         public MainWindowView()
         {
             InitializeComponent();
+            RegistrationMessage();
             this.DataContext = ViewModelLocator.MainViewModel;
 
             notifiWindow = new NotifiWindowView();
@@ -61,6 +62,7 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
         private void MainWindowView_OnClosed(object sender, EventArgs e)
         {
             Cef.Shutdown();
+            trayIconTaskbar = null;
         }
 
         #region Message Registration

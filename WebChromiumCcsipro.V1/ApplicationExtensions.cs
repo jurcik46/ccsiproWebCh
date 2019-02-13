@@ -70,14 +70,12 @@ namespace WebChromiumCcsipro.V1
             CultureInfo.DefaultThreadCurrentCulture = culture;
             CultureInfo.DefaultThreadCurrentUICulture = culture;
             appResourcesAction(culture);
-            Resources.Language.lang.Culture = culture;
             if (!reloadWindow)
             {
                 return;
             }
             SimpleIoc.Default.Unregister<MainViewModel>();
             SimpleIoc.Default.Register<MainViewModel>();
-            //            ViewModelLocator.MainViewModel.IsBusy = false;
             var newWindow = newWindowFunc();
             newWindow.Show();
             foreach (var window in application.Windows.Cast<Window>().Where(win => !Equals(newWindow, win)))

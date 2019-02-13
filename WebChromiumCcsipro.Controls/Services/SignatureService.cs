@@ -42,7 +42,7 @@ namespace WebChromiumCcsipro.Controls.Services
             using (Logger.BeginTimedOperation(SignatureServiceEvents.StartSign))
             {
                 InProcces = true;
-                Messenger.Default.Send(new ChangeIconMessage() { Icon = TrayIconsStatus.Working });
+                Messenger.Default.Send(new TrayIconsStatusMessage() { IconStatus = TrayIconsStatus.Working });
                 _appRomaingPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "CCSIPRO");
 
                 Messenger.Default.Send(new NotifiMessage() { Title = lang.SignatureServiceNotificationTitle, Msg = lang.SignatureServiceNotificationSearchingDocument, IconType = Notifications.Wpf.NotificationType.Information, ExpTime = 300 });
@@ -106,7 +106,7 @@ namespace WebChromiumCcsipro.Controls.Services
                     //                    Messenger.Default.Send<BozpStatusPusherMessage>(new BozpStatusPusherMessage() { Status = "404" });
                 }
 
-                Messenger.Default.Send(new ChangeIconMessage() { Icon = TrayIconsStatus.Online });
+                Messenger.Default.Send(new TrayIconsStatusMessage() { IconStatus = TrayIconsStatus.Online });
                 InProcces = false;
             }
         }
