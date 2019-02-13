@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
@@ -59,6 +60,7 @@ namespace WebChromiumCcsipro.V1
                 MessageBox.Show(errorMessage, Resources.Language.lang.ErrorCaption, MessageBoxButton.OK, MessageBoxImage.Error);
             }
             ((IDisposable)Log.Logger).Dispose();
+            Thread.Sleep(6000);
             Environment.Exit(1);
         }
 
