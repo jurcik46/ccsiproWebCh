@@ -69,6 +69,8 @@ namespace WebChromiumCcsipro.UI.ViewModels
         private ISettingsService SettingService { get; set; }
         private IDialogServiceWithOwner DialogService { get; set; }
 
+        private ISignatureService SignatureService { get; set; }
+
         public string ToolTipText
         {
             get { return _toolTipText; }
@@ -85,15 +87,16 @@ namespace WebChromiumCcsipro.UI.ViewModels
             set { _urlAddress = value; }
         }
 
-        public MainViewModel(ISettingsService settingService, IDialogServiceWithOwner dialogService)
+        public MainViewModel(ISettingsService settingService, IDialogServiceWithOwner dialogService, ISignatureService signatureService)
         {
             SettingService = settingService;
             DialogService = dialogService;
+            SignatureService = signatureService;
             CommandInit();
             MessagesInit();
             UrlAddress =
                 @"https://stackoverflow.com/questions/6925584/the-name-initializecomponent-does-not-exist-in-the-current-context";
-            ToolTipText = Resources.Language.lang.TrayIconToolTipDefault;
+            ToolTipText = lang.TrayIconToolTipDefault;
         }
 
 
@@ -132,12 +135,24 @@ namespace WebChromiumCcsipro.UI.ViewModels
 
         private bool CanSing()
         {
-
+            if (!SignatureService.InProcces)
+            {
+                return true;
+            }
+            else
+            {
+                Messenger.Default.Send<NotifiMessage>(new NotifiMessage() { Title = lang.SignatureServiceNotificationTitle, Msg = lang.SignatureServiceNotificationInProccess, IconType = Notifications.Wpf.NotificationType.Error, ExpTime = 5 });
+                return false;
+            }
         }
 
         private void SingDocument()
         {
+            Task.Run(() =>
+            {
+                SignatureService.StartSign();
 
+            });
         }
 
 

@@ -386,6 +386,15 @@ namespace WebChromiumCcsipro.Resources.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Signature is in process.
+        /// </summary>
+        public static string SignatureServiceNotificationInProccess {
+            get {
+                return ResourceManager.GetString("SignatureServiceNotificationInProccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to There was no document to sign.
         /// </summary>
         public static string SignatureServiceNotificationNotFoundDocument {

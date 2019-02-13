@@ -226,6 +226,9 @@
   <data name="SignatureServiceNotificationFialedUploadedDocument" xml:space="preserve">
     <value>Dokument sa nepodarilo nahrať na server</value>
   </data>
+  <data name="SignatureServiceNotificationInProccess" xml:space="preserve">
+    <value>Pravé sa vykonáva podpisovanie</value>
+  </data>
   <data name="SignatureServiceNotificationNotFoundDocument" xml:space="preserve">
     <value>Nenašiel sa žiadny dokument na podpísanie</value>
   </data>

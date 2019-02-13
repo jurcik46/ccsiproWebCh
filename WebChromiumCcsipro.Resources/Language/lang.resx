@@ -226,6 +226,9 @@
   <data name="SignatureServiceNotificationFialedUploadedDocument" xml:space="preserve">
     <value>The document could not be uploaded to the server</value>
   </data>
+  <data name="SignatureServiceNotificationInProccess" xml:space="preserve">
+    <value>Signature is in process</value>
+  </data>
   <data name="SignatureServiceNotificationNotFoundDocument" xml:space="preserve">
     <value>There was no document to sign</value>
   </data>
