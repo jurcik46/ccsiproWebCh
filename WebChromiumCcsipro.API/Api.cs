@@ -38,7 +38,7 @@ namespace WebChromiumCcsipro.API
         {
             LoggerExtensions.Debug(Logger, ApiEvents.ExecuteType, "API.Execute<{T}>({@request})", typeof(T).FullName, request);
             var client = new RestClient { BaseUrl = ApiLink };
-            request.AddParameter("api_key", SettingsService.ApiLink, ParameterType.QueryString);
+            request.AddParameter("api_key", SettingsService.ApiKey, ParameterType.QueryString);
             var response = client.Execute<T>(request);
             if (response.ErrorException != null)
             {
