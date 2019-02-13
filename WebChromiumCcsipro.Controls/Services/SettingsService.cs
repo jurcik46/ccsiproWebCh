@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Destructurama.Attributed;
+using GalaSoft.MvvmLight.Messaging;
 using Serilog;
+using WebChromiumCcsipro.Resources.Enums;
 using WebChromiumCcsipro.Resources.Settings;
 using WebChromiumCcsipro.Resources.Extensions;
 using WebChromiumCcsipro.Resources.Interfaces.IServices;
+using WebChromiumCcsipro.Resources.Messages;
 
 namespace WebChromiumCcsipro.Controls.Services
 {
@@ -29,7 +33,27 @@ namespace WebChromiumCcsipro.Controls.Services
         public string ObjectId { get; set; }
         public string UserId { get; set; }
         public string HomePage { get; set; }
-        public string Language { get; set; }
+        private CultureInfo _culture;
+        public CultureInfo Culture
+        {
+            get { return _culture; }
+            set
+            {
+                _culture = value;
+                Messenger.Default.Send(new ChangeLanguageMessage(this, Culture));
+
+            }
+        }
+        private string _language;
+        public string Language
+        {
+            get { return _language; }
+            set
+            {
+                _language = value;
+                Culture = new CultureInfo(value);
+            }
+        }
         public StringCollection AllowedUrl { get; set; }
         public string PasswordSalt { get; set; }
         public string PasswordSetting { get; set; }
@@ -41,7 +65,7 @@ namespace WebChromiumCcsipro.Controls.Services
             LoadAllSetting();
             if (PasswordSetting == "")
             {
-                //                Logger.Information(PasswordServiceEvents.CreateDefaultPass);
+                Logger.Information(SettingsServiceEvents.CreateDefaultPass);
                 CreatePassword("admin");
             }
         }

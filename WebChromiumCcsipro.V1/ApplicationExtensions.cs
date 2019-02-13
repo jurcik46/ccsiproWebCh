@@ -13,12 +13,14 @@ using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Messaging;
 using GalaSoft.MvvmLight.Threading;
 using Serilog;
+using Serilog.Core;
 using Serilog.Events;
 using WebChromiumCcsipro.Controls;
-using WebChromiumCcsipro.Resources;
 using WebChromiumCcsipro.Resources.Enums;
 using WebChromiumCcsipro.Resources.Extensions;
+using WebChromiumCcsipro.Resources.Messages;
 using WebChromiumCcsipro.UI.ViewModels;
+using Constants = WebChromiumCcsipro.Resources.Constants;
 using LoggerExtensions = WebChromiumCcsipro.Resources.Extensions.LoggerExtensions;
 
 namespace WebChromiumCcsipro.V1
@@ -40,20 +42,18 @@ namespace WebChromiumCcsipro.V1
             var errorsTimer = new DispatcherTimer(Constants.ErrorCountInterval, DispatcherPriority.ApplicationIdle, (sender, args) => LoggerExtensions.SendErrorsWarningMessage(logger), DispatcherHelper.UIDispatcher);
             errorsTimer.Start();
 
-            //var settingsService = ViewModelLocator.SettingsService;
-            //if (settingsService != null)
-            //{
-            //    SetLanguage(logger, settingsService.UserSettings.Culture, false, app, null, appResourcesAction);
-            //}
-            //Messenger.Default.Register<ChangeLanguageMessage>(app, message =>
-            //{
-            //    logger.LogMessage(message, app);
-            //    var culture = message.Content;
-            //    SetLanguage(logger, culture, true, app, newWindowFunc, appResourcesAction);
-            //});
-            //            SetLanguage(logger, culture, true, app, newWindowFunc, appResourcesAction);
+            var settingsService = ViewModelLocator.SettingsService;
+            if (settingsService != null)
+            {
+                SetLanguage(logger, settingsService.Culture, false, app, null, appResourcesAction);
+            }
+            Messenger.Default.Register<ChangeLanguageMessage>(app, message =>
+            {
+                logger.LogMessage(message, app);
+                var culture = message.Content;
+                SetLanguage(logger, culture, true, app, newWindowFunc, appResourcesAction);
+            });
 
-            //TODO Regiter messages for change language and add to Setting culture
         }
 
 
@@ -70,20 +70,24 @@ namespace WebChromiumCcsipro.V1
             CultureInfo.DefaultThreadCurrentCulture = culture;
             CultureInfo.DefaultThreadCurrentUICulture = culture;
             appResourcesAction(culture);
-            Resources.Language.lang.Culture = culture;
             if (!reloadWindow)
             {
                 return;
             }
-            SimpleIoc.Default.Unregister<MainViewModel>();
-            SimpleIoc.Default.Register<MainViewModel>();
-            //            ViewModelLocator.MainViewModel.IsBusy = false;
-            var newWindow = newWindowFunc();
-            newWindow.Show();
-            foreach (var window in application.Windows.Cast<Window>().Where(win => !Equals(newWindow, win)))
+
+            foreach (var window in application.Windows.Cast<Window>())
             {
                 window.Close();
             }
+            Application.Current.Shutdown();
+            Thread.Sleep(100);
+            System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+            return;
+            SimpleIoc.Default.Unregister<MainViewModel>();
+            SimpleIoc.Default.Register<MainViewModel>();
+            var newWindow = newWindowFunc();
+            newWindow.Show();
+
         }
 
         public static void OnExit(ILogger logger)
