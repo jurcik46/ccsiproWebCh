@@ -139,7 +139,7 @@ namespace WebChromiumCcsipro.UI.ViewModels
             }
             else
             {
-                Messenger.Default.Send<NotifiMessage>(new NotifiMessage() { Title = lang.SignatureServiceNotificationTitle, Msg = lang.SignatureServiceNotificationInProccess, IconType = Notifications.Wpf.NotificationType.Error, ExpTime = 5 });
+                Messenger.Default.Send(new NotifiMessage() { Title = lang.SignatureServiceNotificationTitle, Msg = lang.SignatureServiceNotificationInProccess, IconType = Notifications.Wpf.NotificationType.Error, ExpTime = 5 });
                 return false;
             }
         }
