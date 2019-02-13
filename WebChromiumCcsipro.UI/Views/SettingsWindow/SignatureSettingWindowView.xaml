@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WebChromiumCcsipro.UI.Views.SettingsWindow"
         xmlns:lang="clr-namespace:WebChromiumCcsipro.Resources.Language;assembly=WebChromiumCcsipro.Resources"
         mc:Ignorable="d"
-        Title="{x:Static lang:lang.SignatureSettingWindowTitle}" MinHeight="300" MinWidth="600"  Height="300" Width="600">
+        Title="{x:Static lang:lang.SignatureSettingWindowTitle}" MinHeight="300" MinWidth="600"  Height="300" Width="600" WindowStartupLocation="CenterScreen">
     <Border Padding="10">
         <!-- <StackPanel> -->
         <Grid>
