@@ -82,7 +82,16 @@ namespace WebChromiumCcsipro.UI.ViewModels
         public string UrlAddress
         {
             get { return _urlAddress; }
-            set { _urlAddress = value; }
+            set
+            {
+                Console.WriteLine(value);
+                //                if (value.Contains(SettingService.AllowedSite))
+                _urlAddress = value;
+                //                else
+                //                {
+                //                    _urlAddress = SettingService.AllowedSite;
+                //                }
+            }
         }
 
         public MainViewModel(ISettingsService settingService, IDialogServiceWithOwner dialogService, ISignatureService signatureService)
@@ -92,8 +101,8 @@ namespace WebChromiumCcsipro.UI.ViewModels
             SignatureService = signatureService;
             CommandInit();
             MessagesInit();
-            UrlAddress =
-                @"https://stackoverflow.com/questions/6925584/the-name-initializecomponent-does-not-exist-in-the-current-context";
+            UrlAddress = SettingService.AllowedSite;
+
             ToolTipText = lang.TrayIconToolTipDefault;
         }
 

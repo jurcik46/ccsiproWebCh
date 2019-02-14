@@ -129,5 +129,41 @@ namespace WebChromiumCcsipro.Resources.Settings {
                 this["CompanyName"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string WebLogin {
+            get {
+                return ((string)(this["WebLogin"]));
+            }
+            set {
+                this["WebLogin"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string WebPassowrd {
+            get {
+                return ((string)(this["WebPassowrd"]));
+            }
+            set {
+                this["WebPassowrd"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string AllowedSite {
+            get {
+                return ((string)(this["AllowedSite"]));
+            }
+            set {
+                this["AllowedSite"] = value;
+            }
+        }
     }
 }

@@ -54,7 +54,6 @@ namespace WebChromiumCcsipro.UI.ViewModels
 
         public static LoggingLevelSwitch LoggingLevelSwitch => _loggingLevelSwitch ?? (_loggingLevelSwitch = new LoggingLevelSwitch());
         public static SplashScreen SplashScreen { get; set; }
-
         public static ISettingsService SettingsService => ServiceLocator.Current.GetInstance<ISettingsService>();
         public static IDialogServiceWithOwner DialogService => ServiceLocator.Current.GetInstance<IDialogServiceWithOwner>();
         public static MainViewModel MainViewModel => ServiceLocator.Current.GetInstance<MainViewModel>();

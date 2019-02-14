@@ -29,5 +29,14 @@
     <Setting Name="CompanyName" Type="System.String" Scope="User">
       <Value Profile="(Default)">CCSIPro.sk</Value>
     </Setting>
+    <Setting Name="WebLogin" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="WebPassowrd" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="AllowedSite" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>
