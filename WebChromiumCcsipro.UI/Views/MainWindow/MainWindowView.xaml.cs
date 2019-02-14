@@ -57,6 +57,7 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
             }
             splashScreen.Close(TimeSpan.FromMilliseconds(200));
             ViewModelLocator.SplashScreen = null;
+            WindowState = WindowState.Maximized;
         }
 
         private void MainWindowView_OnClosed(object sender, EventArgs e)

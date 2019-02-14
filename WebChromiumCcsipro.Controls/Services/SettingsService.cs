@@ -34,13 +34,19 @@ namespace WebChromiumCcsipro.Controls.Services
         public string UserId { get; set; }
         public string HomePage { get; set; }
         private CultureInfo _culture;
+        private bool _langChange;
         public CultureInfo Culture
         {
             get { return _culture; }
             set
             {
                 _culture = value;
-                //                Messenger.Default.Send(new ChangeLanguageMessage(this, Culture));
+
+                if (_langChange)
+                {
+                    Messenger.Default.Send(new ChangeLanguageMessage(this, Culture));
+                    _langChange = false;
+                }
             }
         }
         private string _language;
@@ -122,6 +128,7 @@ namespace WebChromiumCcsipro.Controls.Services
 
         public void ChromiumSettingSave(string objectId, string userId, string homePage, string language)
         {
+            _langChange = CCSIproChromiumSetting.Default.Language != language;
             CCSIproChromiumSetting.Default.ObjecID = objectId;
             CCSIproChromiumSetting.Default.UserID = userId;
             CCSIproChromiumSetting.Default.HomePage = homePage;
@@ -131,6 +138,7 @@ namespace WebChromiumCcsipro.Controls.Services
             CCSIproChromiumSetting.Default.PasswordSetting = PasswordSetting;
             CCSIproChromiumSetting.Default.Save();
             ChromiumSettingLoad();
+
         }
 
 

@@ -214,7 +214,7 @@ namespace WebChromiumCcsipro.UI.ViewModels
             SettingWindow = new SettingWindowView();
             var settingViewModel = new SettingViewModel.SettingViewModel(SettingService, DialogService);
             SettingWindow.DataContext = settingViewModel;
-            SettingWindow.Show();
+            SettingWindow.ShowDialog();
         }
         #endregion
 

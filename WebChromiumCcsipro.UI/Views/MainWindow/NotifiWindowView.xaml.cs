@@ -45,10 +45,10 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             var desktopWorkingArea = System.Windows.SystemParameters.WorkArea;
-            this.Width = desktopWorkingArea.Width;
-            this.Height = desktopWorkingArea.Height;
-            this.Left = desktopWorkingArea.Right - this.Width;
-            this.Top = desktopWorkingArea.Bottom - this.Height;
+            Width = desktopWorkingArea.Width;
+            Height = desktopWorkingArea.Height;
+            Left = desktopWorkingArea.Right - Width;
+            Top = desktopWorkingArea.Bottom - Height;
         }
 
         private void Window_Deactivated(object sender, EventArgs e)

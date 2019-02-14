@@ -10,7 +10,9 @@
         xmlns:cefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
         xmlns:tb="http://www.hardcodet.net/taskbar"
         mc:Ignorable="d"
-        Title="{x:Static lang:lang.MainWindowTitle}" Height="450" Width="800" Loaded="MainWindowView_OnLoaded" Closed="MainWindowView_OnClosed">
+        Title="{x:Static lang:lang.MainWindowTitle}" Height="450" Width="800" 
+        WindowStartupLocation="CenterScreen"
+        Loaded="MainWindowView_OnLoaded" Closed="MainWindowView_OnClosed">
 
     <Grid>
         <cefSharp:ChromiumWebBrowser Grid.Row="0"
