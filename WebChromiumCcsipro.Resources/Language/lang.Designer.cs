@@ -106,11 +106,29 @@ namespace WebChromiumCcsipro.Resources.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Login.
+        /// </summary>
+        public static string ApplicationSettingWindowNickTextBox {
+            get {
+                return ResourceManager.GetString("ApplicationSettingWindowNickTextBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Object ID.
         /// </summary>
         public static string ApplicationSettingWindowObjectTextBox {
             get {
                 return ResourceManager.GetString("ApplicationSettingWindowObjectTextBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        public static string ApplicationSettingWindowPasswordTextBox {
+            get {
+                return ResourceManager.GetString("ApplicationSettingWindowPasswordTextBox", resourceCulture);
             }
         }
         

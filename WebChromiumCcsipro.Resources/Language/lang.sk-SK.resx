@@ -132,8 +132,14 @@
   <data name="ApplicationSettingWindowLanguageTextBox" xml:space="preserve">
     <value>Jazyk</value>
   </data>
+  <data name="ApplicationSettingWindowNickTextBox" xml:space="preserve">
+    <value>Meno</value>
+  </data>
   <data name="ApplicationSettingWindowObjectTextBox" xml:space="preserve">
     <value>Objekt ID</value>
+  </data>
+  <data name="ApplicationSettingWindowPasswordTextBox" xml:space="preserve">
+    <value>Heslo</value>
   </data>
   <data name="ApplicationSettingWindowTitle" xml:space="preserve">
     <value>CCSIpro Chromium nastavenia aplikácie</value>
