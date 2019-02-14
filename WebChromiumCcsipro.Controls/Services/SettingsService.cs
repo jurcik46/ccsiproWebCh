@@ -40,8 +40,7 @@ namespace WebChromiumCcsipro.Controls.Services
             set
             {
                 _culture = value;
-                Messenger.Default.Send(new ChangeLanguageMessage(this, Culture));
-
+                //                Messenger.Default.Send(new ChangeLanguageMessage(this, Culture));
             }
         }
         private string _language;

@@ -64,7 +64,6 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
             Cef.Shutdown();
             trayIconTaskbar.Visibility = Visibility.Hidden;
             trayIconTaskbar.Icon = null;
-
         }
 
         #region Message Registration

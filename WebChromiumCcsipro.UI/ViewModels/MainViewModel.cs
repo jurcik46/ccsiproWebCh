@@ -178,13 +178,17 @@ namespace WebChromiumCcsipro.UI.ViewModels
 
         private void RestartApplication(IClosable win)
         {
+            foreach (var window in Application.Current.Windows.Cast<Window>())
+            {
+                window.Close();
+            }
             if (win != null)
             {
                 win.Close();
             }
-            //TODO restart app 
-            //Application.Current.Shutdown();
-            //System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+
+            Application.Current.Shutdown();
+            System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
         }
 
         private bool CanOpenSetting()

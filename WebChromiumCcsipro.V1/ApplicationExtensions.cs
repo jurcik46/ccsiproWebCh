@@ -47,12 +47,12 @@ namespace WebChromiumCcsipro.V1
             {
                 SetLanguage(logger, settingsService.Culture, false, app, null, appResourcesAction);
             }
-            Messenger.Default.Register<ChangeLanguageMessage>(app, message =>
-            {
-                logger.LogMessage(message, app);
-                var culture = message.Content;
-                SetLanguage(logger, culture, true, app, newWindowFunc, appResourcesAction);
-            });
+            //            Messenger.Default.Register<ChangeLanguageMessage>(app, message =>
+            //            {
+            //                logger.LogMessage(message, app);
+            //                var culture = message.Content;
+            //                SetLanguage(logger, culture, true, app, newWindowFunc, appResourcesAction);
+            //            });
 
         }
 
@@ -82,11 +82,10 @@ namespace WebChromiumCcsipro.V1
             Application.Current.Shutdown();
             Thread.Sleep(100);
             System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
-            return;
-            SimpleIoc.Default.Unregister<MainViewModel>();
-            SimpleIoc.Default.Register<MainViewModel>();
-            var newWindow = newWindowFunc();
-            newWindow.Show();
+            //            SimpleIoc.Default.Unregister<MainViewModel>();
+            //            SimpleIoc.Default.Register<MainViewModel>();
+            //            var newWindow = newWindowFunc();
+            //            newWindow.Show();
 
         }
 
