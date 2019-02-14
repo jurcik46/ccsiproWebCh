@@ -20,8 +20,11 @@ namespace WebChromiumCcsipro.Resources.Interfaces.IServices
         CultureInfo Culture { get; set; }
         string Language { get; set; }
         StringCollection AllowedUrl { get; set; }
+        string AllowedSite { get; set; }
         string PasswordSalt { get; set; }
         string PasswordSetting { get; set; }
+        string WebLogin { get; set; }
+        string WebPassword { get; set; }
         #endregion
         void CreatePassword(string password);
         void LoadAllSetting();
@@ -29,6 +32,6 @@ namespace WebChromiumCcsipro.Resources.Interfaces.IServices
         void SignatureSettingLoad();
         void SignatureSettingSave(string apiLink, string apiKey, string programPath, string processName,
             int signatureTimeOut = 100);
-        void ChromiumSettingSave(string objectId, string userId, string homePage, string language);
+        void ChromiumSettingSave(string objectId, string userId, string homePage, string language, string allowedSite, string webLogin, string webPassword);
     }
 }
