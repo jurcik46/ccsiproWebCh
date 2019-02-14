@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WebChromiumCcsipro.UI.ViewModels.SettingViewModel;
 
 namespace WebChromiumCcsipro.UI.Views.SettingsWindow
 {
@@ -22,6 +23,19 @@ namespace WebChromiumCcsipro.UI.Views.SettingsWindow
         public ApplicationSettingWindowView()
         {
             InitializeComponent();
+        }
+
+        private void PasswordTextBox_OnPasswordChanged(object sender, RoutedEventArgs e)
+        {
+            var viewModel = this.DataContext as ApplicationSettingViewModel;
+            var passwordBox = sender as PasswordBox;
+            if (viewModel == null || passwordBox == null)
+            {
+                return;
+            }
+
+            viewModel.Password = passwordBox.Password;
+
         }
     }
 }

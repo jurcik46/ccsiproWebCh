@@ -67,6 +67,7 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
             trayIconTaskbar.Icon = null;
         }
 
+
         #region Message Registration
         private void RegistrationMessage()
         {

@@ -16,7 +16,7 @@
 
     <Grid>
         <cefSharp:ChromiumWebBrowser Grid.Row="0"
-                                     Address="{Binding UrlAddress, Mode=TwoWay}" />
+                                     Address="{Binding UrlAddress, Mode=TwoWay}"  />
 
         <!-- TaskbarIcon -->
         <tb:TaskbarIcon Name="trayIconTaskbar"
