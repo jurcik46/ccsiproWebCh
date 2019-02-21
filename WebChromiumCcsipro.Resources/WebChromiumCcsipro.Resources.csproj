@@ -169,7 +169,6 @@
       <LastGenOutput>SignatureSetting.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Images\Icons\offline.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -180,6 +179,13 @@
     <EmbeddedResource Include="Images\Icons\working.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Buttons\back.png" />
+    <Resource Include="Images\Buttons\home.png" />
+    <Resource Include="Images\Buttons\next.png" />
+    <Resource Include="Images\Buttons\print.png" />
+    <Resource Include="Images\Buttons\refresh.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
