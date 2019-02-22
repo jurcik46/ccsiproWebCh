@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
@@ -59,6 +60,7 @@ namespace WebChromiumCcsipro.UI.ViewModels
         private string _toolTipText;
 
         public RelayCommand SignatureCommand { get; set; }
+        public RelayCommand HomeCommand { get; set; }
         public RelayCommand SettingsCommand { get; set; }
         public RelayCommand<IClosable> RestartCommand { get; set; }
         public RelayCommand<IClosable> ExitCommand { get; set; }
@@ -79,18 +81,23 @@ namespace WebChromiumCcsipro.UI.ViewModels
             }
         }
 
+        public string HomeUrl { get; set; }
+
         public string UrlAddress
         {
             get { return _urlAddress; }
             set
             {
-                Console.WriteLine(value);
-                //                if (value.Contains(SettingService.AllowedSite))
+                //if (value.Contains(SettingService.AllowedSite))
                 _urlAddress = value;
-                //                else
-                //                {
-                //                    _urlAddress = SettingService.AllowedSite;
-                //                }
+
+                //else
+                //{
+                //    _urlAddress = SettingService.HomePage;
+                //}
+                Console.WriteLine(value);
+                RaisePropertyChanged();
+
             }
         }
 
@@ -102,7 +109,7 @@ namespace WebChromiumCcsipro.UI.ViewModels
             CommandInit();
             MessagesInit();
             UrlAddress = SettingService.AllowedSite;
-
+            HomeUrl = SettingService.HomePage;
             ToolTipText = lang.TrayIconToolTipDefault;
         }
 
@@ -135,10 +142,12 @@ namespace WebChromiumCcsipro.UI.ViewModels
         {
             SignatureCommand = new RelayCommand(SingDocument, CanSing);
             SettingsCommand = new RelayCommand(OpenSetting, CanOpenSetting);
+            HomeCommand = new RelayCommand(() => UrlAddress = HomeUrl, () => true);
             RestartCommand = new RelayCommand<IClosable>(RestartApplication, CanRestartRestartApplication);
             ExitCommand = new RelayCommand<IClosable>(ExitApplication, CanExitApplication);
 
         }
+
 
         private bool CanSing()
         {
