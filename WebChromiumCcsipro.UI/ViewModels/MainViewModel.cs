@@ -186,6 +186,10 @@ namespace WebChromiumCcsipro.UI.ViewModels
                 win.Close();
 
             }
+            foreach (var window in Application.Current.Windows.Cast<Window>())
+            {
+                window.Close();
+            }
             Application.Current.Shutdown();
         }
 
@@ -196,10 +200,7 @@ namespace WebChromiumCcsipro.UI.ViewModels
 
         private void RestartApplication(IClosable win)
         {
-            foreach (var window in Application.Current.Windows.Cast<Window>())
-            {
-                window.Close();
-            }
+
             if (win != null)
             {
                 win.Close();

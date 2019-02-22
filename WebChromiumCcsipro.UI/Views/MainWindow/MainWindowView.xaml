@@ -15,7 +15,9 @@
         Title="{x:Static lang:lang.MainWindowTitle}" Height="450" Width="800" 
         WindowStartupLocation="CenterScreen"
         Loaded="MainWindowView_OnLoaded" Closed="MainWindowView_OnClosed" WindowState="Maximized">
-
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="VisibiltyConverter"/>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -26,6 +28,7 @@
             <Grid.Resources>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Margin" Value="2,5" />
+                    <Setter Property="Width" Value="50"/>
                 </Style>
                 <Style TargetType="{x:Type TextBox}">
                     <Setter Property="Margin" Value="2,5" />
@@ -39,13 +42,13 @@
                 <ColumnDefinition />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <Button  Command="{Binding BackCommand, ElementName=Browser}" Grid.Column="0" Width="50">
+            <Button  Command="{Binding BackCommand, ElementName=Browser}" Grid.Column="0" >
                 <Image Source="pack://application:,,,/WebChromiumCcsipro.Resources;component/Images/Buttons/back.png" />
             </Button>
-            <Button  Command="{Binding ForwardCommand, ElementName=Browser}" Grid.Column="1" Width="50">
+            <Button  Command="{Binding ForwardCommand, ElementName=Browser}" Grid.Column="1" >
                 <Image Source="pack://application:,,,/WebChromiumCcsipro.Resources;component/Images/Buttons/next.png" />
             </Button>
-            <Button  Command="{Binding ReloadCommand, ElementName=Browser}" Grid.Column="2" Width="50" >
+            <Button  Command="{Binding ReloadCommand, ElementName=Browser}" Grid.Column="2" >
                 <Image Source="pack://application:,,,/WebChromiumCcsipro.Resources;component/Images/Buttons/refresh.png" />
             </Button>
             <Button Command="{Binding HomeCommand}" Grid.Column="3" Width="50" >
@@ -56,7 +59,7 @@
                     <behaviours:TextBoxBindingUpdateOnEnterBehaviour />
                 </i:Interaction.Behaviors>
             </TextBox>
-            <Button  Command="{Binding PrintCommand, ElementName=Browser}" Grid.Column="5" Width="50" >
+            <Button  Command="{Binding PrintCommand, ElementName=Browser}" Grid.Column="5" >
                 <Image Source="pack://application:,,,/WebChromiumCcsipro.Resources;component/Images/Buttons/print.png" />
             </Button>
             <!--<Button Content="View source" Command="{Binding ViewSourceCommand, ElementName=Browser}" Grid.Column="4" Width="75" />-->
@@ -77,7 +80,7 @@
                      Width="Auto"
                      Grid.Row="1"
                      Height="2"
-                     Visibility="{Binding IsLoading, ElementName=Browser }"
+                     Visibility="{Binding IsLoading, ElementName=Browser, Converter={StaticResource VisibiltyConverter}}"
             BorderThickness="0" />
         <!-- TaskbarIcon -->
         <tb:TaskbarIcon Grid.Row="0" Grid.Column="0" Name="trayIconTaskbar"
