@@ -70,7 +70,7 @@ namespace WebChromiumCcsipro.Controls.Services
 
         public SettingsService()
         {
-
+            Logger.Information(SettingsServiceEvents.CreateInstance);
             LoadAllSetting();
             if (PasswordSetting == "")
             {
@@ -81,6 +81,7 @@ namespace WebChromiumCcsipro.Controls.Services
 
         public void CreatePassword(string password)
         {
+            Logger.Information(SettingsServiceEvents.CreatePassword);
             PasswordSalt = CryptoExtension.GenerateSalt();
             PasswordSetting = CryptoExtension.HashPassword(password, PasswordSalt);
             CCSIproChromiumSetting.Default.PasswordSetting = PasswordSetting;
@@ -90,12 +91,14 @@ namespace WebChromiumCcsipro.Controls.Services
 
         public void LoadAllSetting()
         {
+            Logger.Information(SettingsServiceEvents.LoadingAllSetting);
             ChromiumSettingLoad();
             SignatureSettingLoad();
         }
 
         public void SignatureSettingLoad()
         {
+            Logger.Information(SettingsServiceEvents.SignatureSettingLoading);
             ApiLink = SignatureSetting.Default.ApiLink;
             ApiKey = SignatureSetting.Default.ApiKey;
             ProgramPath = SignatureSetting.Default.ProgramPath;
@@ -105,6 +108,7 @@ namespace WebChromiumCcsipro.Controls.Services
 
         private void ChromiumSettingLoad()
         {
+            Logger.Information(SettingsServiceEvents.ChromiumSettingLoading);
             ObjectId = CCSIproChromiumSetting.Default.ObjecID;
             UserId = CCSIproChromiumSetting.Default.UserID;
             HomePage = CCSIproChromiumSetting.Default.HomePage;
@@ -125,6 +129,7 @@ namespace WebChromiumCcsipro.Controls.Services
 
         public void SignatureSettingSave(string apiLink, string apiKey, string programPath, string processName, int signatureTimeOut = 100)
         {
+            Logger.Information(SettingsServiceEvents.SignatureSettingSave);
             SignatureSetting.Default.ApiLink = apiLink;
             SignatureSetting.Default.ApiKey = apiKey;
             SignatureSetting.Default.ProgramPath = programPath;
@@ -136,6 +141,7 @@ namespace WebChromiumCcsipro.Controls.Services
 
         public void ChromiumSettingSave(string objectId, string userId, string homePage, string language, string allowedSite, string webLogin, string webPassword)
         {
+            Logger.Information(SettingsServiceEvents.ChromiumSettingSave);
             _langChange = CCSIproChromiumSetting.Default.Language != language;
             CCSIproChromiumSetting.Default.ObjecID = objectId;
             CCSIproChromiumSetting.Default.UserID = userId;
