@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using Serilog;
+using WebChromiumCcsipro.Resources.Enums;
+using WebChromiumCcsipro.Resources.Extensions;
 using WebChromiumCcsipro.Resources.Interfaces.IServices;
 using WebChromiumCcsipro.Resources.Language;
 
@@ -44,6 +46,7 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
 
         public ApplicationSettingViewModel(ISettingsService settingsService)
         {
+            Logger.Information(ApplicationSettingViewModelEvents.CreateInstance);
             SettingsService = settingsService;
             ObjectId = SettingsService.ObjectId;
             UserId = SettingsService.UserId;
@@ -68,6 +71,10 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
         private void Save()
         {
             var langKey = LanguageSource.GetValues().FirstOrDefault(x => x.Value == SelectedLanguage).Key;
+
+            Logger.Information(ApplicationSettingViewModelEvents.SaveSettingCommand, $"ObjectId: {ObjectId} " +
+                                                                                     $"UserId: {UserId} HomePage: {HomePage} " +
+                                                                                     $"LangKey: {langKey} AllowedSite: {AllowedSite}");
             SettingsService.ChromiumSettingSave(ObjectId, UserId, HomePage, langKey, AllowedSite, Login, Password);
             CloseAction?.Invoke();
         }
