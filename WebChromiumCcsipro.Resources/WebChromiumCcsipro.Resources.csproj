@@ -101,6 +101,7 @@
     <Compile Include="Enums\ApiServiceEvents.cs" />
     <Compile Include="Enums\ApplicationEvents.cs" />
     <Compile Include="Enums\DialogServiceEvents.cs" />
+    <Compile Include="Enums\MainViewModelEvents.cs" />
     <Compile Include="Enums\SettingsServiceEvents.cs" />
     <Compile Include="Enums\SignatureServiceEvents.cs" />
     <Compile Include="Enums\TrayIconsStatus.cs" />

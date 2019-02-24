@@ -103,6 +103,7 @@ namespace WebChromiumCcsipro.UI.ViewModels
 
         public MainViewModel(ISettingsService settingService, IDialogServiceWithOwner dialogService, ISignatureService signatureService)
         {
+            Logger.Information(MainViewModelEvents.CreateInstance);
             SettingService = settingService;
             DialogService = dialogService;
             SignatureService = signatureService;
@@ -119,6 +120,7 @@ namespace WebChromiumCcsipro.UI.ViewModels
         {
             Messenger.Default.Register<TrayIconsStatusMessage>(this, (message) =>
             {
+                Logger.Information(MainViewModelEvents.TrayIconStatus, $"Status: {message.IconStatus}");
                 switch (message.IconStatus)
                 {
                     case TrayIconsStatus.Online:
@@ -155,15 +157,13 @@ namespace WebChromiumCcsipro.UI.ViewModels
             {
                 return true;
             }
-            else
-            {
-                Messenger.Default.Send(new NotifiMessage() { Title = lang.SignatureServiceNotificationTitle, Msg = lang.SignatureServiceNotificationInProccess, IconType = Notifications.Wpf.NotificationType.Error, ExpTime = 5 });
-                return false;
-            }
+            Messenger.Default.Send(new NotifiMessage() { Title = lang.SignatureServiceNotificationTitle, Msg = lang.SignatureServiceNotificationInProccess, IconType = Notifications.Wpf.NotificationType.Error, ExpTime = 5 });
+            return false;
         }
 
         private void SingDocument()
         {
+            Logger.Information(MainViewModelEvents.SingDocumentCommand);
             Task.Run(() =>
             {
                 SignatureService.StartSign();
@@ -181,6 +181,7 @@ namespace WebChromiumCcsipro.UI.ViewModels
 
         private void ExitApplication(IClosable win)
         {
+            Logger.Information(MainViewModelEvents.ExitApplicationCommand);
             if (win != null)
             {
                 win.Close();
@@ -200,7 +201,7 @@ namespace WebChromiumCcsipro.UI.ViewModels
 
         private void RestartApplication(IClosable win)
         {
-
+            Logger.Information(MainViewModelEvents.RestartApplicationCommand);
             if (win != null)
             {
                 win.Close();
@@ -220,11 +221,14 @@ namespace WebChromiumCcsipro.UI.ViewModels
 
         private void OpenSetting()
         {
+            Logger.Information(MainViewModelEvents.OpenSettingCommand);
+
             if (!CryptoExtension.VerifyPassword(DialogService.EnterSetting(),
                 CCSIproChromiumSetting.Default.PasswordSalt,
                 CCSIproChromiumSetting.Default.PasswordSetting))
             {
                 Messenger.Default.Send(new NotifiMessage() { Title = lang.EnterSettingWindowNotificationTitle, Msg = lang.EnterSettingWindowNotificationFailedLogin, IconType = Notifications.Wpf.NotificationType.Error, ExpTime = 4 });
+                Logger.Debug(MainViewModelEvents.BadPasswordToOptions);
 
                 return;
             }
