@@ -104,6 +104,7 @@
     <Compile Include="Enums\MainViewModelEvents.cs" />
     <Compile Include="Enums\SettingsServiceEvents.cs" />
     <Compile Include="Enums\SignatureServiceEvents.cs" />
+    <Compile Include="Enums\SignatureSettingViewModelEvents.cs" />
     <Compile Include="Enums\TrayIconsStatus.cs" />
     <Compile Include="Extensions\CryptoExtension.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />

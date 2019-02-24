@@ -7,6 +7,8 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using Serilog;
 using WebChromiumCcsipro.Controls.Services;
+using WebChromiumCcsipro.Resources.Enums;
+using WebChromiumCcsipro.Resources.Extensions;
 using WebChromiumCcsipro.Resources.Interfaces.IServices;
 
 namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
@@ -27,6 +29,7 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
 
         public SignatureSettingViewModel(ISettingsService settingsService)
         {
+            Logger.Information(SignatureSettingViewModelEvents.CreateInstance);
             SettingsService = settingsService;
             ApiLink = SettingsService.ApiLink;
             ApiKey = SettingsService.ApiKey;
@@ -43,6 +46,8 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
 
         private void Save()
         {
+            Logger.Information(SignatureSettingViewModelEvents.SaveSettingCommand, $"ApiLink: {ApiLink} ApiKey: {ApiKey} " +
+                                                                                   $"ProgramPath: {ProgramPath} ProcessName: {ProcessName} SignatureTimeOut: {SignatureTimeOut}");
             SettingsService.SignatureSettingSave(ApiLink, ApiKey, ProgramPath, ProcessName, SignatureTimeOut);
             if (CloseAction != null)
             {
