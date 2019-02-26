@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using CefSharp;
 using GalaSoft.MvvmLight.Messaging;
+using GalaSoft.MvvmLight.Threading;
 using WebChromiumCcsipro.Resources.Enums;
 using WebChromiumCcsipro.Resources.Interfaces;
 using WebChromiumCcsipro.Resources.Messages;
@@ -39,13 +41,17 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
             notifiWindow = new NotifiWindowView();
             notifiWindow.Show();
             this.trayIconTaskbar.Icon = new Icon(@"Images/Icons/online.ico");
-            var viewModel = DataContext as MainViewModel;
-            if (viewModel != null)
-            {
-                //                viewModel.ToolTipText = "asdasda";
-                return;
-            }
+        }
 
+
+        private void RegistrationJsFunction()
+        {
+            Browser.JavascriptObjectRepository.Register("cefSharpServiceAsync", ViewModelLocator.CefSharpJsService, true);
+            Browser.JavascriptObjectRepository.ObjectBoundInJavascript += (sender, e) =>
+            {
+                var name = e.ObjectName;
+                Debug.WriteLine($"Object {e.ObjectName} was bound successfully.");
+            };
         }
 
         private void MainWindowView_OnLoaded(object sender, RoutedEventArgs e)
@@ -57,6 +63,7 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
             }
             splashScreen.Close(TimeSpan.FromMilliseconds(200));
             ViewModelLocator.SplashScreen = null;
+            RegistrationJsFunction();
         }
 
         private void MainWindowView_OnClosed(object sender, EventArgs e)
@@ -87,9 +94,22 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
                         break;
                 }
             });
+
+            Messenger.Default.Register<ExecuteJavaScriptMessage>(this, (message) =>
+            {
+                DispatcherHelper.CheckBeginInvokeOnUI(() =>
+                {
+                    Browser.ExecuteScriptAsyncWhenPageLoaded(message.Parameters == null
+                        ? $"window['{message.Function}']()"
+                        : $"window['{message.Function}']('{message.Parameters}')");
+                    // Browser.ExecuteScriptAsyncWhenPageLoaded($"alert('asdas')");
+                });
+            });
         }
         #endregion
 
 
     }
+
+
 }

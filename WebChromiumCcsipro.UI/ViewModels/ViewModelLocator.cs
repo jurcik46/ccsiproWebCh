@@ -36,6 +36,7 @@ namespace WebChromiumCcsipro.UI.ViewModels
                 SimpleIoc.Default.Register<IDialogServiceWithOwner, DialogService>();
                 SimpleIoc.Default.Register<IApiService, ApiService>();
                 SimpleIoc.Default.Register<ISignatureService, SignatureService>();
+                SimpleIoc.Default.Register<ICefSharpJsService, CefSharpJsService>();
             }
             RegisterViewModels();
 
@@ -57,6 +58,7 @@ namespace WebChromiumCcsipro.UI.ViewModels
         public static ISettingsService SettingsService => ServiceLocator.Current.GetInstance<ISettingsService>();
         public static IDialogServiceWithOwner DialogService => ServiceLocator.Current.GetInstance<IDialogServiceWithOwner>();
         public static MainViewModel MainViewModel => ServiceLocator.Current.GetInstance<MainViewModel>();
+        public static ICefSharpJsService CefSharpJsService => ServiceLocator.Current.GetInstance<ICefSharpJsService>();
         //        public static SettingViewModel.SettingViewModel SettingViewModel => ServiceLocator.Current.GetInstance<SettingViewModel.SettingViewModel>();
 
     }

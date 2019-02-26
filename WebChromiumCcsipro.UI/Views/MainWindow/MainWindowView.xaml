@@ -67,7 +67,9 @@
         <Border Grid.Row="1" BorderBrush="Gray" BorderThickness="0,1">
             <cefSharp:ChromiumWebBrowser 
                                      x:Name="Browser"
-                                     Address="{Binding UrlAddress, Mode=TwoWay}"  >
+                                     Address="{Binding UrlAddress, Mode=TwoWay}"
+                                        
+                                     >
                 <i:Interaction.Behaviors>
                     <behaviours:HoverLinkBehaviour x:Name="HoverLinkBehaviour"/>
                 </i:Interaction.Behaviors>

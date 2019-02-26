@@ -69,7 +69,7 @@ namespace WebChromiumCcsipro.UI.ViewModels
         private ISettingsService SettingService { get; set; }
         private IDialogServiceWithOwner DialogService { get; set; }
 
-        private ISignatureService SignatureService { get; set; }
+        public ISignatureService SignatureService { get; set; }
 
         public string ToolTipText
         {
@@ -109,7 +109,7 @@ namespace WebChromiumCcsipro.UI.ViewModels
             SignatureService = signatureService;
             CommandInit();
             MessagesInit();
-            UrlAddress = SettingService.AllowedSite;
+            UrlAddress = SettingService.HomePage;
             HomeUrl = SettingService.HomePage;
             ToolTipText = lang.TrayIconToolTipDefault;
         }

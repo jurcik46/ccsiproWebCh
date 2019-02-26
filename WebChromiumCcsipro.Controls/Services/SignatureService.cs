@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading;
+using System.Windows;
 using GalaSoft.MvvmLight.Messaging;
 using Serilog;
 using Serilog.Core;
@@ -35,6 +36,7 @@ namespace WebChromiumCcsipro.Controls.Services
             ApiService = apiService;
             SettingsService = settingsService;
         }
+
         #region Start signature 
         public void StartSign()
         {
@@ -85,7 +87,6 @@ namespace WebChromiumCcsipro.Controls.Services
                             }
                             else
                             {
-
                                 //                                Messenger.Default.Send<BozpStatusPusherMessage>(new BozpStatusPusherMessage() { Status = "408" });
                                 Messenger.Default.Send(new NotifiMessage() { Title = lang.SignatureServiceNotificationTitle, Msg = lang.SignatureServiceNotificationClosedDocument, IconType = Notifications.Wpf.NotificationType.Warning });
                             }
@@ -105,8 +106,8 @@ namespace WebChromiumCcsipro.Controls.Services
                     Messenger.Default.Send(new NotifiMessage() { Title = lang.SignatureServiceNotificationTitle, Msg = lang.SignatureServiceNotificationNotFoundDocument, IconType = Notifications.Wpf.NotificationType.Warning });
                     //                    Messenger.Default.Send<BozpStatusPusherMessage>(new BozpStatusPusherMessage() { Status = "404" });
                 }
-
                 Messenger.Default.Send(new TrayIconsStatusMessage() { IconStatus = TrayIconsStatus.Online });
+                Messenger.Default.Send(new ExecuteJavaScriptMessage() { Function = "doneSignatureCefSharp" });
                 InProcces = false;
             }
         }

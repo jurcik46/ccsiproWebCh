@@ -115,6 +115,7 @@
     <Compile Include="Interfaces\IClosable.cs" />
     <Compile Include="Interfaces\IDiagnostics.cs" />
     <Compile Include="Interfaces\IServices\IApiService.cs" />
+    <Compile Include="Interfaces\IServices\ICefSharpJsService.cs" />
     <Compile Include="Interfaces\IServices\IDialogServiceWithOwner.cs" />
     <Compile Include="Interfaces\IServices\ISettingsService.cs" />
     <Compile Include="Interfaces\IServices\ISignatureService.cs" />
@@ -131,6 +132,7 @@
     </Compile>
     <Compile Include="Language\LanguageSource.cs" />
     <Compile Include="Messages\ChangeLanguageMessage.cs" />
+    <Compile Include="Messages\ExecuteJavaScriptMessage.cs" />
     <Compile Include="Messages\NotifiMessage.cs" />
     <Compile Include="Messages\TrayIconsStatusMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
