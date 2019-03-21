@@ -27,14 +27,7 @@ namespace WebChromiumCcsipro.UI.Views.SettingsWindow
 
         private void PasswordTextBox_OnPasswordChanged(object sender, RoutedEventArgs e)
         {
-            var viewModel = this.DataContext as ApplicationSettingViewModel;
-            var passwordBox = sender as PasswordBox;
-            if (viewModel == null || passwordBox == null)
-            {
-                return;
-            }
 
-            viewModel.Password = passwordBox.Password;
 
         }
     }

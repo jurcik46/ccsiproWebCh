@@ -25,10 +25,7 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
         public string ObjectId { get; set; }
         public string UserId { get; set; }
         public string HomePage { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
 
-        public string AllowedSite { get; set; }
 
         public string SelectedLanguage
         {
@@ -58,9 +55,6 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
             {
                 Language.Add(lang.Value);
             }
-            AllowedSite = SettingsService.AllowedSite;
-            Login = SettingsService.WebLogin;
-            Password = SettingsService.WebPassword;
         }
 
         private bool CanSave()
@@ -74,8 +68,8 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
 
             Logger.Information(ApplicationSettingViewModelEvents.SaveSettingCommand, $"ObjectId: {ObjectId} " +
                                                                                      $"UserId: {UserId} HomePage: {HomePage} " +
-                                                                                     $"LangKey: {langKey} AllowedSite: {AllowedSite}");
-            SettingsService.ChromiumSettingSave(ObjectId, UserId, HomePage, langKey, AllowedSite, Login, Password);
+                                                                                     $"LangKey: {langKey}");
+            SettingsService.ChromiumSettingSave(ObjectId, UserId, HomePage, langKey);
             CloseAction?.Invoke();
         }
     }

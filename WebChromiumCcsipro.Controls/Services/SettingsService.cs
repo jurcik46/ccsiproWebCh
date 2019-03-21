@@ -59,11 +59,7 @@ namespace WebChromiumCcsipro.Controls.Services
                 Culture = new CultureInfo(value);
             }
         }
-        public StringCollection AllowedUrl { get; set; }
 
-        public string AllowedSite { get; set; }
-        public string WebLogin { get; set; }
-        public string WebPassword { get; set; }
         public string PasswordSalt { get; set; }
         public string PasswordSetting { get; set; }
         #endregion
@@ -113,12 +109,8 @@ namespace WebChromiumCcsipro.Controls.Services
             UserId = CCSIproChromiumSetting.Default.UserID;
             HomePage = CCSIproChromiumSetting.Default.HomePage;
             Language = CCSIproChromiumSetting.Default.Language;
-            AllowedUrl = CCSIproChromiumSetting.Default.AllowedUrl;
-            AllowedSite = CCSIproChromiumSetting.Default.AllowedSite;
             PasswordSetting = CCSIproChromiumSetting.Default.PasswordSetting;
             PasswordSalt = CCSIproChromiumSetting.Default.PasswordSalt;
-            WebLogin = CCSIproChromiumSetting.Default.WebLogin;
-            WebPassword = CCSIproChromiumSetting.Default.WebPassowrd;
 
         }
 
@@ -139,7 +131,7 @@ namespace WebChromiumCcsipro.Controls.Services
             SignatureSettingLoad();
         }
 
-        public void ChromiumSettingSave(string objectId, string userId, string homePage, string language, string allowedSite, string webLogin, string webPassword)
+        public void ChromiumSettingSave(string objectId, string userId, string homePage, string language)
         {
             Logger.Information(SettingsServiceEvents.ChromiumSettingSave);
             _langChange = CCSIproChromiumSetting.Default.Language != language;
@@ -147,12 +139,8 @@ namespace WebChromiumCcsipro.Controls.Services
             CCSIproChromiumSetting.Default.UserID = userId;
             CCSIproChromiumSetting.Default.HomePage = homePage;
             CCSIproChromiumSetting.Default.Language = language;
-            CCSIproChromiumSetting.Default.AllowedUrl = AllowedUrl;
-            CCSIproChromiumSetting.Default.AllowedSite = allowedSite;
             CCSIproChromiumSetting.Default.PasswordSalt = PasswordSalt;
             CCSIproChromiumSetting.Default.PasswordSetting = PasswordSetting;
-            CCSIproChromiumSetting.Default.WebLogin = webLogin;
-            CCSIproChromiumSetting.Default.WebPassowrd = webPassword;
             CCSIproChromiumSetting.Default.Save();
             ChromiumSettingLoad();
 

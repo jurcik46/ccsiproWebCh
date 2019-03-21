@@ -6,13 +6,13 @@
         xmlns:local="clr-namespace:WebChromiumCcsipro.UI.Views.SettingsWindow"
         xmlns:lang="clr-namespace:WebChromiumCcsipro.Resources.Language;assembly=WebChromiumCcsipro.Resources"
         mc:Ignorable="d"
-        Title="{x:Static lang:lang.ApplicationSettingWindowTitle}" Height="410" Width="600" WindowStartupLocation="CenterScreen">
+        Title="{x:Static lang:lang.ApplicationSettingWindowTitle}" Height="280" Width="350" MaxHeight="300" MaxWidth="800" WindowStartupLocation="CenterScreen">
     <Border Padding="10">
         <!-- <StackPanel> -->
         <Grid>
             <Grid.Resources>
                 <Style TargetType="{x:Type TextBox}">
-                    <Setter Property="Margin" Value="5 10 0 10" />
+                    <Setter Property="Margin" Value="5 10 0 5" />
                     <Setter Property="Height" Value="20" />
                 </Style>
                 <Style TargetType="{x:Type TextBlock}">
@@ -36,9 +36,6 @@
                 <TextBlock Text="{x:Static lang:lang.ApplicationSettingWindowUserTextBox}"/>
                 <TextBlock Text="{x:Static lang:lang.ApplicationSettingWindowHomePageTextBox}"/>
                 <TextBlock Text="{x:Static lang:lang.ApplicationSettingWindowLanguageTextBox}"/>
-                <TextBlock Text="{x:Static lang:lang.ApplicationSettingWindowAllowedUrlTextBox}"/>
-                <TextBlock Text="{x:Static lang:lang.ApplicationSettingWindowNickTextBox}"/>
-                <TextBlock Text="{x:Static lang:lang.ApplicationSettingWindowPasswordTextBox}"/>
 
             </StackPanel>
 
@@ -50,10 +47,6 @@
                 <ComboBox Margin="5 10 0 10"    
                           Height="23" ItemsSource="{Binding Language,  Mode=TwoWay}" 
                           SelectedItem="{Binding Path=SelectedLanguage, Mode=TwoWay}" />
-                <TextBox Name="allowedSiteTextBox"  Text="{Binding AllowedSite, Mode=TwoWay}"/>
-                <TextBox Name="nickTextBox"  Text="{Binding Login, Mode=TwoWay}"/>
-                <PasswordBox Margin="5 10 0 10" Height="20"	Name="passwordTextBox"  PasswordChanged="PasswordTextBox_OnPasswordChanged"/>
-
             </StackPanel>
             <Button Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" IsDefault="True"  
                     Name="checkPasswordButton" Margin="0 10 0 0" Width="100" Height="25" 
