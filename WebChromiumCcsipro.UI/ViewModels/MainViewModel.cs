@@ -88,16 +88,8 @@ namespace WebChromiumCcsipro.UI.ViewModels
             get { return _urlAddress; }
             set
             {
-                //if (value.Contains(SettingService.AllowedSite))
                 _urlAddress = value;
-
-                //else
-                //{
-                //    _urlAddress = SettingService.HomePage;
-                //}
-                Console.WriteLine(value);
                 RaisePropertyChanged();
-
             }
         }
 
