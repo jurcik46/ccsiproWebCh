@@ -38,7 +38,7 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
                 content.Message = message.Msg;
                 content.Type = message.IconType;
 
-                this._notificationManager.Show(content, expirationTime: System.TimeSpan.FromSeconds(message.ExpTime), areaName: "WindowArea");
+                _notificationManager.Show(content, expirationTime: System.TimeSpan.FromSeconds(message.ExpTime), areaName: "WindowArea");
             });
         }
 
