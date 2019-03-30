@@ -62,11 +62,21 @@
     <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.4.1.0, Culture=neutral, PublicKeyToken=5f873c45e98af8a1, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Notifications.Wpf, Version=0.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Notifications.Wpf.0.1.1\lib\net461\Notifications.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
       <HintPath>..\packages\Serilog.2.8.0\lib\net46\Serilog.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Enrichers.Environment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.Enrichers.Environment.2.1.2\lib\net45\Serilog.Enrichers.Environment.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Enrichers.Thread, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.Enrichers.Thread.3.0.0\lib\net45\Serilog.Enrichers.Thread.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Exceptions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=fc5550082a9c642c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.Exceptions.5.0.0\lib\net46\Serilog.Exceptions.dll</HintPath>
     </Reference>
     <Reference Include="Serilog.Sinks.File, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
       <HintPath>..\packages\Serilog.Sinks.File.4.0.0\lib\net45\Serilog.Sinks.File.dll</HintPath>
@@ -91,29 +101,6 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants.cs" />
-    <Compile Include="Enums\ApiServiceEvents.cs" />
-    <Compile Include="Enums\ApplicationEvents.cs" />
-    <Compile Include="Enums\ApplicationSettingViewModelEvents.cs" />
-    <Compile Include="Enums\ChangePasswordViewModelEvents.cs" />
-    <Compile Include="Enums\DialogServiceEvents.cs" />
-    <Compile Include="Enums\MainViewModelEvents.cs" />
-    <Compile Include="Enums\SettingsServiceEvents.cs" />
-    <Compile Include="Enums\SettingViewModelEvents.cs" />
-    <Compile Include="Enums\SignatureServiceEvents.cs" />
-    <Compile Include="Enums\SignatureSettingViewModelEvents.cs" />
-    <Compile Include="Enums\TrayIconsStatus.cs" />
-    <Compile Include="Extensions\CryptoExtension.cs" />
-    <Compile Include="Extensions\EnumExtensions.cs" />
-    <Compile Include="Extensions\LoggerExtensions.cs" />
-    <Compile Include="Interfaces\IClosable.cs" />
-    <Compile Include="Interfaces\IDiagnostics.cs" />
-    <Compile Include="Interfaces\IServices\IApiService.cs" />
-    <Compile Include="Interfaces\IServices\ICefSharpJsService.cs" />
-    <Compile Include="Interfaces\IServices\IDialogServiceWithOwner.cs" />
-    <Compile Include="Interfaces\IServices\ISettingsService.cs" />
-    <Compile Include="Interfaces\IServices\ISignatureService.cs" />
-    <Compile Include="Interfaces\ISignatureFileModel.cs" />
     <Compile Include="Language\lang.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -125,10 +112,6 @@
       <DependentUpon>lang.sk-SK.resx</DependentUpon>
     </Compile>
     <Compile Include="Language\LanguageSource.cs" />
-    <Compile Include="Messages\ChangeLanguageMessage.cs" />
-    <Compile Include="Messages\ExecuteJavaScriptMessage.cs" />
-    <Compile Include="Messages\NotifiMessage.cs" />
-    <Compile Include="Messages\TrayIconsStatusMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -188,5 +171,6 @@
     <Resource Include="Images\Buttons\print.png" />
     <Resource Include="Images\Buttons\refresh.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

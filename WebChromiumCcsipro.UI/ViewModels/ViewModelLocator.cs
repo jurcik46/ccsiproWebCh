@@ -8,8 +8,8 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Threading;
 using Serilog.Core;
-using WebChromiumCcsipro.Controls.Services;
-using WebChromiumCcsipro.Resources.Interfaces.IServices;
+using WebChromiumCcsipro.BusinessLogic.Services;
+using WebChromiumCcsipro.Domain.Interfaces.IServices;
 
 namespace WebChromiumCcsipro.UI.ViewModels
 {

@@ -134,6 +134,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\WebChromiumCcsipro.Domain\WebChromiumCcsipro.Domain.csproj">
+      <Project>{0b595e38-8be5-4682-8c09-a70825554e65}</Project>
+      <Name>WebChromiumCcsipro.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WebChromiumCcsipro.Resources\WebChromiumCcsipro.Resources.csproj">
       <Project>{11c2fbd5-8960-42f2-a9bc-e6494d3c55e2}</Project>
       <Name>WebChromiumCcsipro.Resources</Name>

@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
 using Serilog;
-using WebChromiumCcsipro.Controls;
+using WebChromiumCcsipro.BusinessLogic;
+using WebChromiumCcsipro.Domain.Enums;
+using WebChromiumCcsipro.Domain.Extensions;
+using WebChromiumCcsipro.Domain.Interfaces;
 using WebChromiumCcsipro.Resource.Properties;
-using WebChromiumCcsipro.Resources.Enums;
-using WebChromiumCcsipro.Resources.Extensions;
-using WebChromiumCcsipro.Resources.Interfaces;
 using WebChromiumCcsipro.UI.ViewModels;
 
 
