@@ -10,9 +10,6 @@ using System.Windows.Threading;
 using Serilog;
 using WebChromiumCcsipro.Controls;
 using WebChromiumCcsipro.Resource.Properties;
-using WebChromiumCcsipro.Resources.Enums;
-using WebChromiumCcsipro.Resources.Extensions;
-using WebChromiumCcsipro.Resources.Interfaces;
 using WebChromiumCcsipro.UI.ViewModels;
 
 

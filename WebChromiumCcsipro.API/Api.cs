@@ -10,10 +10,7 @@ using Serilog;
 using Serilog.Core;
 using WebChromiumCcsipro.API.Enums;
 using WebChromiumCcsipro.API.Models;
-using WebChromiumCcsipro.Resources.Extensions;
-using WebChromiumCcsipro.Resources.Interfaces.IServices;
 using WebChromiumCcsipro.Resources.Language;
-using WebChromiumCcsipro.Resources.Messages;
 using LoggerExtensions = WebChromiumCcsipro.Resources.Extensions.LoggerExtensions;
 
 

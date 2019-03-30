@@ -17,9 +17,6 @@ using System.Windows.Threading;
 using CefSharp;
 using GalaSoft.MvvmLight.Messaging;
 using GalaSoft.MvvmLight.Threading;
-using WebChromiumCcsipro.Resources.Enums;
-using WebChromiumCcsipro.Resources.Interfaces;
-using WebChromiumCcsipro.Resources.Messages;
 using WebChromiumCcsipro.UI.ViewModels;
 
 namespace WebChromiumCcsipro.UI.Views.MainWindow
