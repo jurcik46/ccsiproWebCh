@@ -157,10 +157,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WebChromiumCcsipro.Controls\WebChromiumCcsipro.Controls.csproj">
-      <Project>{ACB47083-F94F-4634-A11E-4AF157584FD8}</Project>
-      <Name>WebChromiumCcsipro.Controls</Name>
-    </ProjectReference>
     <ProjectReference Include="..\WebChromiumCcsipro.Resources\WebChromiumCcsipro.Resources.csproj">
       <Project>{11c2fbd5-8960-42f2-a9bc-e6494d3c55e2}</Project>
       <Name>WebChromiumCcsipro.Resources</Name>
