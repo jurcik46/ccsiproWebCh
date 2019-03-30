@@ -3,9 +3,12 @@ using System.Threading.Tasks;
 using System.Windows;
 using GalaSoft.MvvmLight.Threading;
 using Serilog;
+using WebChromiumCcsipro.Domain.Enums;
+using WebChromiumCcsipro.Domain.Extensions;
+using WebChromiumCcsipro.Domain.Interfaces.IServices;
 using WebChromiumCcsipro.UI.ViewModels.SettingViewModel;
 using WebChromiumCcsipro.UI.Views.SettingsWindow;
-using LoggerExtensions = WebChromiumCcsipro.Resources.Extensions.LoggerExtensions;
+using LoggerExtensions = WebChromiumCcsipro.Domain.Extensions.LoggerExtensions;
 
 namespace WebChromiumCcsipro.UI
 {
@@ -39,7 +42,7 @@ namespace WebChromiumCcsipro.UI
             }
             if (result == true)
             {
-                LoggerExtensions.Information(Logger, DialogServiceEvents.ChangePasswordSuccess, "Password was changed.");
+                Domain.Extensions.LoggerExtensions.Information(Logger, DialogServiceEvents.ChangePasswordSuccess, "Password was changed.");
             }
 
             return viewModel.NewPassword;
@@ -47,7 +50,7 @@ namespace WebChromiumCcsipro.UI
 
         public string EnterSetting()
         {
-            LoggerExtensions.Debug(Logger, DialogServiceEvents.EnterSetting);
+            Domain.Extensions.LoggerExtensions.Debug(Logger, DialogServiceEvents.EnterSetting);
             var viewModel = new EnterSettingViewModel();
             var window = new EnterSettingWindowView();
             window.DataContext = viewModel;
@@ -104,11 +107,11 @@ namespace WebChromiumCcsipro.UI
         {
             if (HideAllErrors && !alwaysShow)
             {
-                LoggerExtensions.Warning(Logger, DialogServiceEvents.HiddenError, "Error dialog is hidden. {Title}: {ErrorMessage}", title, message);
+                Domain.Extensions.LoggerExtensions.Warning(Logger, DialogServiceEvents.HiddenError, "Error dialog is hidden. {Title}: {ErrorMessage}", title, message);
             }
             else
             {
-                LoggerExtensions.Information(Logger, DialogServiceEvents.ShowErrorDialog, "{Title}: {ErrorMessage}", title, message);
+                Domain.Extensions.LoggerExtensions.Information(Logger, DialogServiceEvents.ShowErrorDialog, "{Title}: {ErrorMessage}", title, message);
                 if (Owner != null)
                 {
                     MessageBox.Show(Owner, message, title, MessageBoxButton.OK, MessageBoxImage.Error);
@@ -205,7 +208,7 @@ namespace WebChromiumCcsipro.UI
             {
                 title = Resources.Language.lang.WarningCaption;
             }
-            LoggerExtensions.Warning(Logger, DialogServiceEvents.ShowWarning, "{Title}: {ErrorMessage}", title, message);
+            Domain.Extensions.LoggerExtensions.Warning(Logger, DialogServiceEvents.ShowWarning, "{Title}: {ErrorMessage}", title, message);
             var task = Task.Run(() =>
             {
                 if (Owner != null)
@@ -238,18 +241,18 @@ namespace WebChromiumCcsipro.UI
 
         private void ShowInformation(string message, string title, Action afterHideCallback)
         {
-            LoggerExtensions.Information(Logger, DialogServiceEvents.ShowInformation, "{Title}: {Message}", title, message);
+            Domain.Extensions.LoggerExtensions.Information(Logger, DialogServiceEvents.ShowInformation, "{Title}: {Message}", title, message);
             MessageBox.Show(Owner, message, title, MessageBoxButton.OK, MessageBoxImage.Information);
             afterHideCallback?.Invoke();
         }
 
         private bool ShowConfirmation(string message, string title, Action<bool> afterHideCallback, bool defaultCancel)
         {
-            LoggerExtensions.Debug(Logger, DialogServiceEvents.ShowConfirmation, "{Title}: {Message}", title, message);
+            Domain.Extensions.LoggerExtensions.Debug(Logger, DialogServiceEvents.ShowConfirmation, "{Title}: {Message}", title, message);
             var response = MessageBox.Show(Owner, message, title, MessageBoxButton.OKCancel, MessageBoxImage.Warning, defaultCancel ? MessageBoxResult.Cancel : MessageBoxResult.OK);
             var confirm = response == MessageBoxResult.OK;
             afterHideCallback?.Invoke(confirm);
-            LoggerExtensions.Information(Logger, DialogServiceEvents.ShowConfirmation, "{Title}: {Message} Confirmed: {Confirmed}", title, message, confirm);
+            Domain.Extensions.LoggerExtensions.Information(Logger, DialogServiceEvents.ShowConfirmation, "{Title}: {Message} Confirmed: {Confirmed}", title, message, confirm);
             return confirm;
         }
 

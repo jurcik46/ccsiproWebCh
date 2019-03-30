@@ -1,4 +1,6 @@
-﻿namespace WebChromiumCcsipro.Domain.Messages
+﻿using WebChromiumCcsipro.Domain.Enums;
+
+namespace WebChromiumCcsipro.Domain.Messages
 {
     public class TrayIconsStatusMessage
     {

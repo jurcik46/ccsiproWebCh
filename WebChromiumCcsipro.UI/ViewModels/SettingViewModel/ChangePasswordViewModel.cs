@@ -7,6 +7,8 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using Serilog;
+using WebChromiumCcsipro.Domain.Enums;
+using WebChromiumCcsipro.Domain.Extensions;
 using WebChromiumCcsipro.Resources.Language;
 
 namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel

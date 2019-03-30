@@ -10,8 +10,11 @@ using Serilog;
 using Serilog.Core;
 using WebChromiumCcsipro.API.Enums;
 using WebChromiumCcsipro.API.Models;
+using WebChromiumCcsipro.Domain.Extensions;
+using WebChromiumCcsipro.Domain.Interfaces.IServices;
+using WebChromiumCcsipro.Domain.Messages;
 using WebChromiumCcsipro.Resources.Language;
-using LoggerExtensions = WebChromiumCcsipro.Resources.Extensions.LoggerExtensions;
+using LoggerExtensions = WebChromiumCcsipro.Domain.Extensions.LoggerExtensions;
 
 
 namespace WebChromiumCcsipro.API

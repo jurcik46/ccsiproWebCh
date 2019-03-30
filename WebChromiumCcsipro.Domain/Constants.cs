@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WebChromiumCcsipro.Resources
+namespace WebChromiumCcsipro.Domain
 {
     public class Constants
     {

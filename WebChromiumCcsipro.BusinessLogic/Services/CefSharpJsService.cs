@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using WebChromiumCcsipro.Domain.Interfaces.IServices;
 
 namespace WebChromiumCcsipro.BusinessLogic.Services
 {

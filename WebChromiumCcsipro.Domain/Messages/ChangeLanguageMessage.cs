@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace WebChromiumCcsipro.Domain.Messages
 {

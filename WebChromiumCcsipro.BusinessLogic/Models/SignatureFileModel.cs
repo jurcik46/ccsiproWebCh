@@ -1,5 +1,5 @@
 ﻿using System;
-
+using WebChromiumCcsipro.Domain.Interfaces;
 namespace WebChromiumCcsipro.BusinessLogic.Models
 {
     public class SignatureFileModel : ISignatureFileModel

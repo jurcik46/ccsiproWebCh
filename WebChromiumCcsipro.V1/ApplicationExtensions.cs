@@ -15,10 +15,13 @@ using GalaSoft.MvvmLight.Threading;
 using Serilog;
 using Serilog.Core;
 using Serilog.Events;
-using WebChromiumCcsipro.Controls;
+using WebChromiumCcsipro.BusinessLogic;
+using WebChromiumCcsipro.Domain.Enums;
+using WebChromiumCcsipro.Domain.Extensions;
+using WebChromiumCcsipro.Domain.Messages;
 using WebChromiumCcsipro.UI.ViewModels;
-using Constants = WebChromiumCcsipro.Resources.Constants;
-using LoggerExtensions = WebChromiumCcsipro.Resources.Extensions.LoggerExtensions;
+using Constants = WebChromiumCcsipro.Domain.Constants;
+using LoggerExtensions = WebChromiumCcsipro.Domain.Extensions.LoggerExtensions;
 
 namespace WebChromiumCcsipro.V1
 {

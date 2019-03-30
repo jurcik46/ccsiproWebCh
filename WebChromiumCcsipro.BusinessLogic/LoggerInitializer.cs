@@ -1,8 +1,15 @@
 ﻿using System;
 using System.Globalization;
 using System.IO;
-using Constants = WebChromiumCcsipro.Resources.Constants;
-using LoggerExtensions = WebChromiumCcsipro.Resources.Extensions.LoggerExtensions;
+using Serilog;
+using Serilog.Core;
+using Serilog.Events;
+using Serilog.Exceptions;
+using Destructurama;
+using WebChromiumCcsipro.Domain.Enums;
+using WebChromiumCcsipro.Domain.Interfaces.IServices;
+using Constants = WebChromiumCcsipro.Domain.Constants;
+using LoggerExtensions = WebChromiumCcsipro.Domain.Extensions.LoggerExtensions;
 
 namespace WebChromiumCcsipro.BusinessLogic
 {

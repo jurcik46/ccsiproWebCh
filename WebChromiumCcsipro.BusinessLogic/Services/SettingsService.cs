@@ -1,4 +1,12 @@
 ﻿using System.Globalization;
+using Destructurama.Attributed;
+using GalaSoft.MvvmLight.Messaging;
+using Serilog;
+using WebChromiumCcsipro.Domain.Enums;
+using WebChromiumCcsipro.Domain.Extensions;
+using WebChromiumCcsipro.Domain.Interfaces.IServices;
+using WebChromiumCcsipro.Domain.Messages;
+using WebChromiumCcsipro.Resources.Settings;
 
 namespace WebChromiumCcsipro.BusinessLogic.Services
 {

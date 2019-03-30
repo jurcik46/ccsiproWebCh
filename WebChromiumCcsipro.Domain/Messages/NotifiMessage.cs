@@ -1,4 +1,7 @@
-﻿namespace WebChromiumCcsipro.Domain.Messages
+﻿using Notifications.Wpf;
+using WebChromiumCcsipro.Resources.Settings;
+
+namespace WebChromiumCcsipro.Domain.Messages
 {
     public class NotifiMessage
     {

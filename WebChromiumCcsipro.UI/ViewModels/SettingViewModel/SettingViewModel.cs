@@ -5,6 +5,10 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using Serilog;
+using WebChromiumCcsipro.Domain.Enums;
+using WebChromiumCcsipro.Domain.Extensions;
+using WebChromiumCcsipro.Domain.Interfaces.IServices;
+using WebChromiumCcsipro.Domain.Messages;
 using WebChromiumCcsipro.Resources.Language;
 using WebChromiumCcsipro.UI.Views.SettingsWindow;
 

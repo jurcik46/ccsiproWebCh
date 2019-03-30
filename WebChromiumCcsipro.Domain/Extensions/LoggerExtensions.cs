@@ -2,6 +2,11 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
+using GalaSoft.MvvmLight.Messaging;
+using Serilog;
+using Serilog.Events;
+using WebChromiumCcsipro.Domain.Enums;
+using WebChromiumCcsipro.Domain.Interfaces;
 
 namespace WebChromiumCcsipro.Domain.Extensions
 {

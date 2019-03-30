@@ -157,6 +157,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WebChromiumCcsipro.BusinessLogic\WebChromiumCcsipro.BusinessLogic.csproj">
+      <Project>{144E34E8-BC4D-44B8-AB36-A82B3BEAD2C4}</Project>
+      <Name>WebChromiumCcsipro.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebChromiumCcsipro.Domain\WebChromiumCcsipro.Domain.csproj">
+      <Project>{0B595E38-8BE5-4682-8C09-A70825554E65}</Project>
+      <Name>WebChromiumCcsipro.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WebChromiumCcsipro.Resources\WebChromiumCcsipro.Resources.csproj">
       <Project>{11c2fbd5-8960-42f2-a9bc-e6494d3c55e2}</Project>
       <Name>WebChromiumCcsipro.Resources</Name>

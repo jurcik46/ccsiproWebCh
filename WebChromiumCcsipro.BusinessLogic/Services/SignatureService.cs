@@ -3,6 +3,15 @@ using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading;
+using GalaSoft.MvvmLight.Messaging;
+using Serilog;
+using WebChromiumCcsipro.Domain.Enums;
+using WebChromiumCcsipro.Domain.Extensions;
+using WebChromiumCcsipro.Domain.Interfaces;
+using WebChromiumCcsipro.Domain.Interfaces.IServices;
+using WebChromiumCcsipro.Domain.Messages;
+using WebChromiumCcsipro.Resources.Language;
+using WebChromiumCcsipro.Resources.Settings;
 
 namespace WebChromiumCcsipro.BusinessLogic.Services
 {
@@ -46,7 +55,7 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
                     // prida typ suboru na konci hashu
                     string fileName = SignatureFileModel.Hash + SignatureFileModel.PdfFilePath.Substring(SignatureFileModel.PdfFilePath.LastIndexOf("."));
                     // Vytvori processname z options a vyplni paramatere {0} - filename {1} - directhoryPath
-                    string processName = string.Format((string) SettingsService.ProcessName, fileName, directhoryPath); ;
+                    string processName = string.Format((string)SettingsService.ProcessName, fileName, directhoryPath); ;
 
                     /// vytvori nove zlozku 
                     if (CreateDirectory(ref directhoryPath))
@@ -254,7 +263,7 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
         private bool FindWindowAndClose(bool close, string processName)
         {
             //FilePath = Path.GetFileName(FilePath);
-            var caption = string.Format(processName, (object) SignatureFileModel.PdfFilePath);// + " - Visual Studio Code";//string.Format(SettingsService.SignWindowCaptionFormat, FilePath);
+            var caption = string.Format(processName, (object)SignatureFileModel.PdfFilePath);// + " - Visual Studio Code";//string.Format(SettingsService.SignWindowCaptionFormat, FilePath);
             var windowPtr = FindWindowByCaption(IntPtr.Zero, caption);
             if (windowPtr == IntPtr.Zero)
             {
