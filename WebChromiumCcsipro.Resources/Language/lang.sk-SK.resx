@@ -217,6 +217,9 @@
   <data name="SettingButtonChangePassword" xml:space="preserve">
     <value>Zmeniť heslo do nastavenia</value>
   </data>
+  <data name="SettingButtonServer" xml:space="preserve">
+    <value>Pripojenie na Server</value>
+  </data>
   <data name="SettingButtonSignature" xml:space="preserve">
     <value>BOZP Podpísovanie</value>
   </data>

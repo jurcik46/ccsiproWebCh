@@ -359,6 +359,15 @@ namespace WebChromiumCcsipro.Resources.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Server connection.
+        /// </summary>
+        public static string SettingButtonServer {
+            get {
+                return ResourceManager.GetString("SettingButtonServer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to BOZP Signature.
         /// </summary>
         public static string SettingButtonSignature {
