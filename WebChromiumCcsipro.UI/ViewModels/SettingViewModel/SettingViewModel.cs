@@ -71,7 +71,6 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
             viewModel.CloseAction = () => window.Close();
             window.DataContext = viewModel;
             window.ShowDialog();
-
         }
 
         private bool CanSignatureSetting()
@@ -108,7 +107,6 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
                     Title = lang.ChangePasswodWindowNotificationTitle,
                     Msg = lang.ChangePasswodWindowNotificationInfoAbouChange,
                     IconType = Notifications.Wpf.NotificationType.Success,
-                    ExpTime = 4
                 });
             }
         }
