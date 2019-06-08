@@ -341,6 +341,15 @@ namespace WebChromiumCcsipro.Resources.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Settings to connect to Server.
+        /// </summary>
+        public static string ServerSettingWindowTitle {
+            get {
+                return ResourceManager.GetString("ServerSettingWindowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CCSIpro Chromium.
         /// </summary>
         public static string SettingButtonApplication {

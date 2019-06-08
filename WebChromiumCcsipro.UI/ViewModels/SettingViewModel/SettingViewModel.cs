@@ -21,6 +21,7 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
         public RelayCommand ApplicationSettingCommand { get; set; }
         public RelayCommand SignatureSettingCommand { get; set; }
         public RelayCommand ChangePasswordCommand { get; set; }
+        public RelayCommand ServerSettingCommand { get; set; }
         private ISettingsService SettingService { get; set; }
         private IDialogServiceWithOwner DialogService { get; set; }
 
@@ -39,8 +40,23 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
             ApplicationSettingCommand = new RelayCommand(ApplicationSetting, CanApplicationSetting);
             SignatureSettingCommand = new RelayCommand(SignatureSetting, CanSignatureSetting);
             ChangePasswordCommand = new RelayCommand(ChangePassword, CanChangePassword);
+            ServerSettingCommand = new RelayCommand(ServerSetting, CanServerSetting);
         }
 
+        private bool CanServerSetting()
+        {
+            return true;
+        }
+
+        private void ServerSetting()
+        {
+            Logger.Information(SettingViewModelEvents.ServerSettingCommand);
+            var viewModel = new ServerSettingViewModel(SettingService);
+            var window = new ServerSettingWindowView();
+            viewModel.CloseAction = () => window.Close();
+            window.DataContext = viewModel;
+            window.ShowDialog();
+        }
 
         private bool CanApplicationSetting()
         {

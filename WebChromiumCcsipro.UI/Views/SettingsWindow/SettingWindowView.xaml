@@ -28,9 +28,10 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
+
         <Button Grid.Column="0" Grid.Row="0" Content="{x:Static lang:lang.SettingButtonApplication}" Command="{Binding ApplicationSettingCommand}"/>
         <Button Grid.Column="1" Grid.Row="0" Content="{x:Static lang:lang.SettingButtonChangePassword}" Command="{Binding ChangePasswordCommand}"/>
         <Button Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Content="{x:Static lang:lang.SettingButtonSignature}" Command="{Binding SignatureSettingCommand}"/>
-        <Button Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Content="{x:Static lang:lang.SettingButtonServer}" Command="{Binding SignatureSettingCommand}"/>
+        <Button Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Content="{x:Static lang:lang.SettingButtonServer}" Command="{Binding ServerSettingCommand}"/>
     </Grid>
 </Window>

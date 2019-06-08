@@ -211,6 +211,9 @@
   <data name="MainWindowTitle" xml:space="preserve">
     <value>CCSIPro Chromium</value>
   </data>
+  <data name="ServerSettingWindowTitle" xml:space="preserve">
+    <value>Nastavenia pre pripojenie na Server</value>
+  </data>
   <data name="SettingButtonApplication" xml:space="preserve">
     <value>CCSIpro Chromium</value>
   </data>

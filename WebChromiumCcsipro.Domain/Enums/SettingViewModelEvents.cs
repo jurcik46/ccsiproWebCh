@@ -4,6 +4,7 @@
     {
         CreateInstance,
         ApplicationSettingCommand,
+        ServerSettingCommand,
         SignatureSettingCommand,
         ChangePasswordCommand,
         ChangePasswordSuccessful,
