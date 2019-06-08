@@ -93,6 +93,7 @@
     <Compile Include="Enums\ChangePasswordViewModelEvents.cs" />
     <Compile Include="Enums\DialogServiceEvents.cs" />
     <Compile Include="Enums\MainViewModelEvents.cs" />
+    <Compile Include="Enums\ServerSettingViewModelEvents.cs" />
     <Compile Include="Enums\SettingsServiceEvents.cs" />
     <Compile Include="Enums\SettingViewModelEvents.cs" />
     <Compile Include="Enums\SignatureServiceEvents.cs" />

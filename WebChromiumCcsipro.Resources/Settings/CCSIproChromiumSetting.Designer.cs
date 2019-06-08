@@ -85,17 +85,6 @@ namespace WebChromiumCcsipro.Resources.Settings {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::System.Collections.Specialized.StringCollection AllowedUrl {
-            get {
-                return ((global::System.Collections.Specialized.StringCollection)(this["AllowedUrl"]));
-            }
-            set {
-                this["AllowedUrl"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string PasswordSalt {
             get {
@@ -133,36 +122,24 @@ namespace WebChromiumCcsipro.Resources.Settings {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string WebLogin {
+        public string ServerIp {
             get {
-                return ((string)(this["WebLogin"]));
+                return ((string)(this["ServerIp"]));
             }
             set {
-                this["WebLogin"] = value;
+                this["ServerIp"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string WebPassowrd {
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ServerPort {
             get {
-                return ((string)(this["WebPassowrd"]));
+                return ((int)(this["ServerPort"]));
             }
             set {
-                this["WebPassowrd"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string AllowedSite {
-            get {
-                return ((string)(this["AllowedSite"]));
-            }
-            set {
-                this["AllowedSite"] = value;
+                this["ServerPort"] = value;
             }
         }
     }

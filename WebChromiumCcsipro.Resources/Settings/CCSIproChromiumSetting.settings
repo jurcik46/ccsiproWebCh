@@ -17,9 +17,6 @@
     <Setting Name="HomePage" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="AllowedUrl" Type="System.Collections.Specialized.StringCollection" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
     <Setting Name="PasswordSalt" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
@@ -29,14 +26,11 @@
     <Setting Name="CompanyName" Type="System.String" Scope="User">
       <Value Profile="(Default)">CCSIPro.sk</Value>
     </Setting>
-    <Setting Name="WebLogin" Type="System.String" Scope="User">
+    <Setting Name="ServerIp" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="WebPassowrd" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="AllowedSite" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="ServerPort" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
   </Settings>
 </SettingsFile>

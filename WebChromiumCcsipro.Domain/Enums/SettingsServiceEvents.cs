@@ -9,6 +9,8 @@
         SignatureSettingLoading,
         ChromiumSettingLoading,
         SignatureSettingSave,
+        ServerSettingSave,
+        ServerSettingLoad,
         ChromiumSettingSave
     }
 }

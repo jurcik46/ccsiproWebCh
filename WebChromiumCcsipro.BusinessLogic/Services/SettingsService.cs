@@ -16,19 +16,23 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
         private ILogger Logger => Log.Logger.ForContext<SettingsService>();
 
         #region Signature setting
+
         public string ApiLink { get; set; }
         public string ApiKey { get; set; }
         public string ProgramPath { get; set; }
         public string ProcessName { get; set; }
         public int SignatureTimeOut { get; set; }
+
         #endregion
 
         #region Chromium setting
+
         public string ObjectId { get; set; }
         public string UserId { get; set; }
         public string HomePage { get; set; }
         private CultureInfo _culture;
         private bool _langChange;
+
         public CultureInfo Culture
         {
             get { return _culture; }
@@ -43,7 +47,9 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
                 }
             }
         }
+
         private string _language;
+
         public string Language
         {
             get { return _language; }
@@ -56,7 +62,14 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
 
         public string PasswordSalt { get; set; }
         public string PasswordSetting { get; set; }
+
         #endregion
+
+        #region Server setting
+        public string ServerIp { get; set; }
+        public int ServerPort { get; set; }
+        #endregion
+
 
         public SettingsService()
         {
@@ -84,6 +97,7 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
             Logger.Information(SettingsServiceEvents.LoadingAllSetting);
             ChromiumSettingLoad();
             SignatureSettingLoad();
+            ServerSettingLoad();
         }
 
         public void SignatureSettingLoad()
@@ -105,12 +119,17 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
             Language = CCSIproChromiumSetting.Default.Language;
             PasswordSetting = CCSIproChromiumSetting.Default.PasswordSetting;
             PasswordSalt = CCSIproChromiumSetting.Default.PasswordSalt;
+        }
 
+        private void ServerSettingLoad()
+        {
+            Logger.Information(SettingsServiceEvents.ServerSettingLoad);
+            ServerIp = CCSIproChromiumSetting.Default.ServerIp;
+            ServerPort = CCSIproChromiumSetting.Default.ServerPort;
         }
 
         public void SaveSetting()
         {
-
         }
 
         public void SignatureSettingSave(string apiLink, string apiKey, string programPath, string processName, int signatureTimeOut = 100)
@@ -137,11 +156,16 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
             CCSIproChromiumSetting.Default.PasswordSetting = PasswordSetting;
             CCSIproChromiumSetting.Default.Save();
             ChromiumSettingLoad();
-
         }
 
+        public void ServerSettingSave(string serverIp, int serverPort)
+        {
+            Logger.Information(SettingsServiceEvents.ServerSettingSave);
+            CCSIproChromiumSetting.Default.ServerIp = serverIp;
+            CCSIproChromiumSetting.Default.ServerPort = serverPort;
+            CCSIproChromiumSetting.Default.Save();
+            ServerSettingLoad();
 
-
-
+        }
     }
 }

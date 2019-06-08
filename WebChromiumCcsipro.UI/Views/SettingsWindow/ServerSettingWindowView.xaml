@@ -11,15 +11,15 @@
         MinHeight="150" MinWidth="450" 
         MaxHeight="300" MaxWidth="800" WindowStartupLocation="CenterScreen">
     <Border Padding="10">
-        <!-- <StackPanel> -->
         <Grid>
             <Grid.Resources>
                 <Style TargetType="{x:Type TextBox}">
-                    <Setter Property="Margin" Value="5 5 0 5" />
+                    <Setter Property="Margin" Value="5 10 0 10" />
                     <Setter Property="Height" Value="20" />
                 </Style>
                 <Style TargetType="{x:Type TextBlock}">
-                    <Setter Property="Margin" Value="5 5 0 5" />
+                    <Setter Property="Margin" Value="5 10 0 10" />
+                    <Setter Property="Height" Value="20" />
                 </Style>
             </Grid.Resources>
             <!-- Definovanie stlpcov -->
@@ -41,9 +41,8 @@
 
             <!-- Texboxy s nastaveniamy -->
             <StackPanel VerticalAlignment="Center" Grid.Column="1" Grid.Row="0">
-                <TextBox Text="{Binding ObjectId, Mode=TwoWay}" />
-                <TextBox Text="{Binding UserId, Mode=TwoWay}"/>
-
+                <TextBox Text="{Binding ServerIp, Mode=TwoWay}" />
+                <TextBox Text="{Binding ServerPort, Mode=TwoWay}"/>
 
             </StackPanel>
             <Button Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" IsDefault="True"

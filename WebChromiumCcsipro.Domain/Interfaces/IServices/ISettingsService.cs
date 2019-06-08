@@ -21,10 +21,16 @@ namespace WebChromiumCcsipro.Domain.Interfaces.IServices
         string PasswordSalt { get; set; }
         string PasswordSetting { get; set; }
         #endregion
+
+        #region Server setting
+        string ServerIp { get; set; }
+        int ServerPort { get; set; }
+        #endregion
         void CreatePassword(string password);
         void LoadAllSetting();
         void SaveSetting();
         void SignatureSettingLoad();
+        void ServerSettingSave(string serverIp, int serverPort);
         void SignatureSettingSave(string apiLink, string apiKey, string programPath, string processName,
             int signatureTimeOut = 100);
         void ChromiumSettingSave(string objectId, string userId, string homePage, string language);
