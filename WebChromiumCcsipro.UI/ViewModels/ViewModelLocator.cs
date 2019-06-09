@@ -26,20 +26,18 @@ namespace WebChromiumCcsipro.UI.ViewModels
             {
                 // Create design time view services and models
                 //SimpleIoc.Default.Register<ITestService, DesignTestService>();
-                //                SimpleIoc.Default.Register<IVideoService, VideoService>();
             }
             else
             {
                 // Create run time view services and models
-                //SimpleIoc.Default.Register<ITestService, TestService>();
-                //                SimpleIoc.Default.Register<ISettingsService, SettingsService>();
                 SimpleIoc.Default.Register<IDialogServiceWithOwner, DialogService>();
                 SimpleIoc.Default.Register<IApiService, ApiService>();
+                SimpleIoc.Default.Register<ISocketService, SocketService>();
                 SimpleIoc.Default.Register<ISignatureService, SignatureService>();
                 SimpleIoc.Default.Register<ICefSharpJsService, CefSharpJsService>();
+
             }
             RegisterViewModels();
-
         }
 
         internal static void RegisterViewModels()
@@ -48,18 +46,15 @@ namespace WebChromiumCcsipro.UI.ViewModels
             {
                 SimpleIoc.Default.Register<MainViewModel>();
             }
-
         }
-
-
 
         public static LoggingLevelSwitch LoggingLevelSwitch => _loggingLevelSwitch ?? (_loggingLevelSwitch = new LoggingLevelSwitch());
         public static SplashScreen SplashScreen { get; set; }
         public static ISettingsService SettingsService => ServiceLocator.Current.GetInstance<ISettingsService>();
         public static IDialogServiceWithOwner DialogService => ServiceLocator.Current.GetInstance<IDialogServiceWithOwner>();
         public static MainViewModel MainViewModel => ServiceLocator.Current.GetInstance<MainViewModel>();
+        public static ISocketService SocketService => ServiceLocator.Current.GetInstance<ISocketService>();
         public static ICefSharpJsService CefSharpJsService => ServiceLocator.Current.GetInstance<ICefSharpJsService>();
         //        public static SettingViewModel.SettingViewModel SettingViewModel => ServiceLocator.Current.GetInstance<SettingViewModel.SettingViewModel>();
-
     }
 }
