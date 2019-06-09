@@ -2,6 +2,7 @@
 {
     public enum ApiServiceEvents
     {
+        CreateInstance,
         GetDocumentToSignature,
         GetDocumentToSignatureNotFound,
         GetDocumentToSignatureError,

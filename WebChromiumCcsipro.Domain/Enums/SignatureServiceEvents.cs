@@ -2,6 +2,7 @@
 {
     public enum SignatureServiceEvents
     {
+        Create,
         StartSign,
         CreateDirectory,
         CreateDirectoryError,
