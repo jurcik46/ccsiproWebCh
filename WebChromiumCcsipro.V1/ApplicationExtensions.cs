@@ -53,7 +53,7 @@ namespace WebChromiumCcsipro.V1
                 var culture = message.Content;
                 SetLanguage(logger, culture, true, app, newWindowFunc, appResourcesAction);
             });
-
+            ViewModelLocator.SocketService.Connect();
         }
 
 
@@ -86,15 +86,14 @@ namespace WebChromiumCcsipro.V1
             //            SimpleIoc.Default.Register<MainViewModel>();
             //            var newWindow = newWindowFunc();
             //            newWindow.Show();
-
         }
 
         public static void OnExit(ILogger logger)
         {
+            ViewModelLocator.SocketService.Disconnect();
             LoggerExtensions.Information(logger, ApplicationEvents.ApplicationEnded, "Application ended at {DateTime}", DateTime.Now);
             ((IDisposable)Log.Logger).Dispose();
         }
-
 
     }
 }
