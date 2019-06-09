@@ -61,7 +61,7 @@ namespace WebChromiumCcsipro.Resources.Language {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to asda.
+        ///   Looks up a localized string similar to There is a connection problem.
         /// </summary>
         public static string ApiNotificationExecuteConnectionInfo {
             get {
@@ -350,6 +350,15 @@ namespace WebChromiumCcsipro.Resources.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The Ip server must have the correct format!.
+        /// </summary>
+        public static string ServerSettingWindowSaveButtonToolTip {
+            get {
+                return ResourceManager.GetString("ServerSettingWindowSaveButtonToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Settings to connect to Server.
         /// </summary>
         public static string ServerSettingWindowTitle {
@@ -571,6 +580,24 @@ namespace WebChromiumCcsipro.Resources.Language {
         public static string SignatureSettingWindowTitle {
             get {
                 return ResourceManager.GetString("SignatureSettingWindowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There was a problem connecting to the server.
+        /// </summary>
+        public static string SocketNotificationConnectionError {
+            get {
+                return ResourceManager.GetString("SocketNotificationConnectionError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Server connection.
+        /// </summary>
+        public static string SocketNotificationConnectionTitle {
+            get {
+                return ResourceManager.GetString("SocketNotificationConnectionTitle", resourceCulture);
             }
         }
         
