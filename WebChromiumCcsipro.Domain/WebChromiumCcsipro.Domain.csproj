@@ -98,6 +98,7 @@
     <Compile Include="Enums\SettingViewModelEvents.cs" />
     <Compile Include="Enums\SignatureServiceEvents.cs" />
     <Compile Include="Enums\SignatureSettingViewModelEvents.cs" />
+    <Compile Include="Enums\SocketServiceEvents.cs" />
     <Compile Include="Enums\TrayIconsStatus.cs" />
     <Compile Include="Extensions\CryptoExtension.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
@@ -109,10 +110,11 @@
     <Compile Include="Interfaces\IServices\IDialogServiceWithOwner.cs" />
     <Compile Include="Interfaces\IServices\ISettingsService.cs" />
     <Compile Include="Interfaces\IServices\ISignatureService.cs" />
+    <Compile Include="Interfaces\IServices\ISocketService.cs" />
     <Compile Include="Interfaces\ISignatureFileModel.cs" />
     <Compile Include="Messages\ChangeLanguageMessage.cs" />
     <Compile Include="Messages\ExecuteJavaScriptMessage.cs" />
-    <Compile Include="Messages\NotifiMessage.cs" />
+    <Compile Include="Messages\NotifyMessage.cs" />
     <Compile Include="Messages\TrayIconsStatusMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

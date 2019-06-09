@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net;
+using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using Serilog;
 using WebChromiumCcsipro.Domain.Enums;
@@ -8,7 +9,7 @@ using WebChromiumCcsipro.Domain.Interfaces.IServices;
 
 namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
 {
-    public class ServerSettingViewModel
+    public class ServerSettingViewModel : ViewModelBase
     {
         public ILogger Logger => Log.Logger.ForContext<ServerSettingViewModel>();
         public Action CloseAction { get; set; }
@@ -29,7 +30,7 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
 
         public ServerSettingViewModel(ISettingsService settingsService)
         {
-            Logger.Information(ServerSettingViewModelEvents.CreateInstance);
+            Logger.Information(ServerSettingViewModelEvents.CreateInstance, "Creating new instance of ServerSettingViewModel");
             SaveCommand = new RelayCommand(Save, CanSave);
             _settingsService = settingsService;
             ServerIp = _settingsService.ServerIp;

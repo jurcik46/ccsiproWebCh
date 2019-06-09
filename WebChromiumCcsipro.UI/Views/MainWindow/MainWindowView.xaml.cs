@@ -36,11 +36,11 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
         {
             InitializeComponent();
             RegistrationMessage();
-            this.DataContext = ViewModelLocator.MainViewModel;
+            DataContext = ViewModelLocator.MainViewModel;
 
             notifiWindow = new NotifiWindowView();
             notifiWindow.Show();
-            this.trayIconTaskbar.Icon = new Icon(@"Images/Icons/online.ico");
+            trayIconTaskbar.Icon = new Icon(@"Images/Icons/online.ico");
         }
 
 
@@ -89,8 +89,6 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
                         break;
                     case TrayIconsStatus.Working:
                         trayIconTaskbar.Icon = new Icon(@"Images/Icons/working.ico");
-                        break;
-                    default:
                         break;
                 }
             });

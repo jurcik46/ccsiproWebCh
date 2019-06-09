@@ -27,7 +27,7 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
 
         public SettingViewModel(ISettingsService settingService, IDialogServiceWithOwner dialogService)
         {
-            Logger.Information(SettingViewModelEvents.CreateInstance);
+            Logger.Information(SettingViewModelEvents.CreateInstance, "Creating new instance of SettingViewModel");
             SettingService = settingService;
             DialogService = dialogService;
             CommandInit();
@@ -102,7 +102,7 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
             {
                 SettingService.CreatePassword(newPassword);
                 Logger.Information(SettingViewModelEvents.ChangePasswordSuccessful);
-                Messenger.Default.Send(new NotifiMessage()
+                Messenger.Default.Send(new NotifyMessage()
                 {
                     Title = lang.ChangePasswodWindowNotificationTitle,
                     Msg = lang.ChangePasswodWindowNotificationInfoAbouChange,

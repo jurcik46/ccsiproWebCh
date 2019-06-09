@@ -43,7 +43,7 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
 
         public ApplicationSettingViewModel(ISettingsService settingsService)
         {
-            Logger.Information(ApplicationSettingViewModelEvents.CreateInstance);
+            Logger.Information(ApplicationSettingViewModelEvents.CreateInstance, "Creating new instance of ApplicationSettingViewModel");
             SettingsService = settingsService;
             ObjectId = SettingsService.ObjectId;
             UserId = SettingsService.UserId;

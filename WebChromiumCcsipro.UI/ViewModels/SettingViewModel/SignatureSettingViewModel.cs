@@ -28,7 +28,7 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
 
         public SignatureSettingViewModel(ISettingsService settingsService)
         {
-            Logger.Information(SignatureSettingViewModelEvents.CreateInstance);
+            Logger.Information(SignatureSettingViewModelEvents.CreateInstance, "Creating new instance of SignatureSettingViewModel");
             SettingsService = settingsService;
             ApiLink = SettingsService.ApiLink;
             ApiKey = SettingsService.ApiKey;
@@ -54,12 +54,5 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
             }
 
         }
-
-
-
-
-
-
-
     }
 }

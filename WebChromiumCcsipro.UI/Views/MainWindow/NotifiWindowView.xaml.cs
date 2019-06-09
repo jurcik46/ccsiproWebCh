@@ -32,7 +32,7 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
 
             content = new NotificationContent();
 
-            Messenger.Default.Register<NotifiMessage>(this, (message) =>
+            Messenger.Default.Register<NotifyMessage>(this, (message) =>
             {
                 content.Title = message.Title;
                 content.Message = message.Msg;

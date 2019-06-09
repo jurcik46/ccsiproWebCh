@@ -67,9 +67,7 @@
         <Border Grid.Row="1" BorderBrush="Gray" BorderThickness="0,1">
             <cefSharp:ChromiumWebBrowser 
                                      x:Name="Browser"
-                                     Address="{Binding UrlAddress, Mode=TwoWay}"
-                                        
-                                     >
+                                     Address="{Binding UrlAddress, Mode=TwoWay}"                                     >
                 <i:Interaction.Behaviors>
                     <behaviours:HoverLinkBehaviour x:Name="HoverLinkBehaviour"/>
                 </i:Interaction.Behaviors>
@@ -109,10 +107,13 @@
             <!-- The taskbar context menu -->
             <tb:TaskbarIcon.ContextMenu>
                 <ContextMenu >
-                    <MenuItem Header="{x:Static lang:lang.MainWindowTaskBarMenuOptions}" Command="{Binding SettingsCommand}" />
+                    <MenuItem Header="{x:Static lang:lang.MainWindowTaskBarMenuOptions}" 
+                              Command="{Binding SettingsCommand}" />
                     <Separator />
-                    <MenuItem Header="{x:Static lang:lang.MainWindowTaskBarMenuRestart}" Command="{Binding RestartCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"/>
-                    <MenuItem Header="{x:Static lang:lang.MainWindowTaskBarMenuExit}" Command="{Binding ExitCommand}" CommandParameter="{Binding ElementName=MainBrowserWindow}"/>
+                    <MenuItem Header="{x:Static lang:lang.MainWindowTaskBarMenuRestart}" 
+                              Command="{Binding RestartCommand}" CommandParameter="{Binding ElementName=MainBrowserWindow}"/>
+                    <MenuItem Header="{x:Static lang:lang.MainWindowTaskBarMenuExit}" 
+                              Command="{Binding ExitCommand}" CommandParameter="{Binding ElementName=MainBrowserWindow}"/>
                 </ContextMenu>
             </tb:TaskbarIcon.ContextMenu>
         </tb:TaskbarIcon>

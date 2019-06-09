@@ -42,7 +42,7 @@ namespace WebChromiumCcsipro.API
             if (response.ErrorException != null)
             {
                 if (response.StatusCode == 0)
-                    Messenger.Default.Send(new NotifiMessage() { Title = lang.ApiNotificationExecuteConnectionTitle, Msg = lang.ApiNotificationExecuteConnectionInfo, IconType = Notifications.Wpf.NotificationType.Error, ExpTime = 10 });
+                    Messenger.Default.Send(new NotifyMessage() { Title = lang.ApiNotificationExecuteConnectionTitle, Msg = lang.ApiNotificationExecuteConnectionInfo, IconType = Notifications.Wpf.NotificationType.Error, ExpTime = 10 });
 
                 LoggerExtensions.Error(LoggerExtensions.With(LoggerExtensions.With(Logger.With("Request", request), "Response", response), "Type", typeof(T).FullName), response.ErrorException, ApiEvents.ExecuteTypeError);
                 return null;

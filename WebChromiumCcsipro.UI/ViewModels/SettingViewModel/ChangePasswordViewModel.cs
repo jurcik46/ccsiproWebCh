@@ -48,8 +48,8 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
 
         public ChangePasswordViewModel()
         {
-            Logger.Information(ChangePasswordViewModelEvents.CreateInstance);
-            this.ChangePassword = new RelayCommand(Change, CanChange, true);
+            Logger.Information(ChangePasswordViewModelEvents.CreateInstance, "Creating new instance of ChangePasswordViewModel");
+            ChangePassword = new RelayCommand(Change, CanChange, true);
         }
 
         private bool CanChange()
@@ -68,10 +68,7 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
         {
             Logger.Information(ChangePasswordViewModelEvents.ChangePasswordCommand);
             NewPassword = Password1;
-            if (CloseAction != null)
-            {
-                CloseAction();
-            }
+            CloseAction?.Invoke();
         }
 
         public Action CloseAction { get; set; }

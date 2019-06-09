@@ -102,6 +102,7 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -115,12 +116,14 @@
   <ItemGroup>
     <Compile Include="Diagnostics.cs" />
     <Compile Include="LoggerInitializer.cs" />
+    <Compile Include="Models\MotionDetectSocketModel.cs" />
     <Compile Include="Models\SignatureFileModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ApiService.cs" />
     <Compile Include="Services\CefSharpJsService.cs" />
     <Compile Include="Services\SettingsService.cs" />
     <Compile Include="Services\SignatureService.cs" />
+    <Compile Include="Services\SocketService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
