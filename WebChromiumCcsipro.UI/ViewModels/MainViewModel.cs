@@ -95,7 +95,7 @@ namespace WebChromiumCcsipro.UI.ViewModels
 
         public MainViewModel(ISettingsService settingService, IDialogServiceWithOwner dialogService, ISignatureService signatureService)
         {
-            Logger.Information(MainViewModelEvents.CreateInstance);
+            Logger.Information(MainViewModelEvents.CreateInstance, "Creating new instance of MainViewModel");
             SettingService = settingService;
             DialogService = dialogService;
             SignatureService = signatureService;
@@ -124,8 +124,6 @@ namespace WebChromiumCcsipro.UI.ViewModels
                     case TrayIconsStatus.Working:
                         ToolTipText = lang.TrayIconToolTipSignatureWorking;
                         break;
-                    default:
-                        break;
                 }
             });
         }
@@ -149,7 +147,7 @@ namespace WebChromiumCcsipro.UI.ViewModels
             {
                 return true;
             }
-            Messenger.Default.Send(new NotifiMessage() { Title = lang.SignatureServiceNotificationTitle, Msg = lang.SignatureServiceNotificationInProccess, IconType = Notifications.Wpf.NotificationType.Error, ExpTime = 5 });
+            Messenger.Default.Send(new NotifyMessage() { Title = lang.SignatureServiceNotificationTitle, Msg = lang.SignatureServiceNotificationInProccess, IconType = Notifications.Wpf.NotificationType.Error, ExpTime = 5 });
             return false;
         }
 
@@ -162,8 +160,6 @@ namespace WebChromiumCcsipro.UI.ViewModels
 
             });
         }
-
-
 
         private bool CanExitApplication(IClosable win)
         {
@@ -206,9 +202,8 @@ namespace WebChromiumCcsipro.UI.ViewModels
         private bool CanOpenSetting()
         {
             if (SettingWindow != null)
-                return (SettingWindow.IsLoaded) ? false : true;
-            else
-                return true;
+                return (!SettingWindow.IsLoaded);
+            return true;
         }
 
         private void OpenSetting()
@@ -219,12 +214,12 @@ namespace WebChromiumCcsipro.UI.ViewModels
                 CCSIproChromiumSetting.Default.PasswordSalt,
                 CCSIproChromiumSetting.Default.PasswordSetting))
             {
-                Messenger.Default.Send(new NotifiMessage() { Title = lang.EnterSettingWindowNotificationTitle, Msg = lang.EnterSettingWindowNotificationFailedLogin, IconType = Notifications.Wpf.NotificationType.Error, ExpTime = 4 });
+                Messenger.Default.Send(new NotifyMessage() { Title = lang.EnterSettingWindowNotificationTitle, Msg = lang.EnterSettingWindowNotificationFailedLogin, IconType = Notifications.Wpf.NotificationType.Error, ExpTime = 4 });
                 Logger.Debug(MainViewModelEvents.BadPasswordToOptions);
 
                 return;
             }
-            Messenger.Default.Send(new NotifiMessage() { Title = lang.EnterSettingWindowNotificationTitle, Msg = lang.EnterSettingWindowNotificationSuccessLogin, IconType = Notifications.Wpf.NotificationType.Success, ExpTime = 4 });
+            Messenger.Default.Send(new NotifyMessage() { Title = lang.EnterSettingWindowNotificationTitle, Msg = lang.EnterSettingWindowNotificationSuccessLogin, IconType = Notifications.Wpf.NotificationType.Success, ExpTime = 4 });
 
             SettingWindow = new SettingWindowView();
             var settingViewModel = new SettingViewModel.SettingViewModel(SettingService, DialogService);
