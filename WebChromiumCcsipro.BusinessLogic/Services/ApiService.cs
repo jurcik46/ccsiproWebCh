@@ -18,6 +18,7 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
 
         public ApiService(ISettingsService settingsService)
         {
+            Logger.Information(ApiServiceEvents.CreateInstance, "Creating new instance of ApiService");
             SettingsService = settingsService;
         }
 

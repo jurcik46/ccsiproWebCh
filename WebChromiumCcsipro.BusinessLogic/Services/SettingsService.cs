@@ -10,7 +10,7 @@ using WebChromiumCcsipro.Resources.Settings;
 
 namespace WebChromiumCcsipro.BusinessLogic.Services
 {
-    [LogAsScalar]
+
     public class SettingsService : ISettingsService
     {
         private ILogger Logger => Log.Logger.ForContext<SettingsService>();
@@ -73,7 +73,7 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
 
         public SettingsService()
         {
-            Logger.Information(SettingsServiceEvents.CreateInstance);
+            Logger.Information(SettingsServiceEvents.CreateInstance, "Creating new instance of SettingsService");
             LoadAllSetting();
             if (PasswordSetting == "")
             {

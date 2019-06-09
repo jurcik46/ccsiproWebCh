@@ -83,7 +83,7 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
         {
             if (_reconnectCount == 1)
             {
-                Messenger.Default.Send(new NotifiMessage()
+                Messenger.Default.Send(new NotifyMessage()
                 {
                     Title = lang.SocketNotificationConnectionTitle,
                     Msg = lang.SocketNotificationConnectionError,
