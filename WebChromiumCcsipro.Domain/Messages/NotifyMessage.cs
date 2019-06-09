@@ -3,7 +3,7 @@ using WebChromiumCcsipro.Resources.Settings;
 
 namespace WebChromiumCcsipro.Domain.Messages
 {
-    public class NotifiMessage
+    public class NotifyMessage
     {
         private string _appName = CCSIproChromiumSetting.Default.CompanyName + " - ";
         private string _title;
