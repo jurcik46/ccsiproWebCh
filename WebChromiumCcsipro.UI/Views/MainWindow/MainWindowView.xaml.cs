@@ -1,19 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Windows.Threading;
 using CefSharp;
 using GalaSoft.MvvmLight.Messaging;
 using GalaSoft.MvvmLight.Threading;
@@ -71,6 +60,7 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
             Cef.Shutdown();
             trayIconTaskbar.Visibility = Visibility.Hidden;
             trayIconTaskbar.Icon = null;
+            Application.Current.Shutdown();
         }
 
 
@@ -92,15 +82,29 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
                         break;
                 }
             });
-
             Messenger.Default.Register<ExecuteJavaScriptMessage>(this, (message) =>
             {
-                DispatcherHelper.CheckBeginInvokeOnUI(() =>
+                DispatcherHelper.RunAsync(() =>
                 {
-                    Browser.ExecuteScriptAsyncWhenPageLoaded(message.Parameters == null
-                        ? $"window['{message.Function}']()"
-                        : $"window['{message.Function}']('{message.Parameters}')");
-                    // Browser.ExecuteScriptAsyncWhenPageLoaded($"alert('asdas')");
+                    if (message.Parameters == null)
+                    {
+                        Browser.ExecuteScriptAsyncWhenPageLoaded($"window['{message.Function}']()");
+                    }
+                    else
+                    {
+                        var last = message.Parameters.Last();
+                        string js = $"window['{message.Function}'](";
+                        foreach (var param in message.Parameters)
+                        {
+                            js += "'" + param + "'";
+                            if (!param.Equals(last))
+                            {
+                                js += ",";
+                            }
+                        }
+                        js += ")";
+                        Browser.ExecuteScriptAsyncWhenPageLoaded(js);
+                    }
                 });
             });
         }

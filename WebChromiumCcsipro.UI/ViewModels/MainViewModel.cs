@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using GalaSoft.MvvmLight;
@@ -58,7 +60,10 @@ namespace WebChromiumCcsipro.UI.ViewModels
 
         private string _urlAddress;
         private string _toolTipText;
+        private string _notifyBellImgPath;
 
+        private readonly string _bellOnImgPath = @"pack://application:,,,/WebChromiumCcsipro.Resources;component/Images/Buttons/bell_on.png";
+        private readonly string _bellOffImgPath = @"pack://application:,,,/WebChromiumCcsipro.Resources;component/Images/Buttons/bell_off.png";
         public RelayCommand SignatureCommand { get; set; }
         public RelayCommand HomeCommand { get; set; }
         public RelayCommand SettingsCommand { get; set; }
@@ -77,6 +82,16 @@ namespace WebChromiumCcsipro.UI.ViewModels
             set
             {
                 _toolTipText = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public string NotifyBellImgPath
+        {
+            get { return _notifyBellImgPath; }
+            set
+            {
+                _notifyBellImgPath = value;
                 RaisePropertyChanged();
             }
         }
@@ -104,6 +119,7 @@ namespace WebChromiumCcsipro.UI.ViewModels
             UrlAddress = SettingService.HomePage;
             HomeUrl = SettingService.HomePage;
             ToolTipText = lang.TrayIconToolTipDefault;
+            NotifyBellImgPath = _bellOffImgPath;
         }
 
 
@@ -170,11 +186,7 @@ namespace WebChromiumCcsipro.UI.ViewModels
         private void ExitApplication(IClosable win)
         {
             Logger.Information(MainViewModelEvents.ExitApplicationCommand);
-            if (win != null)
-            {
-                win.Close();
-
-            }
+            win?.Close();
             foreach (var window in Application.Current.Windows.Cast<Window>())
             {
                 window.Close();
@@ -190,11 +202,7 @@ namespace WebChromiumCcsipro.UI.ViewModels
         private void RestartApplication(IClosable win)
         {
             Logger.Information(MainViewModelEvents.RestartApplicationCommand);
-            if (win != null)
-            {
-                win.Close();
-            }
-
+            win?.Close();
             Application.Current.Shutdown();
             System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
         }

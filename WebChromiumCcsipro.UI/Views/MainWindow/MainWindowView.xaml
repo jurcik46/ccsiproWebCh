@@ -41,6 +41,7 @@
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition />
                 <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <Button  Command="{Binding BackCommand, ElementName=Browser}" Grid.Column="0" >
                 <Image Source="pack://application:,,,/WebChromiumCcsipro.Resources;component/Images/Buttons/back.png" />
@@ -60,8 +61,12 @@
                 </i:Interaction.Behaviors>
             </TextBox>
             <Button  Command="{Binding PrintCommand, ElementName=Browser}" Grid.Column="5" >
+                <Image Source="{Binding NotifyBellImgPath}" />
+            </Button>
+            <Button  Command="{Binding PrintCommand, ElementName=Browser}" Grid.Column="6" >
                 <Image Source="pack://application:,,,/WebChromiumCcsipro.Resources;component/Images/Buttons/print.png" />
             </Button>
+
             <!--<Button Content="View source" Command="{Binding ViewSourceCommand, ElementName=Browser}" Grid.Column="4" Width="75" />-->
         </Grid>
         <Border Grid.Row="1" BorderBrush="Gray" BorderThickness="0,1">

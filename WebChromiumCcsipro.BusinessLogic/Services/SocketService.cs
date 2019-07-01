@@ -41,6 +41,7 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
             {
                 Reconnect();
             });
+
         }
 
         public void Connect()
@@ -108,7 +109,7 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
         {
             byte[] bytes = new byte[1024];
             receivedBytes = _stream.Read(bytes, 0, bytes.Length);
-            return System.Text.Encoding.UTF8.GetString(bytes);
+            return Encoding.UTF8.GetString(bytes);
         }
 
         public void HandleDataFromSocket()
@@ -122,46 +123,39 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
                     try
                     {
                         SendData(" ");
-
+                        _tcpClient.Close();
                     }
                     catch (Exception errorException)
                     {
-                        Logger.Error(SocketServiceEvents.ConnectError, $"  Source: {errorException.Source} Message: {errorException.Message}   Error {errorException.StackTrace}  ");
-                        break;
+                        Logger.Error(SocketServiceEvents.ConnectError,
+                            $"  Source: {errorException.Source} Message: {errorException.Message}   Error {errorException.StackTrace}  ");
                     }
+                    continue;
                 }
                 Logger.Information(SocketServiceEvents.ReadData, $"Received data: {data}");
-                var jsonData = new JavaScriptSerializer().Deserialize<MotionDetectSocketModel>(data);
-                Console.WriteLine(jsonData.Time);
+
+                string[] splitData = data.Replace("\0", string.Empty).Split(';');
+                Array.Resize(ref splitData, splitData.Length - 1);
+                ExecuteJavaScriptMessage jsExeMessage = new ExecuteJavaScriptMessage() { Function = "motionZoneMovie", Parameters = new string[splitData.Length] };
+                for (int i = 0; i < splitData.Length; i++)
+                {
+                    jsExeMessage.Parameters[i] = splitData[i];
+                }
+                Messenger.Default.Send(jsExeMessage);
+                //var jsonData = new JavaScriptSerializer().Deserialize<MotionDetectSocketModel>(data);
+                //Console.WriteLine(jsonData.Time);
             }
-            Task.Run(() => { Reconnect(); });
+            Task.Run(() =>
+            {
+                Reconnect();
+            });
         }
-        //public bool SendMotionDetectSocket(MotionSocketModel motionSocketModel)
-        //{
-        //    Logger.Debug(SocketServiceEvents.SendMotionDetectSocket);
-        //    if (!_tcpClient.Connected)
-        //        return false;
-        //    var jsonData = new JavaScriptSerializer().Serialize(motionSocketModel);
-        //    try
-        //    {
-        //        SendData(jsonData);
-        //    }
-        //    catch (Exception errorException)
-        //    {
-        //        Logger.Error(SocketServiceEvents.SendMotionDetectSocketError, $" Source: {errorException.Source} Message: {errorException.Message}   Error {errorException.StackTrace}  ");
-        //        Task.Run(() =>
-        //        {
-        //            Reconnect();
-        //        });
-        //        return false;
-        //    }
-        //    return true;
-        //}
+
 
         private void Reconnect()
         {
             _reconnectCount = 0;
-            while (!_tcpClient.Connected)
+            while (_tcpClient != null && !_tcpClient.Connected)
             {
                 _reconnectCount++;
                 Thread.Sleep(_reconnectCount * 1000);
