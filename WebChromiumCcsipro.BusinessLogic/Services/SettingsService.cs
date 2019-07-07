@@ -68,6 +68,8 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
         #region Server setting
         public string ServerIp { get; set; }
         public int ServerPort { get; set; }
+        public string KioskIp { get; set; }
+        public int KioskPort { get; set; }
         #endregion
 
 
@@ -126,6 +128,8 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
             Logger.Information(SettingsServiceEvents.ServerSettingLoad);
             ServerIp = CCSIproChromiumSetting.Default.ServerIp;
             ServerPort = CCSIproChromiumSetting.Default.ServerPort;
+            KioskIp = CCSIproChromiumSetting.Default.KioskIp;
+            KioskPort = CCSIproChromiumSetting.Default.KioskPort;
         }
 
         public void SaveSetting()
@@ -158,11 +162,13 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
             ChromiumSettingLoad();
         }
 
-        public void ServerSettingSave(string serverIp, int serverPort)
+        public void ServerSettingSave(string serverIp, int serverPort, string kioskIp, int kioskPort)
         {
             Logger.Information(SettingsServiceEvents.ServerSettingSave);
             CCSIproChromiumSetting.Default.ServerIp = serverIp;
             CCSIproChromiumSetting.Default.ServerPort = serverPort;
+            CCSIproChromiumSetting.Default.KioskIp = kioskIp;
+            CCSIproChromiumSetting.Default.KioskPort = kioskPort;
             CCSIproChromiumSetting.Default.Save();
             ServerSettingLoad();
 
