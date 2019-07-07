@@ -41,10 +41,7 @@ namespace WebChromiumCcsipro.V1
         {
             DispatcherHelper.Initialize();
             SimpleIoc.Default.Register<ISettingsService, SettingsService>();
-
         }
-
-
 
 
         public App()
@@ -65,7 +62,6 @@ namespace WebChromiumCcsipro.V1
             var app = Current;
             var logger = Logger;
             ApplicationExtensions.InitializeApplication(appName, assembly, app, logger, () => new UI.Views.MainWindow.MainWindowView(), c => V1.Properties.Resources.Culture = c);
-
         }
 
         protected override void OnExit(ExitEventArgs e)

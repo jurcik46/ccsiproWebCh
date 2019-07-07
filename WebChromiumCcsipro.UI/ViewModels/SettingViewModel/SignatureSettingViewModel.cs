@@ -48,10 +48,7 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
             Logger.Information(SignatureSettingViewModelEvents.SaveSettingCommand, $"ApiLink: {ApiLink} ApiKey: {ApiKey} " +
                                                                                    $"ProgramPath: {ProgramPath} ProcessName: {ProcessName} SignatureTimeOut: {SignatureTimeOut}");
             SettingsService.SignatureSettingSave(ApiLink, ApiKey, ProgramPath, ProcessName, SignatureTimeOut);
-            if (CloseAction != null)
-            {
-                CloseAction();
-            }
+            CloseAction?.Invoke();
 
         }
     }

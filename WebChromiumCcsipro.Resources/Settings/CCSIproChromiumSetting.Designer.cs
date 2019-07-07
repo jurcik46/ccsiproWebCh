@@ -142,5 +142,29 @@ namespace WebChromiumCcsipro.Resources.Settings {
                 this["ServerPort"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string KioskIp {
+            get {
+                return ((string)(this["KioskIp"]));
+            }
+            set {
+                this["KioskIp"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int KioskPort {
+            get {
+                return ((int)(this["KioskPort"]));
+            }
+            set {
+                this["KioskPort"] = value;
+            }
+        }
     }
 }
