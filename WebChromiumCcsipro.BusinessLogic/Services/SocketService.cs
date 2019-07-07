@@ -23,10 +23,14 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
     {
         public ILogger Logger => Log.Logger.ForContext<SocketService>();
 
-        private TcpClient _tcpClient;
-        private Stream _stream;
+        private TcpClient _serverTcpClient;
+        private Stream _serverStream;
         private string _serverIp;
         private int _serverPort;
+        private TcpClient _kioskTcpClient;
+        private Stream _kioskStream;
+        private string _kioskIp;
+        private int _kioskPort;
         private int _reconnectCount;
         private ISettingsService _settingsService;
 
@@ -36,27 +40,68 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
             _settingsService = settingsService;
             _serverIp = _settingsService.ServerIp;
             _serverPort = _settingsService.ServerPort;
-            _tcpClient = new TcpClient();
+            _serverTcpClient = new TcpClient();
+            _kioskTcpClient = new TcpClient();
+            _kioskIp = _settingsService.KioskIp;
+            _kioskPort = _settingsService.KioskPort;
             Task.Run(() =>
             {
                 Reconnect();
             });
+            KioskConnect();
+        }
 
+        private void KioskConnect()
+        {
+            //TODO refactor kiosk Connect and make logs 
+            Logger.Debug(SocketServiceEvents.KioskConnect);
+            if (_kioskIp.Equals("") || _kioskPort == 0 || _kioskTcpClient.Connected)
+            {
+                return;
+            }
+
+            try
+            {
+                _kioskTcpClient.Dispose();
+                _kioskTcpClient = new TcpClient();
+                _kioskTcpClient.Connect(_kioskIp, _kioskPort);
+                _kioskStream = _kioskTcpClient.GetStream();
+                //Logger.Information(SocketServiceEvents.ConnectSuccessfully);
+                //Messenger.Default.Send(new TrayIconsStatusMessage()
+                //{
+                //    IconStatus = TrayIconsStatus.Online
+                //});
+
+                //Task.Run(() =>
+                //{
+                //    HandleDataFromSocket();
+                //});
+            }
+            catch (SocketException socketErrorException)
+            {
+                Logger.Error(SocketServiceEvents.ConnectSocketError, $" Message: {socketErrorException.Message} Code: {socketErrorException.SocketErrorCode} Error {socketErrorException.StackTrace} ");
+                //ConnectionExceptionNotify();
+            }
+            catch (Exception errorException)
+            {
+                Logger.Error(SocketServiceEvents.ConnectError, $"  Source: {errorException.Source} Message: {errorException.Message}   Error {errorException.StackTrace}  ");
+                //ConnectionExceptionNotify();
+            }
         }
 
         public void Connect()
         {
             Logger.Debug(SocketServiceEvents.Connect);
-            if (_serverIp.Equals("") || _serverPort == 0 || _tcpClient.Connected)
+            if (_serverIp.Equals("") || _serverPort == 0 || _serverTcpClient.Connected)
             {
                 return;
             }
             try
             {
-                _tcpClient.Dispose();
-                _tcpClient = new TcpClient();
-                _tcpClient.Connect(_serverIp, _serverPort);
-                _stream = _tcpClient.GetStream();
+                _serverTcpClient.Dispose();
+                _serverTcpClient = new TcpClient();
+                _serverTcpClient.Connect(_serverIp, _serverPort);
+                _serverStream = _serverTcpClient.GetStream();
                 Logger.Information(SocketServiceEvents.ConnectSuccessfully);
                 Messenger.Default.Send(new TrayIconsStatusMessage()
                 {
@@ -97,33 +142,41 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
             }
         }
 
-        private void SendData(string msg)
+        public void KioskSendData(string msg)
+        {
+            Logger.Information($"Kiosk Sending data: {msg}");
+            ASCIIEncoding asen = new ASCIIEncoding();
+            byte[] bytes = asen.GetBytes(msg);
+            _kioskStream.Write(bytes, 0, bytes.Length);
+        }
+
+        private void ServerSendData(string msg)
         {
             Logger.Information(SocketServiceEvents.SendData, $"Sending data: {msg}");
             ASCIIEncoding asen = new ASCIIEncoding();
             byte[] bytes = asen.GetBytes(msg);
-            _stream.Write(bytes, 0, bytes.Length);
+            _serverStream.Write(bytes, 0, bytes.Length);
         }
 
-        private string ReadData(out int receivedBytes)
+        private string ServerReadData(out int receivedBytes)
         {
             byte[] bytes = new byte[1024];
-            receivedBytes = _stream.Read(bytes, 0, bytes.Length);
+            receivedBytes = _serverStream.Read(bytes, 0, bytes.Length);
             return Encoding.UTF8.GetString(bytes);
         }
 
         public void HandleDataFromSocket()
         {
-            while (_tcpClient.Connected)
+            while (_serverTcpClient.Connected)
             {
-                string data = ReadData(out int bytesCount);
+                string data = ServerReadData(out int bytesCount);
                 //Condition handle server disconnect
                 if (bytesCount == 0)
                 {
                     try
                     {
-                        SendData(" ");
-                        _tcpClient.Close();
+                        ServerSendData(" ");
+                        _serverTcpClient.Close();
                     }
                     catch (Exception errorException)
                     {
@@ -134,13 +187,14 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
                 }
                 Logger.Information(SocketServiceEvents.ReadData, $"Received data: {data}");
 
-                string[] splitData = data.Replace("\0", string.Empty).Split(';');
-                Array.Resize(ref splitData, splitData.Length - 1);
-                ExecuteJavaScriptMessage jsExeMessage = new ExecuteJavaScriptMessage() { Function = "motionZoneMovie", Parameters = new string[splitData.Length] };
-                for (int i = 0; i < splitData.Length; i++)
-                {
-                    jsExeMessage.Parameters[i] = splitData[i];
-                }
+
+                //string[] splitData = data.Replace("\0", string.Empty).Split(';');
+                //Array.Resize(ref splitData, splitData.Length - 1);
+                ExecuteJavaScriptMessage jsExeMessage = new ExecuteJavaScriptMessage() { Function = "clickCallback", Parameters = null };
+                //for (int i = 0; i < splitData.Length; i++)
+                //{
+                //    jsExeMessage.Parameters[i] = splitData[i];
+                //}
                 Messenger.Default.Send(jsExeMessage);
                 //var jsonData = new JavaScriptSerializer().Deserialize<MotionDetectSocketModel>(data);
                 //Console.WriteLine(jsonData.Time);
@@ -155,8 +209,12 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
         private void Reconnect()
         {
             _reconnectCount = 0;
-            while (_tcpClient != null && !_tcpClient.Connected)
+            while (_serverTcpClient != null && !_serverTcpClient.Connected)
             {
+                Messenger.Default.Send(new TrayIconsStatusMessage()
+                {
+                    IconStatus = TrayIconsStatus.Offline
+                });
                 _reconnectCount++;
                 Thread.Sleep(_reconnectCount * 1000);
                 Logger.Warning(SocketServiceEvents.TryingReconnect, $"TCP reconnect count: {_reconnectCount}");
@@ -168,8 +226,10 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
         public void Disconnect()
         {
             Logger.Debug(SocketServiceEvents.Disconnect);
-            _tcpClient.Close();
-            _tcpClient.Dispose();
+            _serverTcpClient.Close();
+            _serverTcpClient.Dispose();
+            _kioskTcpClient.Close();
+            _kioskTcpClient.Dispose();
         }
     }
 }
