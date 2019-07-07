@@ -25,12 +25,14 @@ namespace WebChromiumCcsipro.Domain.Interfaces.IServices
         #region Server setting
         string ServerIp { get; set; }
         int ServerPort { get; set; }
+        string KioskIp { get; set; }
+        int KioskPort { get; set; }
         #endregion
         void CreatePassword(string password);
         void LoadAllSetting();
         void SaveSetting();
         void SignatureSettingLoad();
-        void ServerSettingSave(string serverIp, int serverPort);
+        void ServerSettingSave(string serverIp, int serverPort, string kioskIp, int kioskPort);
         void SignatureSettingSave(string apiLink, string apiKey, string programPath, string processName,
             int signatureTimeOut = 100);
         void ChromiumSettingSave(string objectId, string userId, string homePage, string language);

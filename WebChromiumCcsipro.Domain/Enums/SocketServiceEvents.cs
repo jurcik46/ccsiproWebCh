@@ -4,6 +4,7 @@
     {
         Create,
         Connect,
+        KioskConnect,
         ConnectSuccessfully,
         ConnectSocketError,
         ConnectError,

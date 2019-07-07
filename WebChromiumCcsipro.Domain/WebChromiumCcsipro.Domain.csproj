@@ -90,6 +90,7 @@
     <Compile Include="Enums\ApiServiceEvents.cs" />
     <Compile Include="Enums\ApplicationEvents.cs" />
     <Compile Include="Enums\ApplicationSettingViewModelEvents.cs" />
+    <Compile Include="Enums\CefSharpJsServiceEvents.cs" />
     <Compile Include="Enums\ChangePasswordViewModelEvents.cs" />
     <Compile Include="Enums\DialogServiceEvents.cs" />
     <Compile Include="Enums\MainViewModelEvents.cs" />

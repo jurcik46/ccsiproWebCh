@@ -4,5 +4,6 @@
     {
 
         void bozpSignatureJsAsync();
+        void sendCameralink(string link);
     }
 }

@@ -4,6 +4,7 @@
     {
         void Connect();
         void HandleDataFromSocket();
+        void KioskSendData(string msg);
         void Disconnect();
     }
 }
