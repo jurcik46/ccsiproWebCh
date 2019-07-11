@@ -13,6 +13,10 @@
         SendData,
         SendMotionDetectSocket,
         SendMotionDetectSocketError,
-        ReadData
+        KioskSendData,
+        KioskSendDataError,
+        ServerReadData,
+        ServerReadDataError
+
     }
 }

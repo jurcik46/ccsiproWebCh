@@ -144,10 +144,18 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
 
         public void KioskSendData(string msg)
         {
-            Logger.Information($"Kiosk Sending data: {msg}");
-            ASCIIEncoding asen = new ASCIIEncoding();
-            byte[] bytes = asen.GetBytes(msg);
-            _kioskStream.Write(bytes, 0, bytes.Length);
+            try
+            {
+                Logger.Information($"Kiosk Sending data: {msg}");
+                 ASCIIEncoding asen = new ASCIIEncoding();
+                byte[] bytes = asen.GetBytes(msg);
+                _kioskStream.Write(bytes, 0, bytes.Length);
+            }
+             catch (Exception errorException)
+            {
+                 Logger.Error(SocketServiceEvents.KioskSendDataError,
+                $"  Source: {errorException.Source} Message: {errorException.Message}   Error {errorException.StackTrace}  ");
+            }
         }
 
         private void ServerSendData(string msg)
@@ -160,9 +168,20 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
 
         private string ServerReadData(out int receivedBytes)
         {
-            byte[] bytes = new byte[1024];
-            receivedBytes = _serverStream.Read(bytes, 0, bytes.Length);
-            return Encoding.UTF8.GetString(bytes);
+            try
+            {
+                byte[] bytes = new byte[1024];
+                receivedBytes = _serverStream.Read(bytes, 0, bytes.Length);
+                return Encoding.UTF8.GetString(bytes);
+            }
+            catch (Exception errorException)
+            {
+                Logger.Error(SocketServiceEvents.ServerReadDataError,
+                    $"  Source: {errorException.Source} Message: {errorException.Message}   Error {errorException.StackTrace}  ");
+                receivedBytes = -1;
+                return " ";
+            }
+            
         }
 
         public void HandleDataFromSocket()
@@ -185,17 +204,19 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
                     }
                     continue;
                 }
-                Logger.Information(SocketServiceEvents.ReadData, $"Received data: {data}");
+                Logger.Information(SocketServiceEvents.ServerReadData, $"Received data: {data}");
 
-
+                if (bytesCount == -1)
+                    continue;
                 //string[] splitData = data.Replace("\0", string.Empty).Split(';');
                 //Array.Resize(ref splitData, splitData.Length - 1);
-                ExecuteJavaScriptMessage jsExeMessage = new ExecuteJavaScriptMessage() { Function = "clickCallback", Parameters = null };
+
                 //for (int i = 0; i < splitData.Length; i++)
                 //{
                 //    jsExeMessage.Parameters[i] = splitData[i];
                 //}
-                Messenger.Default.Send(jsExeMessage);
+                    ExecuteJavaScriptMessage jsExeMessage = new ExecuteJavaScriptMessage() { Function = "refresh", Parameters = null };
+                    Messenger.Default.Send(jsExeMessage);
                 //var jsonData = new JavaScriptSerializer().Deserialize<MotionDetectSocketModel>(data);
                 //Console.WriteLine(jsonData.Time);
             }
