@@ -10,27 +10,27 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
     {
         public ILogger Logger => Log.Logger.ForContext<CefSharpJsService>();
 
-        private ISignatureService _signatureService { get; set; }
-        private ISocketService _socketService { get; set; }
+        private ISignatureService SignatureService { get; set; }
+        private ISocketService SocketService { get; set; }
 
 
         public CefSharpJsService(ISignatureService signatureService, ISocketService socketService)
         {
             Logger.Information(CefSharpJsServiceEvents.Create, "Creating new instance of CefSharpJsService");
-            _signatureService = signatureService;
-            _socketService = socketService;
+            SignatureService = signatureService;
+            SocketService = socketService;
         }
 
 
         public void bozpSignatureJsAsync()
         {
-            if (_signatureService.InProcces)
+            if (SignatureService.InProcces)
                 return;
             Logger.Information(CefSharpJsServiceEvents.Create);
 
             Task.Run(() =>
             {
-                _signatureService.StartSign();
+                SignatureService.StartSign();
 
             });
         }
@@ -40,7 +40,7 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
             Logger.Information(CefSharpJsServiceEvents.sendCameralink, $"Camera Link {link}");
 
 
-            _socketService.KioskSendData(link);
+            SocketService.KioskSendData(link);
         }
 
 

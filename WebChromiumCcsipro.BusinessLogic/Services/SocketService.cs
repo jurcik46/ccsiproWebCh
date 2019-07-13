@@ -1,20 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Web.Script.Serialization;
 using GalaSoft.MvvmLight.Messaging;
 using Serilog;
-using WebChromiumCcsipro.BusinessLogic.Models;
 using WebChromiumCcsipro.Domain.Enums;
 using WebChromiumCcsipro.Domain.Extensions;
 using WebChromiumCcsipro.Domain.Interfaces.IServices;
 using WebChromiumCcsipro.Domain.Messages;
 using WebChromiumCcsipro.Resources.Language;
-using LoggerExtensions = WebChromiumCcsipro.Domain.Extensions.LoggerExtensions;
 
 
 namespace WebChromiumCcsipro.BusinessLogic.Services
@@ -146,15 +142,15 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
         {
             try
             {
-                Logger.Information($"Kiosk Sending data: {msg}");
-                 ASCIIEncoding asen = new ASCIIEncoding();
+            Logger.Information($"Kiosk Sending data: {msg}");
+                ASCIIEncoding asen = new ASCIIEncoding();
                 byte[] bytes = asen.GetBytes(msg);
                 _kioskStream.Write(bytes, 0, bytes.Length);
             }
-             catch (Exception errorException)
+            catch (Exception errorException)
             {
-                 Logger.Error(SocketServiceEvents.KioskSendDataError,
-                $"  Source: {errorException.Source} Message: {errorException.Message}   Error {errorException.StackTrace}  ");
+                Logger.Error(SocketServiceEvents.KioskSendDataError,
+               $"  Source: {errorException.Source} Message: {errorException.Message}   Error {errorException.StackTrace}  ");
             }
         }
 
@@ -181,7 +177,7 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
                 receivedBytes = -1;
                 return " ";
             }
-            
+
         }
 
         public void HandleDataFromSocket()
@@ -215,8 +211,8 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
                 //{
                 //    jsExeMessage.Parameters[i] = splitData[i];
                 //}
-                    ExecuteJavaScriptMessage jsExeMessage = new ExecuteJavaScriptMessage() { Function = "refresh", Parameters = null };
-                    Messenger.Default.Send(jsExeMessage);
+                ExecuteJavaScriptMessage jsExeMessage = new ExecuteJavaScriptMessage() { Function = "refresh", Parameters = null };
+                Messenger.Default.Send(jsExeMessage);
                 //var jsonData = new JavaScriptSerializer().Deserialize<MotionDetectSocketModel>(data);
                 //Console.WriteLine(jsonData.Time);
             }

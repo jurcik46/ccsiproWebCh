@@ -1,5 +1,4 @@
 ﻿using System.Globalization;
-using Destructurama.Attributed;
 using GalaSoft.MvvmLight.Messaging;
 using Serilog;
 using WebChromiumCcsipro.Domain.Enums;
@@ -27,8 +26,8 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
 
         #region Chromium setting
 
-        public string ObjectId { get; set; }
-        public string UserId { get; set; }
+        public int ObjectId { get; set; }
+        public int UserId { get; set; }
         public string HomePage { get; set; }
         private CultureInfo _culture;
         private bool _langChange;
@@ -148,7 +147,7 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
             SignatureSettingLoad();
         }
 
-        public void ChromiumSettingSave(string objectId, string userId, string homePage, string language)
+        public void ChromiumSettingSave(int objectId, int userId, string homePage, string language)
         {
             Logger.Information(SettingsServiceEvents.ChromiumSettingSave);
             _langChange = CCSIproChromiumSetting.Default.Language != language;

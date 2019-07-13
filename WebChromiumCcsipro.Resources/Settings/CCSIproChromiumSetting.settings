@@ -2,11 +2,11 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WebChromiumCcsipro.Resources.Settings" GeneratedClassName="CCSIproChromiumSetting">
   <Profiles />
   <Settings>
-    <Setting Name="ObjecID" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="ObjecID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="UserID" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="UserID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="PasswordSetting" Type="System.String" Scope="User">
       <Value Profile="(Default)" />

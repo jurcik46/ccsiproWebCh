@@ -12,7 +12,6 @@ using WebChromiumCcsipro.BusinessLogic;
 using WebChromiumCcsipro.Domain.Enums;
 using WebChromiumCcsipro.Domain.Extensions;
 using WebChromiumCcsipro.Domain.Interfaces;
-using WebChromiumCcsipro.Resource.Properties;
 using WebChromiumCcsipro.UI.ViewModels;
 
 

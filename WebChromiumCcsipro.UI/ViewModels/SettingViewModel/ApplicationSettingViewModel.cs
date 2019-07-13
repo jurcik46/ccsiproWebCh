@@ -22,8 +22,8 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
         private ISettingsService SettingsService { get; set; }
         private string _selectedLanguage;
 
-        public string ObjectId { get; set; }
-        public string UserId { get; set; }
+        public int ObjectId { get; set; }
+        public int UserId { get; set; }
         public string HomePage { get; set; }
 
 

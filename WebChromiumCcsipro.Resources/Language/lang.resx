@@ -123,23 +123,14 @@
   <data name="ApiNotificationExecuteConnectionTitle" xml:space="preserve">
     <value>Connection</value>
   </data>
-  <data name="ApplicationSettingWindowAllowedUrlTextBox" xml:space="preserve">
-    <value>Allow web</value>
-  </data>
   <data name="ApplicationSettingWindowHomePageTextBox" xml:space="preserve">
     <value>Home page</value>
   </data>
   <data name="ApplicationSettingWindowLanguageTextBox" xml:space="preserve">
     <value>Language</value>
   </data>
-  <data name="ApplicationSettingWindowNickTextBox" xml:space="preserve">
-    <value>Login</value>
-  </data>
   <data name="ApplicationSettingWindowObjectTextBox" xml:space="preserve">
     <value>Object ID</value>
-  </data>
-  <data name="ApplicationSettingWindowPasswordTextBox" xml:space="preserve">
-    <value>Password</value>
   </data>
   <data name="ApplicationSettingWindowTitle" xml:space="preserve">
     <value>CCSIpro Chromium application settings</value>

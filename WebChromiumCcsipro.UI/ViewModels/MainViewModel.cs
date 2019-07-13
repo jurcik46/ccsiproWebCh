@@ -1,18 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
 using Serilog;
 using WebChromiumCcsipro.BusinessLogic;
@@ -21,11 +11,9 @@ using WebChromiumCcsipro.Domain.Extensions;
 using WebChromiumCcsipro.Domain.Interfaces;
 using WebChromiumCcsipro.Domain.Interfaces.IServices;
 using WebChromiumCcsipro.Domain.Messages;
-using WebChromiumCcsipro.Resources;
 using WebChromiumCcsipro.Resources.Language;
 using WebChromiumCcsipro.Resources.Settings;
 using WebChromiumCcsipro.UI.Views.SettingsWindow;
-using Path = System.IO.Path;
 
 namespace WebChromiumCcsipro.UI.ViewModels
 {
@@ -62,7 +50,7 @@ namespace WebChromiumCcsipro.UI.ViewModels
         private string _toolTipText;
         private string _notifyBellImgPath;
 
-        private readonly string _bellOnImgPath = @"pack://application:,,,/WebChromiumCcsipro.Resources;component/Images/Buttons/bell_on.png";
+        //private readonly string _bellOnImgPath = @"pack://application:,,,/WebChromiumCcsipro.Resources;component/Images/Buttons/bell_on.png";
         private readonly string _bellOffImgPath = @"pack://application:,,,/WebChromiumCcsipro.Resources;component/Images/Buttons/bell_off.png";
         public RelayCommand SignatureCommand { get; set; }
         public RelayCommand HomeCommand { get; set; }

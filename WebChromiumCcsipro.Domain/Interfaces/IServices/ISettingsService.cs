@@ -13,8 +13,8 @@ namespace WebChromiumCcsipro.Domain.Interfaces.IServices
         #endregion
 
         #region Chromium setting
-        string ObjectId { get; set; }
-        string UserId { get; set; }
+        int ObjectId { get; set; }
+        int UserId { get; set; }
         string HomePage { get; set; }
         CultureInfo Culture { get; set; }
         string Language { get; set; }
@@ -35,6 +35,6 @@ namespace WebChromiumCcsipro.Domain.Interfaces.IServices
         void ServerSettingSave(string serverIp, int serverPort, string kioskIp, int kioskPort);
         void SignatureSettingSave(string apiLink, string apiKey, string programPath, string processName,
             int signatureTimeOut = 100);
-        void ChromiumSettingSave(string objectId, string userId, string homePage, string language);
+        void ChromiumSettingSave(int objectId, int userId, string homePage, string language);
     }
 }

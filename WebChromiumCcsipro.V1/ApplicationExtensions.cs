@@ -33,7 +33,7 @@ namespace WebChromiumCcsipro.V1
             LoggerInitializer.ApplicationName = appName;
             LoggerExtensions.DiagnosticsFunc = ErrorExtensions.DiagnosticsFunc;
 
-            ViewModelLocator.LoggingLevelSwitch.MinimumLevel = LogEventLevel.Debug;
+            ViewModelLocator.LoggingLevelSwitch.MinimumLevel = LogEventLevel.Verbose;
             //            var applicationDeployment = ApplicationDeployment.IsNetworkDeployed ? ApplicationDeployment.CurrentDeployment : null;
             var currentCulture = Thread.CurrentThread.CurrentCulture;
             var currentUICulture = Thread.CurrentThread.CurrentUICulture;

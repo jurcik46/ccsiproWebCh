@@ -6,6 +6,7 @@ using System.Windows;
 using CefSharp;
 using GalaSoft.MvvmLight.Messaging;
 using GalaSoft.MvvmLight.Threading;
+using Serilog;
 using WebChromiumCcsipro.Domain.Enums;
 using WebChromiumCcsipro.Domain.Interfaces;
 using WebChromiumCcsipro.Domain.Messages;
@@ -20,6 +21,8 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
     public partial class MainWindowView : Window, IClosable
     {
         private NotifiWindowView notifiWindow;
+        public ILogger Logger => Log.Logger.ForContext<MainViewModel>();
+
 
         public MainWindowView()
         {
@@ -29,7 +32,7 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
 
             notifiWindow = new NotifiWindowView();
             notifiWindow.Show();
-            trayIconTaskbar.Icon = new Icon(@"Images/Icons/online.ico");
+            trayIconTaskbar.Icon = WebChromiumCcsipro.Resources.Properties.Resources.online;
         }
 
 
@@ -39,7 +42,7 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
             Browser.JavascriptObjectRepository.ObjectBoundInJavascript += (sender, e) =>
             {
                 var name = e.ObjectName;
-                Debug.WriteLine($"Object {e.ObjectName} was bound successfully.");
+                Logger.Information($"Object {e.ObjectName} was bound successfully.");
             };
         }
 
@@ -72,13 +75,13 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
                 switch (message.IconStatus)
                 {
                     case TrayIconsStatus.Online:
-                        trayIconTaskbar.Icon = new Icon(@"Images/Icons/online.ico");
+                        trayIconTaskbar.Icon = WebChromiumCcsipro.Resources.Properties.Resources.online;
                         break;
                     case TrayIconsStatus.Offline:
-                        trayIconTaskbar.Icon = new Icon(@"Images/Icons/offline.ico");
+                        trayIconTaskbar.Icon = WebChromiumCcsipro.Resources.Properties.Resources.offline;
                         break;
                     case TrayIconsStatus.Working:
-                        trayIconTaskbar.Icon = new Icon(@"Images/Icons/working.ico");
+                        trayIconTaskbar.Icon = WebChromiumCcsipro.Resources.Properties.Resources.working;
                         break;
                 }
             });

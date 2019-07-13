@@ -49,10 +49,11 @@ namespace WebChromiumCcsipro.V1
             InitializeComponent();
             AppDomain.CurrentDomain.UnhandledException += CurrentDomainUnhandledException; //all threads in appdomain
             Dispatcher.UnhandledException += CurrentDispatcherUnhandledException; //single specific ui dispatcher thread
-            //Application.Current.DispatcherUnhandledException += Current_DispatcherUnhandledException; // main ui dispatcher thread in application
+                                                                                  //Application.Current.DispatcherUnhandledException += Current_DispatcherUnhandledException; // main ui dispatcher thread in application
             TaskScheduler.UnobservedTaskException += TaskSchedulerOnUnobservedTaskException; // from each appdomain for async ops
             ViewModelLocator.SplashScreen = new SplashScreen(@"ccsi.png");
             ViewModelLocator.SplashScreen.Show(false, true);
+
         }
 
         protected override void OnStartup(StartupEventArgs e)

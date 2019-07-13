@@ -1,10 +1,10 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Messaging;
+using Serilog;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading;
-using GalaSoft.MvvmLight.Messaging;
-using Serilog;
 using WebChromiumCcsipro.Domain.Enums;
 using WebChromiumCcsipro.Domain.Extensions;
 using WebChromiumCcsipro.Domain.Interfaces;
@@ -54,11 +54,10 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
                     // prehodi lomku 
                     string directhoryPath = SignatureFileModel.PdfFilePath.Replace('/', '\\');
                     // prida typ suboru na konci hashu
-                    string fileName = SignatureFileModel.Hash + SignatureFileModel.PdfFilePath.Substring(SignatureFileModel.PdfFilePath.LastIndexOf("."));
+                    string fileName = SignatureFileModel.Hash + SignatureFileModel.PdfFilePath.Substring(SignatureFileModel.PdfFilePath.LastIndexOf(".", StringComparison.Ordinal));
                     // Vytvori processname z options a vyplni paramatere {0} - filename {1} - directhoryPath
-                    string processName = string.Format((string)SettingsService.ProcessName, fileName, directhoryPath); ;
+                    string processName = string.Format(SettingsService.ProcessName, fileName, directhoryPath);
 
-                    /// vytvori nove zlozku 
                     if (CreateDirectory(ref directhoryPath))
                     {
                         // ulozi prijaty dokument do vytvorenej zlozky
@@ -122,7 +121,7 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
             //hash += data.link.substring(data.link.lastindexof("."));
             //  _appRomaingPath
             //var appRomaingPath = Path.Combine(LoggerInit.RoamingPath, LoggerInit.ApplicationName);
-            directhoryPath = directhoryPath.Substring(1, directhoryPath.LastIndexOf("\\"));
+            directhoryPath = directhoryPath.Substring(1, directhoryPath.LastIndexOf("\\", StringComparison.Ordinal));
             directhoryPath = Path.Combine(_appRomaingPath, directhoryPath);
             try
             {
@@ -153,7 +152,7 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
 
             try
             {
-                System.IO.File.WriteAllBytes(directhoryToSave + fileName, file);
+                File.WriteAllBytes(directhoryToSave + fileName, file);
                 return true;
             }
             catch (Exception ex)
@@ -165,21 +164,21 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
             }
         }
 
-        private byte[] ReadFile(string directhorypath, string hash)
-        {
-            try
-            {
-                Stream pdffile = File.OpenRead(directhorypath + hash);
-                byte[] bytes = File.ReadAllBytes(directhorypath + hash);
-                //uploadfile(hash, bytes, link, directhorypath);
-                return bytes;
-            }
-            catch (Exception ex)
-            {
-                return null;
-                //throw new myexception(ex.message);
-            }
-        }
+        //private byte[] ReadFile(string directhorypath, string hash)
+        //{
+        //    try
+        //    {
+        //        Stream pdffile = File.OpenRead(directhorypath + hash);
+        //        byte[] bytes = File.ReadAllBytes(directhorypath + hash);
+        //        //uploadfile(hash, bytes, link, directhorypath);
+        //        return bytes;
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return null;
+        //        //throw new myexception(ex.message);
+        //    }
+        //}
         #endregion
 
 
@@ -193,7 +192,7 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
 
             bool result = false;
             //Dlzka trvania podpisu
-            var SignTimeout = SignatureSetting.Default.singTimeOut; ;
+            var signTimeout = SignatureSetting.Default.singTimeOut;
 
             var startInfo = new ProcessStartInfo(programPath, pdfFilePath);
 
@@ -231,7 +230,7 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
                     }
                     Logger.Debug(SignatureServiceEvents.SignFileWindowClosed, "Sign application closed before timeout in {Iteration}. iteration.", counter);
                     break;
-                } while (counter < SignTimeout);
+                } while (counter < signTimeout);
 
                 var ForceClose = true;
 

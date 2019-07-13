@@ -19,7 +19,7 @@ namespace WebChromiumCcsipro.Resources.Language {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class lang {
@@ -79,15 +79,6 @@ namespace WebChromiumCcsipro.Resources.Language {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Allow web.
-        /// </summary>
-        public static string ApplicationSettingWindowAllowedUrlTextBox {
-            get {
-                return ResourceManager.GetString("ApplicationSettingWindowAllowedUrlTextBox", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Home page.
         /// </summary>
         public static string ApplicationSettingWindowHomePageTextBox {
@@ -106,29 +97,11 @@ namespace WebChromiumCcsipro.Resources.Language {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Login.
-        /// </summary>
-        public static string ApplicationSettingWindowNickTextBox {
-            get {
-                return ResourceManager.GetString("ApplicationSettingWindowNickTextBox", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Object ID.
         /// </summary>
         public static string ApplicationSettingWindowObjectTextBox {
             get {
                 return ResourceManager.GetString("ApplicationSettingWindowObjectTextBox", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Password.
-        /// </summary>
-        public static string ApplicationSettingWindowPasswordTextBox {
-            get {
-                return ResourceManager.GetString("ApplicationSettingWindowPasswordTextBox", resourceCulture);
             }
         }
         

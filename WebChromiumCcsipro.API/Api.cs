@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using GalaSoft.MvvmLight.Messaging;
 using RestSharp;
 using Serilog;
-using Serilog.Core;
 using WebChromiumCcsipro.API.Enums;
 using WebChromiumCcsipro.API.Models;
 using WebChromiumCcsipro.Domain.Extensions;
