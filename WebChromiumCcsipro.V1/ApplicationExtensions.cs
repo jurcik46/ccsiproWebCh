@@ -53,7 +53,7 @@ namespace WebChromiumCcsipro.V1
                 var culture = message.Content;
                 SetLanguage(logger, culture, true, app, newWindowFunc, appResourcesAction);
             });
-            ViewModelLocator.SocketService.Connect();
+            ViewModelLocator.SocketService.ServerConnect();
         }
 
 

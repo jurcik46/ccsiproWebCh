@@ -43,10 +43,7 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
 
         private void Enter()
         {
-            if (CloseAction != null)
-            {
-                CloseAction();
-            }
+            CloseAction?.Invoke();
         }
         #endregion
 

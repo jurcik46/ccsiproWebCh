@@ -27,7 +27,8 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
         private Stream _kioskStream;
         private string _kioskIp;
         private int _kioskPort;
-        private int _reconnectCount;
+        private int _serverReconnectCount;
+        private int _kioskReconnectCount;
         private ISettingsService _settingsService;
 
         public SocketService(ISettingsService settingsService)
@@ -40,16 +41,12 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
             _kioskTcpClient = new TcpClient();
             _kioskIp = _settingsService.KioskIp;
             _kioskPort = _settingsService.KioskPort;
-            Task.Run(() =>
-            {
-                Reconnect();
-            });
-            KioskConnect();
+            Task.Run(ServerReconnect);
+            Task.Run(KioskReconnect);
         }
 
         private void KioskConnect()
         {
-            //TODO refactor kiosk Connect and make logs 
             Logger.Debug(SocketServiceEvents.KioskConnect);
             if (_kioskIp.Equals("") || _kioskPort == 0 || _kioskTcpClient.Connected)
             {
@@ -62,32 +59,23 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
                 _kioskTcpClient = new TcpClient();
                 _kioskTcpClient.Connect(_kioskIp, _kioskPort);
                 _kioskStream = _kioskTcpClient.GetStream();
-                //Logger.Information(SocketServiceEvents.ConnectSuccessfully);
-                //Messenger.Default.Send(new TrayIconsStatusMessage()
-                //{
-                //    IconStatus = TrayIconsStatus.Online
-                //});
-
-                //Task.Run(() =>
-                //{
-                //    HandleDataFromSocket();
-                //});
+                Logger.Information(SocketServiceEvents.KioskConnectSuccessfully);
             }
             catch (SocketException socketErrorException)
             {
-                Logger.Error(SocketServiceEvents.ConnectSocketError, $" Message: {socketErrorException.Message} Code: {socketErrorException.SocketErrorCode} Error {socketErrorException.StackTrace} ");
+                Logger.Error(SocketServiceEvents.KioskConnectSocketError, $" Message: {socketErrorException.Message} Code: {socketErrorException.SocketErrorCode} Error {socketErrorException.StackTrace} ");
                 //ConnectionExceptionNotify();
             }
             catch (Exception errorException)
             {
-                Logger.Error(SocketServiceEvents.ConnectError, $"  Source: {errorException.Source} Message: {errorException.Message}   Error {errorException.StackTrace}  ");
+                Logger.Error(SocketServiceEvents.KioskConnectError, $"  Source: {errorException.Source} Message: {errorException.Message}   Error {errorException.StackTrace}  ");
                 //ConnectionExceptionNotify();
             }
         }
 
-        public void Connect()
+        public void ServerConnect()
         {
-            Logger.Debug(SocketServiceEvents.Connect);
+            Logger.Debug(SocketServiceEvents.ServerConnect);
             if (_serverIp.Equals("") || _serverPort == 0 || _serverTcpClient.Connected)
             {
                 return;
@@ -98,32 +86,29 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
                 _serverTcpClient = new TcpClient();
                 _serverTcpClient.Connect(_serverIp, _serverPort);
                 _serverStream = _serverTcpClient.GetStream();
-                Logger.Information(SocketServiceEvents.ConnectSuccessfully);
+                Logger.Information(SocketServiceEvents.ServerConnectSuccessfully);
                 Messenger.Default.Send(new TrayIconsStatusMessage()
                 {
                     IconStatus = TrayIconsStatus.Online
                 });
 
-                Task.Run(() =>
-                {
-                    HandleDataFromSocket();
-                });
+                Task.Run(HandleDataFromSocket);
             }
             catch (SocketException socketErrorException)
             {
-                Logger.Error(SocketServiceEvents.ConnectSocketError, $" Message: {socketErrorException.Message} Code: {socketErrorException.SocketErrorCode} Error {socketErrorException.StackTrace} ");
+                Logger.Error(SocketServiceEvents.ServerConnectSocketError, $" Message: {socketErrorException.Message} Code: {socketErrorException.SocketErrorCode} Error {socketErrorException.StackTrace} ");
                 ConnectionExceptionNotify();
             }
             catch (Exception errorException)
             {
-                Logger.Error(SocketServiceEvents.ConnectError, $"  Source: {errorException.Source} Message: {errorException.Message}   Error {errorException.StackTrace}  ");
+                Logger.Error(SocketServiceEvents.ServerConnectError, $"  Source: {errorException.Source} Message: {errorException.Message}   Error {errorException.StackTrace}  ");
                 ConnectionExceptionNotify();
             }
         }
 
         private void ConnectionExceptionNotify()
         {
-            if (_reconnectCount == 1)
+            if (_serverReconnectCount == 1)
             {
                 Messenger.Default.Send(new NotifyMessage()
                 {
@@ -142,7 +127,7 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
         {
             try
             {
-            Logger.Information($"Kiosk Sending data: {msg}");
+                Logger.Information($"Kiosk Sending data: {msg}");
                 ASCIIEncoding asen = new ASCIIEncoding();
                 byte[] bytes = asen.GetBytes(msg);
                 _kioskStream.Write(bytes, 0, bytes.Length);
@@ -151,6 +136,7 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
             {
                 Logger.Error(SocketServiceEvents.KioskSendDataError,
                $"  Source: {errorException.Source} Message: {errorException.Message}   Error {errorException.StackTrace}  ");
+                Task.Run(KioskReconnect);
             }
         }
 
@@ -195,7 +181,7 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
                     }
                     catch (Exception errorException)
                     {
-                        Logger.Error(SocketServiceEvents.ConnectError,
+                        Logger.Error(SocketServiceEvents.ServerConnectError,
                             $"  Source: {errorException.Source} Message: {errorException.Message}   Error {errorException.StackTrace}  ");
                     }
                     continue;
@@ -216,28 +202,40 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
                 //var jsonData = new JavaScriptSerializer().Deserialize<MotionDetectSocketModel>(data);
                 //Console.WriteLine(jsonData.Time);
             }
-            Task.Run(() =>
-            {
-                Reconnect();
-            });
+            Task.Run(ServerReconnect);
         }
 
 
-        private void Reconnect()
+        private void ServerReconnect()
         {
-            _reconnectCount = 0;
+            _serverReconnectCount = 0;
             while (_serverTcpClient != null && !_serverTcpClient.Connected)
             {
                 Messenger.Default.Send(new TrayIconsStatusMessage()
                 {
                     IconStatus = TrayIconsStatus.Offline
                 });
-                _reconnectCount++;
-                Thread.Sleep(_reconnectCount * 1000);
-                Logger.Warning(SocketServiceEvents.TryingReconnect, $"TCP reconnect count: {_reconnectCount}");
-                Connect();
+                _serverReconnectCount++;
+                Thread.Sleep(_serverReconnectCount * 1000);
+                Logger.Warning(SocketServiceEvents.ServerTryingReconnect, $"Server TCP reconnect count: {_serverReconnectCount}");
+                ServerConnect();
             }
-            _reconnectCount = 0;
+            _serverReconnectCount = 0;
+        }
+
+
+        private void KioskReconnect()
+        {
+            _kioskReconnectCount = 0;
+            while (_kioskTcpClient != null && !_kioskTcpClient.Connected)
+            {
+
+                _kioskReconnectCount++;
+                Thread.Sleep(_kioskReconnectCount * 1000);
+                Logger.Warning(SocketServiceEvents.KioskTryingReconnect, $"Kiosk TCP reconnect count: {_kioskReconnectCount}");
+                KioskConnect();
+            }
+            _kioskReconnectCount = 0;
         }
 
         public void Disconnect()

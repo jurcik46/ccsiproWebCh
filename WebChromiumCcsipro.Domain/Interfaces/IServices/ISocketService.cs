@@ -2,7 +2,7 @@
 {
     public interface ISocketService
     {
-        void Connect();
+        void ServerConnect();
         void HandleDataFromSocket();
         void KioskSendData(string msg);
         void Disconnect();
