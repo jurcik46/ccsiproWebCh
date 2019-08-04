@@ -57,6 +57,7 @@ namespace WebChromiumCcsipro.UI.ViewModels
         public RelayCommand SettingsCommand { get; set; }
         public RelayCommand<IClosable> RestartCommand { get; set; }
         public RelayCommand<IClosable> ExitCommand { get; set; }
+        public RelayCommand<IFullScreen> FullScreenCommand { get; set; }
 
         private Window SettingWindow { get; set; }
         private ISettingsService SettingService { get; set; }
@@ -141,9 +142,17 @@ namespace WebChromiumCcsipro.UI.ViewModels
             HomeCommand = new RelayCommand(() => UrlAddress = HomeUrl, () => true);
             RestartCommand = new RelayCommand<IClosable>(RestartApplication, CanRestartRestartApplication);
             ExitCommand = new RelayCommand<IClosable>(ExitApplication, CanExitApplication);
+            FullScreenCommand = new RelayCommand<IFullScreen>(FullScreen, a => true);
 
         }
 
+        private void FullScreen(IFullScreen mainWinBrowser)
+        {
+            if (mainWinBrowser.FullScreenMode)
+                mainWinBrowser.FUllScreenDisable();
+            else
+                mainWinBrowser.FullScreenEnable();
+        }
 
         private bool CanSing()
         {

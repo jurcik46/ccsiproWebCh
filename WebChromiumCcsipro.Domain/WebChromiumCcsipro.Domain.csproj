@@ -137,6 +137,7 @@
     <Compile Include="Extensions\LoggerExtensions.cs" />
     <Compile Include="Interfaces\IClosable.cs" />
     <Compile Include="Interfaces\IDiagnostics.cs" />
+    <Compile Include="Interfaces\IFullScreen.cs" />
     <Compile Include="Interfaces\IServices\IApiService.cs" />
     <Compile Include="Interfaces\IServices\ICefSharpJsService.cs" />
     <Compile Include="Interfaces\IServices\IDialogServiceWithOwner.cs" />

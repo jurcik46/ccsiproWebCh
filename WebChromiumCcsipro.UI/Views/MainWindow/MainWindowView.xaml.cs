@@ -18,14 +18,16 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
     /// Interaction logic for MainWindowView.xaml
     /// </summary>
     /// [STAThread]
-    public partial class MainWindowView : Window, IClosable
+    public partial class MainWindowView : Window, IClosable, IFullScreen
     {
         private NotifiWindowView notifiWindow;
         public ILogger Logger => Log.Logger.ForContext<MainViewModel>();
 
 
+
         public MainWindowView()
         {
+
             InitializeComponent();
             RegistrationMessage();
             DataContext = ViewModelLocator.MainViewModel;
@@ -33,6 +35,8 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
             notifiWindow = new NotifiWindowView();
             notifiWindow.Show();
             trayIconTaskbar.Icon = WebChromiumCcsipro.Resources.Properties.Resources.online;
+            FullScreenMode = false;
+
         }
 
 
@@ -114,6 +118,30 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
         #endregion
 
 
+        public bool FullScreenMode { get; private set; }
+
+        public void FullScreenEnable()
+        {
+            browserBackButton.Visibility = Visibility.Collapsed;
+            browserForwardButton.Visibility = Visibility.Collapsed;
+            browserBoxAddress.Visibility = Visibility.Collapsed;
+            browserPrintButton.Visibility = Visibility.Collapsed;
+            WindowState = WindowState.Maximized;
+            WindowStyle = WindowStyle.None;
+            FullScreenMode = true;
+
+        }
+
+        public void FUllScreenDisable()
+        {
+            browserBackButton.Visibility = Visibility.Visible;
+            browserForwardButton.Visibility = Visibility.Visible;
+            browserBoxAddress.Visibility = Visibility.Visible;
+            browserPrintButton.Visibility = Visibility.Visible;
+            WindowState = WindowState.Maximized;
+            WindowStyle = WindowStyle.SingleBorderWindow;
+            FullScreenMode = false;
+        }
     }
 
 
