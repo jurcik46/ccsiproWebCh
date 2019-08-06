@@ -149,7 +149,7 @@ namespace WebChromiumCcsipro.UI.ViewModels
         private void FullScreen(IFullScreen mainWinBrowser)
         {
             if (mainWinBrowser.FullScreenMode)
-                mainWinBrowser.FUllScreenDisable();
+                mainWinBrowser.FullScreenDisable();
             else
                 mainWinBrowser.FullScreenEnable();
         }

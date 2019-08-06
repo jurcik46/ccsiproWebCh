@@ -23,13 +23,42 @@
     <Window.InputBindings>
         <KeyBinding Key="K" Modifiers="Ctrl" Command="{Binding FullScreenCommand}" CommandParameter="{Binding ElementName=MainBrowserWindow}" />
     </Window.InputBindings>
-    <Grid>
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" MaxHeight="35">
+
+
+
+        <Border  Grid.Column="0" Grid.ColumnSpan="2"  Grid.Row="1" Grid.RowSpan="2" 
+                x:Name="BrowserBroder"
+                BorderBrush="Gray" BorderThickness="0,1">
+            <cefSharp:ChromiumWebBrowser 
+                x:Name="Browser"
+                Address="{Binding UrlAddress, Mode=TwoWay}"                                     >
+                <i:Interaction.Behaviors>
+                    <behaviours:HoverLinkBehaviour x:Name="HoverLinkBehaviour"/>
+                </i:Interaction.Behaviors>
+            </cefSharp:ChromiumWebBrowser>
+        </Border>
+        <ProgressBar IsIndeterminate="{Binding IsLoading, ElementName=Browser}"
+                     HorizontalAlignment="Stretch"
+                     VerticalAlignment="Top"
+                     x:Name="ProgressBar"
+                     Width="Auto"
+                     Grid.Column="0"
+                     Grid.ColumnSpan="2"
+                     Grid.Row="1"
+                     Height="5"
+                     Visibility="{Binding IsLoading, ElementName=Browser, Converter={StaticResource VisibiltyConverter}}"
+                     BorderThickness="0" />
+        <Grid Visibility="Visible" x:Name="NoFullScreenMenu" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" MaxHeight="35">
             <Grid.Resources>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Margin" Value="2,5" />
@@ -74,23 +103,27 @@
 
             <!--<Button Content="View source" Command="{Binding ViewSourceCommand, ElementName=Browser}" Grid.Column="4" Width="75" />-->
         </Grid>
-        <ProgressBar IsIndeterminate="{Binding IsLoading, ElementName=Browser}"
-                     HorizontalAlignment="Stretch"
-                     VerticalAlignment="Top"
-                     Width="Auto"
-                     Grid.Row="1"
-                     Height="2"
-                     Visibility="{Binding IsLoading, ElementName=Browser, Converter={StaticResource VisibiltyConverter}}"
-                     BorderThickness="0" />
-        <Border Grid.Row="2" BorderBrush="Gray" BorderThickness="0,1">
-            <cefSharp:ChromiumWebBrowser 
-                                     x:Name="Browser"
-                                     Address="{Binding UrlAddress, Mode=TwoWay}"                                     >
-                <i:Interaction.Behaviors>
-                    <behaviours:HoverLinkBehaviour x:Name="HoverLinkBehaviour"/>
-                </i:Interaction.Behaviors>
-            </cefSharp:ChromiumWebBrowser>
-        </Border>
+
+        <Grid Margin="10 10 0 0" Visibility="Collapsed"  x:Name="FullScreenMenu" Grid.Column="0" Grid.Row="0" MaxHeight="35">
+            <Grid.Resources>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Margin" Value="2,5" />
+                    <Setter Property="Width" Value="50"/>
+                </Style>
+                <Style TargetType="{x:Type TextBox}">
+                    <Setter Property="Margin" Value="2,5" />
+                </Style>
+            </Grid.Resources>
+            <!--<Grid.Background>
+                <SolidColorBrush Color="#73B2F5" Opacity="0.5"/>
+            </Grid.Background>-->
+
+            <Button Command="{Binding HomeCommand}" Width="50" >
+                <Image Source="pack://application:,,,/WebChromiumCcsipro.Resources;component/Images/Buttons/home.png" />
+            </Button>
+        </Grid>
+
+
         <!-- Converter={StaticResource BooleanToVisibilityConverter} -->
 
         <!-- TaskbarIcon -->

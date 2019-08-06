@@ -6,6 +6,6 @@ namespace WebChromiumCcsipro.Domain.Interfaces
     {
         bool FullScreenMode { get; }
         void FullScreenEnable();
-        void FUllScreenDisable();
+        void FullScreenDisable();
     }
 }

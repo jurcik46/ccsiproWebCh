@@ -23,6 +23,7 @@ namespace WebChromiumCcsipro.UI.Views.SettingsWindow
         public EnterSettingWindowView()
         {
             InitializeComponent();
+            PasswordBox.Focus();
         }
 
         private void optionsPassowrdBox_PasswordChanged(object sender, RoutedEventArgs e)

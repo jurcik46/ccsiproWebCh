@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using CefSharp;
 using GalaSoft.MvvmLight.Messaging;
 using GalaSoft.MvvmLight.Threading;
@@ -36,7 +37,6 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
             notifiWindow.Show();
             trayIconTaskbar.Icon = WebChromiumCcsipro.Resources.Properties.Resources.online;
             FullScreenMode = false;
-
         }
 
 
@@ -122,24 +122,29 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
 
         public void FullScreenEnable()
         {
-            browserBackButton.Visibility = Visibility.Collapsed;
-            browserForwardButton.Visibility = Visibility.Collapsed;
-            browserBoxAddress.Visibility = Visibility.Collapsed;
-            browserPrintButton.Visibility = Visibility.Collapsed;
-            WindowState = WindowState.Maximized;
+            NoFullScreenMenu.Visibility = Visibility.Collapsed;
+            FullScreenMenu.Visibility = Visibility.Visible;
+            ResizeMode = ResizeMode.NoResize;
             WindowStyle = WindowStyle.None;
+            WindowState = WindowState.Maximized;
+            Grid.SetRow(BrowserBroder, 0);
+            Grid.SetRowSpan(BrowserBroder, 3);
+            Grid.SetRow(ProgressBar, 0);
+            ProgressBar.Height = 10;
             FullScreenMode = true;
 
         }
 
-        public void FUllScreenDisable()
+        public void FullScreenDisable()
         {
-            browserBackButton.Visibility = Visibility.Visible;
-            browserForwardButton.Visibility = Visibility.Visible;
-            browserBoxAddress.Visibility = Visibility.Visible;
-            browserPrintButton.Visibility = Visibility.Visible;
+            NoFullScreenMenu.Visibility = Visibility.Visible;
+            FullScreenMenu.Visibility = Visibility.Collapsed;
             WindowState = WindowState.Maximized;
             WindowStyle = WindowStyle.SingleBorderWindow;
+            ResizeMode = ResizeMode.CanResize;
+            Grid.SetRow(BrowserBroder, 1);
+            Grid.SetRow(ProgressBar, 1);
+            ProgressBar.Height = 5;
             FullScreenMode = false;
         }
     }

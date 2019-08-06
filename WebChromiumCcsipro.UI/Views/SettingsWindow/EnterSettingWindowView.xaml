@@ -9,8 +9,8 @@
         Title="{x:Static lang:lang.EnterSettingWindowTitle }" Height="150" Width="150" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <StackPanel VerticalAlignment="Center">
-            <TextBlock HorizontalAlignment="Center" Text="{x:Static lang:lang.EnterSettingWindowTextBlock}"/>
-            <PasswordBox PasswordChanged="optionsPassowrdBox_PasswordChanged" Margin="0 5" HorizontalAlignment="Center" MinWidth="100" />
+            <TextBlock   HorizontalAlignment="Center" Text="{x:Static lang:lang.EnterSettingWindowTextBlock}"/>
+            <PasswordBox x:Name="PasswordBox"  PasswordChanged="optionsPassowrdBox_PasswordChanged" Margin="0 5" HorizontalAlignment="Center" MinWidth="100" />
             <Button IsDefault="True" Margin="0 5"   Content="{x:Static lang:lang.EnterSettingWindowEnterButton}" Width="75" Name="enterPasswordButton" Command="{Binding EnterCommand}" />
         </StackPanel>
     </Grid>
