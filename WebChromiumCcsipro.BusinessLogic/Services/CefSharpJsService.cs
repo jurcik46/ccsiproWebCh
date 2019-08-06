@@ -43,6 +43,12 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
             SocketService.KioskSendData(links);
         }
 
+        public void sendApi(string apiLinks)
+        {
+            //Logger.Information(CefSharpJsServiceEvents.sendCameralink, $"Camera Link {links}");
+            //TODO make api request 
+        }
+
 
     }
 }
