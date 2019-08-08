@@ -124,27 +124,34 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
         {
             NoFullScreenMenu.Visibility = Visibility.Collapsed;
             FullScreenMenu.Visibility = Visibility.Visible;
-            ResizeMode = ResizeMode.NoResize;
-            WindowStyle = WindowStyle.None;
-            WindowState = WindowState.Maximized;
             Grid.SetRow(BrowserBroder, 0);
             Grid.SetRowSpan(BrowserBroder, 3);
             Grid.SetRow(ProgressBar, 0);
             ProgressBar.Height = 10;
-            FullScreenMode = true;
+            WindowStyle = WindowStyle.None;
+            WindowState = WindowState.Maximized;
+            ResizeMode = ResizeMode.NoResize;
 
+
+            FullScreenMode = true;
+            //this.Width = System.Windows.SystemParameters.WorkArea.Width;
+            //this.Height = System.Windows.SystemParameters.WorkArea.Height;
+            //this.Left = 0;
+            //this.Top = 0;
+            //this.WindowState = WindowState.Normal;
         }
 
         public void FullScreenDisable()
         {
             NoFullScreenMenu.Visibility = Visibility.Visible;
             FullScreenMenu.Visibility = Visibility.Collapsed;
-            WindowState = WindowState.Maximized;
-            WindowStyle = WindowStyle.SingleBorderWindow;
-            ResizeMode = ResizeMode.CanResize;
             Grid.SetRow(BrowserBroder, 1);
             Grid.SetRow(ProgressBar, 1);
             ProgressBar.Height = 5;
+            WindowStyle = WindowStyle.SingleBorderWindow;
+            this.WindowState = WindowState.Normal;
+            //WindowState = WindowState.Maximized;
+            ResizeMode = ResizeMode.CanResize;
             FullScreenMode = false;
         }
     }
