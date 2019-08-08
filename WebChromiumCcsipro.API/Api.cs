@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Net;
 using GalaSoft.MvvmLight.Messaging;
 using RestSharp;
@@ -24,8 +25,14 @@ namespace WebChromiumCcsipro.API
         public Api(ISettingsService settingsService)
         {
             SettingsService = settingsService;
-            Logger.Debug(ApiEvents.Create, "Creating new instance of API with {ApiLink} and {Apikey}", SettingsService.ApiLink, SettingsService.ApiKey);
+            Logger.Debug(ApiEvents.Create, "Creating new instance of API with {ApiLink} and ");
             ApiLink = new Uri(SettingsService.ApiLink, UriKind.Absolute);
+        }
+
+        public Api(string apiLink)
+        {
+            Logger.Debug(ApiEvents.Create, $"Creating new instance of Api(string apiLink)  {apiLink}", ApiLink);
+            ApiLink = new Uri(apiLink, UriKind.Absolute);
         }
 
         public T Execute<T>(RestRequest request) where T : class, new()
