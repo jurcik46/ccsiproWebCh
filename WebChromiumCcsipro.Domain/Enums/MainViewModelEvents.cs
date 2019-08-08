@@ -8,6 +8,11 @@
         ExitApplicationCommand,
         RestartApplicationCommand,
         OpenSettingCommand,
-        BadPasswordToOptions
+
+        BadPasswordToOptions,
+
+        ScheduleTimerScheduleToNextDay,
+        ScheduleTimerDoingReloadPage,
+        ScheduleTimerError,
     }
 }

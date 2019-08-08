@@ -88,6 +88,15 @@ namespace WebChromiumCcsipro.Resources.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Reload Time (HH:mm:ss).
+        /// </summary>
+        public static string ApplicationSettingWindowHomeReloadTextBox {
+            get {
+                return ResourceManager.GetString("ApplicationSettingWindowHomeReloadTextBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Language.
         /// </summary>
         public static string ApplicationSettingWindowLanguageTextBox {

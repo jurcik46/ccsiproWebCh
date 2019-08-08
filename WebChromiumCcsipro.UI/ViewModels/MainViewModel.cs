@@ -1,8 +1,10 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
 using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.CommandWpf;
+using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using Serilog;
 using WebChromiumCcsipro.BusinessLogic;
@@ -97,6 +99,8 @@ namespace WebChromiumCcsipro.UI.ViewModels
             }
         }
 
+        private Timer ReloadTimer { get; set; }
+
         public MainViewModel(ISettingsService settingService, IDialogServiceWithOwner dialogService, ISignatureService signatureService)
         {
             Logger.Information(MainViewModelEvents.CreateInstance, "Creating new instance of MainViewModel");
@@ -109,8 +113,50 @@ namespace WebChromiumCcsipro.UI.ViewModels
             HomeUrl = SettingService.HomePage;
             ToolTipText = lang.TrayIconToolTipDefault;
             NotifyBellImgPath = _bellOffImgPath;
+            ScheduleTimer();
         }
 
+
+        private void ScheduleTimer()
+        {
+
+            DateTime nowTime = DateTime.Now;
+            DateTime scheduledTime;
+
+            try
+            {
+                scheduledTime = DateTime.ParseExact(SettingService.ReloadTime, "HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(MainViewModelEvents.ScheduleTimerError, $"Source {ex.Source} Error: {ex.Message} InnerException: {ex.InnerException}");
+
+                return;
+            }
+
+            scheduledTime = new DateTime(nowTime.Year, nowTime.Month, nowTime.Day, scheduledTime.Hour, scheduledTime.Minute, scheduledTime.Second, scheduledTime.Millisecond);
+            //scheduledTime = new DateTime(nowTime.Year, nowTime.Month, nowTime.Day, nowTime.Hour, nowTime.Minute, scheduledTime.Second, scheduledTime.Millisecond);
+
+            //Specify your scheduled time HH,MM,SS [8am and 42 minutes]
+            if (nowTime > scheduledTime)
+            {
+                Logger.Information(MainViewModelEvents.ScheduleTimerScheduleToNextDay);
+                scheduledTime = scheduledTime.AddDays(1);
+            }
+
+            double tickTime = (double)(scheduledTime - nowTime).TotalMilliseconds;
+            ReloadTimer = new Timer(tickTime);
+            ReloadTimer.Elapsed += TimerElapsed;
+            ReloadTimer.Start();
+        }
+
+        private void TimerElapsed(object sender, ElapsedEventArgs e)
+        {
+            ReloadTimer.Stop();
+            Logger.Information(MainViewModelEvents.ScheduleTimerDoingReloadPage);
+            UrlAddress = HomeUrl;
+            ScheduleTimer();
+        }
 
         #region Message and Command Init
         private void MessagesInit()

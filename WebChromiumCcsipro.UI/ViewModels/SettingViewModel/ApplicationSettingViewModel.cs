@@ -26,6 +26,8 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
         public int UserId { get; set; }
         public string HomePage { get; set; }
 
+        public string ReloadTime { get; set; }
+
 
         public string SelectedLanguage
         {
@@ -48,6 +50,7 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
             ObjectId = SettingsService.ObjectId;
             UserId = SettingsService.UserId;
             HomePage = SettingsService.HomePage;
+            ReloadTime = SettingsService.ReloadTime;
             SelectedLanguage = LanguageSource.GetValues()[SettingsService.Language];
             SaveCommand = new RelayCommand(Save, CanSave);
             Language = new ObservableCollection<string>();
@@ -68,8 +71,8 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
 
             Logger.Information(ApplicationSettingViewModelEvents.SaveSettingCommand, $"ObjectId: {ObjectId} " +
                                                                                      $"UserId: {UserId} HomePage: {HomePage} " +
-                                                                                     $"LangKey: {langKey}");
-            SettingsService.ChromiumSettingSave(ObjectId, UserId, HomePage, langKey);
+                                                                                     $"ReloadTime: {ReloadTime} LangKey: {langKey}");
+            SettingsService.ChromiumSettingSave(ObjectId, UserId, HomePage, ReloadTime, langKey);
             CloseAction?.Invoke();
         }
     }

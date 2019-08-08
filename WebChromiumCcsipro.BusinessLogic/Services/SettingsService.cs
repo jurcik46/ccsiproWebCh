@@ -1,4 +1,6 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
+using System.Reflection;
 using GalaSoft.MvvmLight.Messaging;
 using Serilog;
 using WebChromiumCcsipro.Domain.Enums;
@@ -29,6 +31,7 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
         public int ObjectId { get; set; }
         public int UserId { get; set; }
         public string HomePage { get; set; }
+        public string ReloadTime { get; set; }
         private CultureInfo _culture;
         private bool _langChange;
 
@@ -117,6 +120,7 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
             ObjectId = CCSIproChromiumSetting.Default.ObjecID;
             UserId = CCSIproChromiumSetting.Default.UserID;
             HomePage = CCSIproChromiumSetting.Default.HomePage;
+            ReloadTime = CCSIproChromiumSetting.Default.ReloadTime;
             Language = CCSIproChromiumSetting.Default.Language;
             PasswordSetting = CCSIproChromiumSetting.Default.PasswordSetting;
             PasswordSalt = CCSIproChromiumSetting.Default.PasswordSalt;
@@ -147,13 +151,14 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
             SignatureSettingLoad();
         }
 
-        public void ChromiumSettingSave(int objectId, int userId, string homePage, string language)
+        public void ChromiumSettingSave(int objectId, int userId, string homePage, string reloadTime, string language)
         {
             Logger.Information(SettingsServiceEvents.ChromiumSettingSave);
             _langChange = CCSIproChromiumSetting.Default.Language != language;
             CCSIproChromiumSetting.Default.ObjecID = objectId;
             CCSIproChromiumSetting.Default.UserID = userId;
             CCSIproChromiumSetting.Default.HomePage = homePage;
+            CCSIproChromiumSetting.Default.ReloadTime = reloadTime;
             CCSIproChromiumSetting.Default.Language = language;
             CCSIproChromiumSetting.Default.PasswordSalt = PasswordSalt;
             CCSIproChromiumSetting.Default.PasswordSetting = PasswordSetting;

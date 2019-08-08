@@ -11,7 +11,6 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
 {
     public class ApiService : IApiService
     {
-        private Api _api;
         public ILogger Logger => Log.Logger.ForContext<ApiService>();
         private ISettingsService SettingsService { get; set; }
         private Api Api { get; set; }
@@ -45,7 +44,6 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
                 catch (Exception ex)
                 {
                     Logger.Error(ex, ApiServiceEvents.GetDocumentToSignatureError);
-                    _api = null;
                     return null;
                 }
             }
@@ -73,7 +71,6 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
                 catch (Exception ex)
                 {
                     Logger.Error(ex, ApiServiceEvents.UploadSignedDocumentError);
-                    _api = null;
                     return false;
                 }
             }

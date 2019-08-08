@@ -126,6 +126,9 @@
   <data name="ApplicationSettingWindowHomePageTextBox" xml:space="preserve">
     <value>Domovksá stránka</value>
   </data>
+  <data name="ApplicationSettingWindowHomeReloadTextBox" xml:space="preserve">
+    <value>Čas obnovenia (HH:mm:ss)</value>
+  </data>
   <data name="ApplicationSettingWindowLanguageTextBox" xml:space="preserve">
     <value>Jazyk</value>
   </data>

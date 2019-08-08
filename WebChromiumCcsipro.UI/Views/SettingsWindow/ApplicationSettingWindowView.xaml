@@ -7,9 +7,9 @@
         xmlns:lang="clr-namespace:WebChromiumCcsipro.Resources.Language;assembly=WebChromiumCcsipro.Resources"
         mc:Ignorable="d"
         Title="{x:Static lang:lang.ApplicationSettingWindowTitle}" 
-        Height="280" Width="450"
-        MinHeight="280" MinWidth="450" 
-        MaxHeight="300" MaxWidth="800" WindowStartupLocation="CenterScreen">
+        Height="280" Width="500"
+        MinHeight="300" MinWidth="500" 
+        MaxHeight="330" MaxWidth="800" WindowStartupLocation="CenterScreen">
     <Border Padding="10">
         <!-- <StackPanel> -->
         <Grid>
@@ -39,6 +39,7 @@
                 <TextBlock Text="{x:Static lang:lang.ApplicationSettingWindowObjectTextBox}"/>
                 <TextBlock Text="{x:Static lang:lang.ApplicationSettingWindowUserTextBox}"/>
                 <TextBlock Text="{x:Static lang:lang.ApplicationSettingWindowHomePageTextBox}"/>
+                <TextBlock Text="{x:Static lang:lang.ApplicationSettingWindowHomeReloadTextBox}"/>
                 <TextBlock Text="{x:Static lang:lang.ApplicationSettingWindowLanguageTextBox}"/>
             </StackPanel>
 
@@ -47,6 +48,7 @@
                 <TextBox Text="{Binding ObjectId, Mode=TwoWay}" />
                 <TextBox Text="{Binding UserId, Mode=TwoWay}"/>
                 <TextBox Text="{Binding HomePage, Mode=TwoWay}"/>
+                <TextBox Text="{Binding ReloadTime, Mode=TwoWay}"/>
                 <ComboBox Margin="5 10 0 10"    
                           Height="23" ItemsSource="{Binding Language,  Mode=TwoWay}" 
                           SelectedItem="{Binding Path=SelectedLanguage, Mode=TwoWay}" />

@@ -16,6 +16,7 @@ namespace WebChromiumCcsipro.Domain.Interfaces.IServices
         int ObjectId { get; set; }
         int UserId { get; set; }
         string HomePage { get; set; }
+        string ReloadTime { get; set; }
         CultureInfo Culture { get; set; }
         string Language { get; set; }
         string PasswordSalt { get; set; }
@@ -35,6 +36,6 @@ namespace WebChromiumCcsipro.Domain.Interfaces.IServices
         void ServerSettingSave(string serverIp, int serverPort, string kioskIp, int kioskPort);
         void SignatureSettingSave(string apiLink, string apiKey, string programPath, string processName,
             int signatureTimeOut = 100);
-        void ChromiumSettingSave(int objectId, int userId, string homePage, string language);
+        void ChromiumSettingSave(int objectId, int userId, string homePage, string reloadTime, string language);
     }
 }

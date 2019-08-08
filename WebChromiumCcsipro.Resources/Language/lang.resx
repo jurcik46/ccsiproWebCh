@@ -126,6 +126,9 @@
   <data name="ApplicationSettingWindowHomePageTextBox" xml:space="preserve">
     <value>Home page</value>
   </data>
+  <data name="ApplicationSettingWindowHomeReloadTextBox" xml:space="preserve">
+    <value>Reload Time (HH:mm:ss)</value>
+  </data>
   <data name="ApplicationSettingWindowLanguageTextBox" xml:space="preserve">
     <value>Language</value>
   </data>
