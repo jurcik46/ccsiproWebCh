@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Serilog;
 using WebChromiumCcsipro.API;
 using WebChromiumCcsipro.Domain.Enums;
@@ -46,10 +47,22 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
 
         public void sendApi(string apiLinks)
         {
-            if(apiLinks != "")
+            Logger.Information(CefSharpJsServiceEvents.sendApi, $"API Link {apiLinks}");
+
+            if (apiLinks != "")
             {
-                var api = new Api(apiLinks);
-                api.OneEmptyRequest();
+                try
+                {
+                    var api = new Api(apiLinks);
+
+                    api.OneEmptyRequest();
+                }
+                catch (Exception ex)
+                {
+                    Logger.Error(CefSharpJsServiceEvents.sendApiError, $"Source {ex.Source} Error: {ex.Message} InnerException: {ex.InnerException}");
+
+                }
+
             }
         }
     }

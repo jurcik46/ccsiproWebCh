@@ -14,12 +14,12 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
         private Api _api;
         public ILogger Logger => Log.Logger.ForContext<ApiService>();
         private ISettingsService SettingsService { get; set; }
-        internal Api Api => _api ?? (_api = new Api(SettingsService));
-
+        private Api Api { get; set; }
         public ApiService(ISettingsService settingsService)
         {
             Logger.Information(ApiServiceEvents.CreateInstance, "Creating new instance of ApiService");
             SettingsService = settingsService;
+            Api = new Api(SettingsService.ApiLink, SettingsService.ApiKey);
         }
 
         #region Get document to sign
@@ -30,7 +30,7 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
             {
                 try
                 {
-                    var document = Api.GetDocument();
+                    var document = Api.GetDocument(SettingsService.ObjectId, SettingsService.UserId);
                     if (document != null)
                     {
                         if (document.Status == 200)
@@ -61,7 +61,7 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
             {
                 try
                 {
-                    var status = Api.UploadDocument(hash, pdfFilePath, file);
+                    var status = Api.UploadDocument(SettingsService.ObjectId, SettingsService.UserId, hash, pdfFilePath, file);
                     if (status != null)
                     {
                         if (status.Status == 200)

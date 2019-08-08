@@ -20,13 +20,18 @@ namespace WebChromiumCcsipro.API
         private ILogger Logger => Log.Logger.ForContext<Api>();
 
         public Uri ApiLink { get; set; }
-        private ISettingsService SettingsService { get; set; }
 
-        public Api(ISettingsService settingsService)
+        private string ApiKey { get; set; }
+
+        public Api(string apiLink, string apiKey = "")
         {
-            SettingsService = settingsService;
-            Logger.Debug(ApiEvents.Create, "Creating new instance of API with {ApiLink} and ");
-            ApiLink = new Uri(SettingsService.ApiLink, UriKind.Absolute);
+
+            Logger.Debug(ApiEvents.Create, "Creating new instance of  Api(string apiLink, string apiKey )");
+            ApiKey = apiKey;
+            if (apiLink != "")
+            {
+                ApiLink = new Uri(apiLink, UriKind.Absolute);
+            }
         }
 
         public Api(string apiLink)
@@ -39,7 +44,8 @@ namespace WebChromiumCcsipro.API
         {
             LoggerExtensions.Debug(Logger, ApiEvents.ExecuteType, "API.Execute<{T}>({@request})", typeof(T).FullName, request);
             var client = new RestClient { BaseUrl = ApiLink };
-            request.AddParameter("api_key", SettingsService.ApiKey, ParameterType.QueryString);
+            if (ApiKey != "")
+                request.AddParameter("api_key", ApiKey, ParameterType.QueryString);
             var response = client.Execute<T>(request);
             if (response.ErrorException != null)
             {
@@ -67,6 +73,8 @@ namespace WebChromiumCcsipro.API
         {
             Logger.Debug(ApiEvents.ExecuteBool, "EntranceAPI.Execute({@request}, {expectedCode})", request, expectedCode);
             var client = new RestClient { BaseUrl = ApiLink };
+            if (ApiKey != "")
+                request.AddParameter("api_key", ApiKey, ParameterType.QueryString);
             var parameters = request.Parameters.Select(parameter => new
             {
                 name = parameter.Name,
@@ -113,9 +121,9 @@ namespace WebChromiumCcsipro.API
             Execute(request, HttpStatusCode.OK);
         }
 
-        public SignatureFileModel GetDocument()
+        public SignatureFileModel GetDocument(int objectId, int userId)
         {
-            Logger.Debug(ApiEvents.GetDocument, "Object-id: {ObjectID}, User-id: {UserID}", SettingsService.ObjectId, SettingsService.UserId);
+            Logger.Debug(ApiEvents.GetDocument, $"Object-id: {objectId}, User-id: {userId}");
 
             var request = new RestRequest
             {
@@ -124,16 +132,16 @@ namespace WebChromiumCcsipro.API
                 RequestFormat = DataFormat.Json
             };
 
-            request.AddParameter("object_id", SettingsService.ObjectId, ParameterType.GetOrPost);
-            request.AddParameter("user_id", SettingsService.UserId, ParameterType.GetOrPost);
+            request.AddParameter("object_id", objectId, ParameterType.GetOrPost);
+            request.AddParameter("user_id", userId, ParameterType.GetOrPost);
 
             var result = Execute<SignatureFileModel>(request);
             return result;
         }
 
-        public UploadDocumentModel UploadDocument(string hash, string pdfFilePath, string file)
+        public UploadDocumentModel UploadDocument(int objectId, int userId, string hash, string pdfFilePath, string file)
         {
-            Logger.Debug(ApiEvents.UploadDocument, "Object-id: {ObjectID}, User-id: {UserID}, Hash: {hash}, PdfFilePath: {pdfFilePath} ", SettingsService.ObjectId, SettingsService.UserId, hash, pdfFilePath);
+            Logger.Debug(ApiEvents.UploadDocument, $"Object-id: {objectId}, User-id: {userId}, Hash: {hash}, PdfFilePath: {pdfFilePath} ");
 
 
             var request = new RestRequest
@@ -143,8 +151,8 @@ namespace WebChromiumCcsipro.API
                 RequestFormat = DataFormat.Json
             };
 
-            request.AddParameter("object_id", SettingsService.ObjectId, ParameterType.GetOrPost);
-            request.AddParameter("user_id", SettingsService.UserId, ParameterType.GetOrPost);
+            request.AddParameter("object_id", objectId, ParameterType.GetOrPost);
+            request.AddParameter("user_id", userId, ParameterType.GetOrPost);
 
             request.AddParameter("hash", hash, ParameterType.GetOrPost);
             request.AddParameter("pdf_file_path", "/" + pdfFilePath, ParameterType.GetOrPost);
