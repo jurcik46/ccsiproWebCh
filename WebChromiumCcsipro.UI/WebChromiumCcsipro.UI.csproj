@@ -178,6 +178,8 @@
     <Compile Include="Views\SettingsWindow\SignatureSettingWindowView.xaml.cs">
       <DependentUpon>SignatureSettingWindowView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VirtualKeyboard\Rcw.cs" />
+    <Compile Include="VirtualKeyboard\TouchKeyboard.cs" />
     <Page Include="Views\MainWindow\MainWindowView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
