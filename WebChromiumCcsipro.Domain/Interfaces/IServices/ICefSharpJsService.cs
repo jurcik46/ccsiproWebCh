@@ -5,5 +5,6 @@
 
         void bozpSignatureJsAsync();
         void sendCameralink(string link);
+        void sendApi(string apiLinks);
     }
 }
