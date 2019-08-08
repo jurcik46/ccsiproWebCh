@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using CefSharp;
+using CefSharp.Enums;
+using CefSharp.Wpf;
 using GalaSoft.MvvmLight.Messaging;
 using GalaSoft.MvvmLight.Threading;
 using Serilog;
@@ -14,6 +16,7 @@ using WebChromiumCcsipro.Domain.Enums;
 using WebChromiumCcsipro.Domain.Interfaces;
 using WebChromiumCcsipro.Domain.Messages;
 using WebChromiumCcsipro.UI.ViewModels;
+using WebChromiumCcsipro.UI.VirtualKeyboard;
 
 namespace WebChromiumCcsipro.UI.Views.MainWindow
 {
@@ -26,6 +29,7 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
         private NotifiWindowView notifiWindow;
         public ILogger Logger => Log.Logger.ForContext<MainViewModel>();
 
+        private TouchKeyboardEventManager touchKeyboardEventManager;
 
 
         public MainWindowView()
@@ -34,11 +38,12 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
             InitializeComponent();
             RegistrationMessage();
             DataContext = ViewModelLocator.MainViewModel;
-
             notifiWindow = new NotifiWindowView();
             notifiWindow.Show();
             trayIconTaskbar.Icon = WebChromiumCcsipro.Resources.Properties.Resources.online;
             FullScreenMode = false;
+            Browser.VirtualKeyboardRequested += BrowserVirtualKeyboardRequested;
+            Browser.IsBrowserInitializedChanged += BrowserIsBrowserInitializedChanged;
         }
 
 
@@ -64,8 +69,14 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
             RegistrationJsFunction();
             if (ViewModelLocator.SettingsService.FullScreen)
             {
-                FullScreenDisable();
-                FullScreenEnable();
+
+                Task.Run(() =>
+                {
+                    Thread.Sleep(3000);
+                    DispatcherHelper.CheckBeginInvokeOnUI(FullScreenDisable);
+                    DispatcherHelper.CheckBeginInvokeOnUI(FullScreenEnable);
+                });
+
             }
 
         }
@@ -124,6 +135,37 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
             });
         }
         #endregion
+
+        private void BrowserIsBrowserInitializedChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if ((bool)e.NewValue)
+            {
+                var browserHost = Browser.GetBrowserHost();
+
+                touchKeyboardEventManager = new TouchKeyboardEventManager(browserHost.GetWindowHandle());
+            }
+            else
+            {
+                if (touchKeyboardEventManager != null)
+                {
+                    touchKeyboardEventManager.Dispose();
+                }
+            }
+        }
+
+        private void BrowserVirtualKeyboardRequested(object sender, VirtualKeyboardRequestedEventArgs e)
+        {
+            var inputPane = touchKeyboardEventManager.GetInputPane();
+
+            if (e.TextInputMode == TextInputMode.None)
+            {
+                inputPane.TryHide();
+            }
+            else
+            {
+                inputPane.TryShow();
+            }
+        }
 
 
         public bool FullScreenMode { get; private set; }
