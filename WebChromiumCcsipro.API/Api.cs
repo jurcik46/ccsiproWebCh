@@ -56,6 +56,56 @@ namespace WebChromiumCcsipro.API
             return response.Data;
         }
 
+        public bool Execute(RestRequest request, HttpStatusCode expectedCode)
+        {
+            Logger.Debug(ApiEvents.ExecuteBool, "EntranceAPI.Execute({@request}, {expectedCode})", request, expectedCode);
+            var client = new RestClient { BaseUrl = ApiLink };
+            var parameters = request.Parameters.Select(parameter => new
+            {
+                name = parameter.Name,
+                value = parameter.Value,
+                type = parameter.Type.ToString()
+            });
+
+            var response = client.Execute(request);
+            if (response.ErrorException != null)
+            {
+                Logger.With("Request", request)
+                    .With("Response", response)
+                    .With("HttpStatusCodeExpected", expectedCode)
+                    .Error(response.ErrorException, ApiEvents.ExecuteBoolError);
+                return false;
+            }
+            var result = response.StatusCode == expectedCode;
+            if (!result)
+            {
+                Logger.With("Request", request)
+                    .With("Response", response)
+                    .With("HttpStatusCodeExpected", expectedCode)
+                    .Error(ApiEvents.ExecuteBoolError, "Request on {Resource} returned {StatusCode}.\nResponse content: {Content}", request.Resource, response.StatusCode, response.Content);
+            }
+            else
+            {
+                Logger.With("Request", request)
+                    .With("Response", response)
+                    .With("HttpStatusCodeExpected", expectedCode)
+                    .Debug(ApiEvents.ExecuteBoolSuccess, "Request on {Resource} returned {StatusCode}.\nResponse content: {Content}", request.Resource, response.StatusCode, response.Content);
+            }
+            return result;
+        }
+
+        public void OneEmptyRequest()
+        {
+            var request = new RestRequest
+            {
+                Resource = @"",
+                Method = Method.POST,
+                RequestFormat = DataFormat.Json
+            };
+
+            Execute(request, HttpStatusCode.OK);
+        }
+
         public SignatureFileModel GetDocument()
         {
             Logger.Debug(ApiEvents.GetDocument, "Object-id: {ObjectID}, User-id: {UserID}", SettingsService.ObjectId, SettingsService.UserId);
