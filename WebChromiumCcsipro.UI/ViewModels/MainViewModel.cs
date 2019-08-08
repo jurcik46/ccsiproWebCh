@@ -124,7 +124,6 @@ namespace WebChromiumCcsipro.UI.ViewModels
             DateTime scheduledTime;
             try
             {
-
                 scheduledTime = DateTime.ParseExact(SettingService.ReloadTime, "HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
             }
             catch (Exception ex)

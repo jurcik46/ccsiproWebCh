@@ -17,6 +17,7 @@ namespace WebChromiumCcsipro.Domain.Interfaces.IServices
         int UserId { get; set; }
         string HomePage { get; set; }
         string ReloadTime { get; set; }
+        bool FullScreen { get; set; }
         CultureInfo Culture { get; set; }
         string Language { get; set; }
         string PasswordSalt { get; set; }

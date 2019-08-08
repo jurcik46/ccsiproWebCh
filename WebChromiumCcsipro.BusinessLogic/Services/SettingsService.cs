@@ -32,6 +32,7 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
         public int UserId { get; set; }
         public string HomePage { get; set; }
         public string ReloadTime { get; set; }
+        public bool FullScreen { get; set; }
         private CultureInfo _culture;
         private bool _langChange;
 

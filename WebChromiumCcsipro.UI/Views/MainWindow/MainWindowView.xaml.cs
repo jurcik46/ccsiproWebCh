@@ -2,6 +2,8 @@
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using CefSharp;
@@ -60,6 +62,12 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
             splashScreen.Close(TimeSpan.FromMilliseconds(200));
             ViewModelLocator.SplashScreen = null;
             RegistrationJsFunction();
+            if (ViewModelLocator.SettingsService.FullScreen)
+            {
+                FullScreenDisable();
+                FullScreenEnable();
+            }
+
         }
 
         private void MainWindowView_OnClosed(object sender, EventArgs e)
@@ -131,14 +139,10 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
             WindowStyle = WindowStyle.None;
             WindowState = WindowState.Maximized;
             ResizeMode = ResizeMode.NoResize;
-
-
             FullScreenMode = true;
-            //this.Width = System.Windows.SystemParameters.WorkArea.Width;
-            //this.Height = System.Windows.SystemParameters.WorkArea.Height;
-            //this.Left = 0;
-            //this.Top = 0;
-            //this.WindowState = WindowState.Normal;
+            Topmost = true;
+            Topmost = false;
+
         }
 
         public void FullScreenDisable()
@@ -149,8 +153,7 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
             Grid.SetRow(ProgressBar, 1);
             ProgressBar.Height = 5;
             WindowStyle = WindowStyle.SingleBorderWindow;
-            this.WindowState = WindowState.Normal;
-            //WindowState = WindowState.Maximized;
+            WindowState = WindowState.Normal;
             ResizeMode = ResizeMode.CanResize;
             FullScreenMode = false;
         }

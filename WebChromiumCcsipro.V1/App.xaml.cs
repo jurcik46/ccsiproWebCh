@@ -58,6 +58,16 @@ namespace WebChromiumCcsipro.V1
 
         protected override void OnStartup(StartupEventArgs e)
         {
+            ViewModelLocator.SettingsService.FullScreen = false;
+
+            for (int i = 0; i != e.Args.Length; ++i)
+            {
+                if (e.Args[i] == "-fullscreen")
+                {
+                    ViewModelLocator.SettingsService.FullScreen = true;
+                }
+            }
+
             var appName = V1.Properties.Resources.ApplicationName;
             var assembly = Assembly.GetAssembly(typeof(App));
             var app = Current;
