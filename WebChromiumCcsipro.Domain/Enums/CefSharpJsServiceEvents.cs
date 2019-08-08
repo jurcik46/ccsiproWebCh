@@ -4,6 +4,7 @@
     {
         Create,
         bozpSignatureJsAsync,
-        sendCameralink
+        sendCameralink,
+        sendApi,
     }
 }
