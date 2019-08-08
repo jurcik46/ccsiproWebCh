@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Serilog;
+using WebChromiumCcsipro.API;
 using WebChromiumCcsipro.Domain.Enums;
 using WebChromiumCcsipro.Domain.Extensions;
 using WebChromiumCcsipro.Domain.Interfaces.IServices;
@@ -45,10 +46,11 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
 
         public void sendApi(string apiLinks)
         {
-            //Logger.Information(CefSharpJsServiceEvents.sendCameralink, $"Camera Link {links}");
-            //TODO make api request 
+            if(apiLinks != "")
+            {
+                var api = new Api(apiLinks);
+                api.OneEmptyRequest();
+            }
         }
-
-
     }
 }
