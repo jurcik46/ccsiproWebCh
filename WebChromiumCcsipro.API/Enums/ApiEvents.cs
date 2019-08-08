@@ -6,6 +6,9 @@
         ExecuteType,
         ExecuteTypeError,
         ExecuteTypeSuccess,
+        ExecuteBool,
+        ExecuteBoolSuccess,
+        ExecuteBoolError,
         GetDocument,
         UploadDocument
     }
