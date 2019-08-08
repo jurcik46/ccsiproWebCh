@@ -122,14 +122,14 @@ namespace WebChromiumCcsipro.UI.ViewModels
 
             DateTime nowTime = DateTime.Now;
             DateTime scheduledTime;
-
             try
             {
+
                 scheduledTime = DateTime.ParseExact(SettingService.ReloadTime, "HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
             }
             catch (Exception ex)
             {
-                Logger.Error(MainViewModelEvents.ScheduleTimerError, $"Source {ex.Source} Error: {ex.Message} InnerException: {ex.InnerException}");
+                Logger.Error(MainViewModelEvents.ScheduleTimerError, $"Turning off reload schedule Source {ex.Source} Error: {ex.Message} InnerException: {ex.InnerException}");
 
                 return;
             }
