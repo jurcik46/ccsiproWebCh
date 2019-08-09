@@ -7,8 +7,8 @@
         xmlns:lang="clr-namespace:WebChromiumCcsipro.Resources.Language;assembly=WebChromiumCcsipro.Resources"
         mc:Ignorable="d"
         Title="{x:Static lang:lang.ApplicationSettingWindowTitle}" 
-        Height="280" Width="500"
-        MinHeight="300" MinWidth="500" 
+        Height="280" Width="530"
+        MinHeight="300" MinWidth="530" 
         MaxHeight="330" MaxWidth="800" WindowStartupLocation="CenterScreen">
     <Border Padding="10">
         <!-- <StackPanel> -->
