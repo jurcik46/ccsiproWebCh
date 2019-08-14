@@ -6,6 +6,7 @@ using System.Windows;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
+using MahApps.Metro.Controls;
 using Serilog;
 using WebChromiumCcsipro.BusinessLogic;
 using WebChromiumCcsipro.Domain.Enums;
@@ -63,7 +64,7 @@ namespace WebChromiumCcsipro.UI.ViewModels
 
         private Window SettingWindow { get; set; }
         private ISettingsService SettingService { get; set; }
-        private IDialogServiceWithOwner DialogService { get; set; }
+        private IMetroDialogServiceWithOwner DialogService { get; set; }
 
         public ISignatureService SignatureService { get; set; }
 
@@ -101,7 +102,7 @@ namespace WebChromiumCcsipro.UI.ViewModels
 
         private Timer ReloadTimer { get; set; }
 
-        public MainViewModel(ISettingsService settingService, IDialogServiceWithOwner dialogService, ISignatureService signatureService)
+        public MainViewModel(ISettingsService settingService, IMetroDialogServiceWithOwner dialogService, ISignatureService signatureService)
         {
             Logger.Information(MainViewModelEvents.CreateInstance, "Creating new instance of MainViewModel");
             SettingService = settingService;
@@ -124,7 +125,9 @@ namespace WebChromiumCcsipro.UI.ViewModels
             DateTime scheduledTime;
             try
             {
-                scheduledTime = DateTime.ParseExact(SettingService.ReloadTime, "HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
+                //scheduledTime = DateTime.ParseExact(SettingService.ReloadTime, "HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
+                scheduledTime = SettingService.ReloadTime;
+                //TODO donst run if is not enable
             }
             catch (Exception ex)
             {
@@ -245,8 +248,8 @@ namespace WebChromiumCcsipro.UI.ViewModels
         {
             Logger.Information(MainViewModelEvents.RestartApplicationCommand);
             win?.Close();
-            Application.Current.Shutdown();
             System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+            Application.Current.Shutdown();
         }
 
         private bool CanOpenSetting()
@@ -260,13 +263,12 @@ namespace WebChromiumCcsipro.UI.ViewModels
         {
             Logger.Information(MainViewModelEvents.OpenSettingCommand);
 
-            if (!CryptoExtension.VerifyPassword(DialogService.EnterSetting(),
+            if (!CryptoExtension.VerifyPassword(DialogService.ShowLoginDialogOnlyPassword(),
                 CCSIproChromiumSetting.Default.PasswordSalt,
                 CCSIproChromiumSetting.Default.PasswordSetting))
             {
                 Messenger.Default.Send(new NotifyMessage() { Title = lang.EnterSettingWindowNotificationTitle, Msg = lang.EnterSettingWindowNotificationFailedLogin, IconType = Notifications.Wpf.NotificationType.Error, ExpTime = 4 });
                 Logger.Debug(MainViewModelEvents.BadPasswordToOptions);
-
                 return;
             }
             Messenger.Default.Send(new NotifyMessage() { Title = lang.EnterSettingWindowNotificationTitle, Msg = lang.EnterSettingWindowNotificationSuccessLogin, IconType = Notifications.Wpf.NotificationType.Success, ExpTime = 4 });
@@ -274,7 +276,9 @@ namespace WebChromiumCcsipro.UI.ViewModels
             SettingWindow = new SettingWindowView();
             var settingViewModel = new SettingViewModel.SettingViewModel(SettingService, DialogService);
             SettingWindow.DataContext = settingViewModel;
+            DialogService.MetroWindowOwner = SettingWindow as MetroWindow;
             SettingWindow.ShowDialog();
+            DialogService.ResetMetroWindowOwner();
         }
         #endregion
 

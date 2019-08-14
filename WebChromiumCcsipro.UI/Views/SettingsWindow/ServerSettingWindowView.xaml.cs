@@ -11,13 +11,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 
 namespace WebChromiumCcsipro.UI.Views.SettingsWindow
 {
     /// <summary>
     /// Interaction logic for ServerSettingWindowView.xaml
     /// </summary>
-    public partial class ServerSettingWindowView : Window
+    public partial class ServerSettingWindowView : MetroWindow
     {
         public ServerSettingWindowView()
         {

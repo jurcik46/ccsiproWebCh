@@ -9,8 +9,10 @@ using System.Windows.Controls;
 using CefSharp;
 using CefSharp.Enums;
 using CefSharp.Wpf;
+using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Messaging;
 using GalaSoft.MvvmLight.Threading;
+using MahApps.Metro.Controls;
 using Serilog;
 using WebChromiumCcsipro.Domain.Enums;
 using WebChromiumCcsipro.Domain.Interfaces;
@@ -24,22 +26,23 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
     /// Interaction logic for MainWindowView.xaml
     /// </summary>
     /// [STAThread]
-    public partial class MainWindowView : Window, IClosable, IFullScreen
+    public partial class MainWindowView : MetroWindow, IClosable, IFullScreen
     {
-        private NotifiWindowView notifiWindow;
+        private NotifiWindowView _notifiWindow;
         public ILogger Logger => Log.Logger.ForContext<MainViewModel>();
 
-        private TouchKeyboardEventManager touchKeyboardEventManager;
+        private TouchKeyboardEventManager _touchKeyboardEventManager;
 
 
         public MainWindowView()
         {
-
+            SimpleIoc.Default.Register<MetroWindow>(() => this);
+            ViewModelLocator.MetroDialogService.ResetMetroWindowOwner();
             InitializeComponent();
             RegistrationMessage();
             DataContext = ViewModelLocator.MainViewModel;
-            notifiWindow = new NotifiWindowView();
-            notifiWindow.Show();
+            _notifiWindow = new NotifiWindowView();
+            _notifiWindow.Show();
             trayIconTaskbar.Icon = WebChromiumCcsipro.Resources.Properties.Resources.online;
             FullScreenMode = false;
             Browser.VirtualKeyboardRequested += BrowserVirtualKeyboardRequested;
@@ -68,21 +71,13 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
             ViewModelLocator.SplashScreen = null;
             RegistrationJsFunction();
             if (ViewModelLocator.SettingsService.FullScreen)
-            {
-
-                Task.Run(() =>
-                {
-                    Thread.Sleep(3000);
-                    DispatcherHelper.CheckBeginInvokeOnUI(FullScreenDisable);
-                    DispatcherHelper.CheckBeginInvokeOnUI(FullScreenEnable);
-                });
-
-            }
+                Task.Run(() => DispatcherHelper.CheckBeginInvokeOnUI(FullScreenEnable));
 
         }
 
         private void MainWindowView_OnClosed(object sender, EventArgs e)
         {
+            ViewModelLocator.SocketService.Disconnect();
             Cef.Shutdown();
             trayIconTaskbar.Visibility = Visibility.Hidden;
             trayIconTaskbar.Icon = null;
@@ -142,20 +137,17 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
             {
                 var browserHost = Browser.GetBrowserHost();
 
-                touchKeyboardEventManager = new TouchKeyboardEventManager(browserHost.GetWindowHandle());
+                _touchKeyboardEventManager = new TouchKeyboardEventManager(browserHost.GetWindowHandle());
             }
             else
             {
-                if (touchKeyboardEventManager != null)
-                {
-                    touchKeyboardEventManager.Dispose();
-                }
+                _touchKeyboardEventManager?.Dispose();
             }
         }
 
         private void BrowserVirtualKeyboardRequested(object sender, VirtualKeyboardRequestedEventArgs e)
         {
-            var inputPane = touchKeyboardEventManager.GetInputPane();
+            var inputPane = _touchKeyboardEventManager.GetInputPane();
 
             if (e.TextInputMode == TextInputMode.None)
             {
@@ -178,12 +170,10 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
             Grid.SetRowSpan(BrowserBroder, 3);
             Grid.SetRow(ProgressBar, 0);
             ProgressBar.Height = 10;
-            WindowStyle = WindowStyle.None;
+            IgnoreTaskbarOnMaximize = true;
             WindowState = WindowState.Maximized;
-            ResizeMode = ResizeMode.NoResize;
-            FullScreenMode = true;
-            Topmost = true;
-            Topmost = false;
+            UseNoneWindowStyle = true;
+            FullScreenMode = true; // zistit ci sa neda nahradit s 
 
         }
 
@@ -194,9 +184,10 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
             Grid.SetRow(BrowserBroder, 1);
             Grid.SetRow(ProgressBar, 1);
             ProgressBar.Height = 5;
-            WindowStyle = WindowStyle.SingleBorderWindow;
             WindowState = WindowState.Normal;
-            ResizeMode = ResizeMode.CanResize;
+            UseNoneWindowStyle = false;
+            ShowTitleBar = true;
+            IgnoreTaskbarOnMaximize = false;
             FullScreenMode = false;
         }
     }

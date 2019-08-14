@@ -19,8 +19,17 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
 
         private string _password1;
         private string _password2;
-        private RelayCommand _changePassword;
-        public string ChangePasswordButtonTooltip { get; private set; }
+        private string _changePasswordButtonTooltip;
+
+        public string ChangePasswordButtonTooltip
+        {
+            get => _changePasswordButtonTooltip;
+            private set
+            {
+                _changePasswordButtonTooltip = value;
+                RaisePropertyChanged();
+            }
+        }
 
         public string Password1
         {
@@ -28,7 +37,7 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
             set
             {
                 _password1 = value;
-                ChangePassword.RaiseCanExecuteChanged();
+                ChangePasswordCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -38,25 +47,29 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
             set
             {
                 _password2 = value;
-                ChangePassword.RaiseCanExecuteChanged();
+                ChangePasswordCommand.RaiseCanExecuteChanged();
             }
 
         }
         public string NewPassword { get; private set; }
-
-        public RelayCommand ChangePassword { get => _changePassword; set => _changePassword = value; }
+        public bool Result { get; set; }
+        public RelayCommand ChangePasswordCommand { get; set; }
+        public RelayCommand CancelCommand { get; set; }
 
         public ChangePasswordViewModel()
         {
             Logger.Information(ChangePasswordViewModelEvents.CreateInstance, "Creating new instance of ChangePasswordViewModel");
-            ChangePassword = new RelayCommand(Change, CanChange, true);
+            Result = false;
+            ChangePasswordCommand = new RelayCommand(Change, CanChange);
+            CancelCommand = new RelayCommand(() => CloseAction?.Invoke());
+
         }
 
         private bool CanChange()
         {
             if ((!NotIdentical && !string.IsNullOrWhiteSpace(this.Password1) && Password1.Length >= 5))
             {
-                ChangePasswordButtonTooltip = "";
+                ChangePasswordButtonTooltip = null;
                 return true;
             }
 
@@ -68,6 +81,7 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
         {
             Logger.Information(ChangePasswordViewModelEvents.ChangePasswordCommand);
             NewPassword = Password1;
+            Result = true;
             CloseAction?.Invoke();
         }
 

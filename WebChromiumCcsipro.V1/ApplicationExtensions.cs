@@ -90,7 +90,6 @@ namespace WebChromiumCcsipro.V1
 
         public static void OnExit(ILogger logger)
         {
-            ViewModelLocator.SocketService.Disconnect();
             LoggerExtensions.Information(logger, ApplicationEvents.ApplicationEnded, "Application ended at {DateTime}", DateTime.Now);
             ((IDisposable)Log.Logger).Dispose();
         }

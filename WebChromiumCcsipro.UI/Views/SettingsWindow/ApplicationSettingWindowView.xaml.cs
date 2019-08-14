@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 using WebChromiumCcsipro.UI.ViewModels.SettingViewModel;
 
 namespace WebChromiumCcsipro.UI.Views.SettingsWindow
@@ -18,17 +19,13 @@ namespace WebChromiumCcsipro.UI.Views.SettingsWindow
     /// <summary>
     /// Interaction logic for ApplicationSettingWindowView.xaml
     /// </summary>
-    public partial class ApplicationSettingWindowView : Window
+    public partial class ApplicationSettingWindowView : MetroWindow
     {
         public ApplicationSettingWindowView()
         {
             InitializeComponent();
         }
 
-        private void PasswordTextBox_OnPasswordChanged(object sender, RoutedEventArgs e)
-        {
 
-
-        }
     }
 }

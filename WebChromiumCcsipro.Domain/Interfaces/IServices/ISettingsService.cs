@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 
 namespace WebChromiumCcsipro.Domain.Interfaces.IServices
 {
@@ -16,7 +17,7 @@ namespace WebChromiumCcsipro.Domain.Interfaces.IServices
         int ObjectId { get; set; }
         int UserId { get; set; }
         string HomePage { get; set; }
-        string ReloadTime { get; set; }
+        DateTime ReloadTime { get; set; }
         bool FullScreen { get; set; }
         CultureInfo Culture { get; set; }
         string Language { get; set; }
@@ -37,6 +38,6 @@ namespace WebChromiumCcsipro.Domain.Interfaces.IServices
         void ServerSettingSave(string serverIp, int serverPort, string kioskIp, int kioskPort);
         void SignatureSettingSave(string apiLink, string apiKey, string programPath, string processName,
             int signatureTimeOut = 100);
-        void ChromiumSettingSave(int objectId, int userId, string homePage, string reloadTime, string language);
+        void ChromiumSettingSave(int objectId, int userId, string homePage, DateTime reloadTime, string language);
     }
 }

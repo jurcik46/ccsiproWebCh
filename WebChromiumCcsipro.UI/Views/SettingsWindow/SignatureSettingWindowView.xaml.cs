@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 using WebChromiumCcsipro.Domain.Interfaces;
 
 namespace WebChromiumCcsipro.UI.Views.SettingsWindow
@@ -18,7 +19,7 @@ namespace WebChromiumCcsipro.UI.Views.SettingsWindow
     /// <summary>
     /// Interaction logic for SignatureSettingWindowView.xaml
     /// </summary>
-    public partial class SignatureSettingWindowView : Window, IClosable
+    public partial class SignatureSettingWindowView : MetroWindow, IClosable
     {
         public SignatureSettingWindowView()
         {
