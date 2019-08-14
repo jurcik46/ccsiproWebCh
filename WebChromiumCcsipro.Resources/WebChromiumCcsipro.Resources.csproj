@@ -150,16 +150,5 @@
     <Resource Include="Images\Icons\online.ico" />
     <Resource Include="Images\Icons\working.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Buttons\back.png" />
-    <Resource Include="Images\Buttons\home.png" />
-    <Resource Include="Images\Buttons\next.png" />
-    <Resource Include="Images\Buttons\print.png" />
-    <Resource Include="Images\Buttons\refresh.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Buttons\bell_off.png" />
-    <Resource Include="Images\Buttons\bell_on.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

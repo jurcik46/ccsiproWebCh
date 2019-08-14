@@ -31,7 +31,7 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
         public int ObjectId { get; set; }
         public int UserId { get; set; }
         public string HomePage { get; set; }
-        public string ReloadTime { get; set; }
+        public DateTime ReloadTime { get; set; }
         public bool FullScreen { get; set; }
         private CultureInfo _culture;
         private bool _langChange;
@@ -152,7 +152,7 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
             SignatureSettingLoad();
         }
 
-        public void ChromiumSettingSave(int objectId, int userId, string homePage, string reloadTime, string language)
+        public void ChromiumSettingSave(int objectId, int userId, string homePage, DateTime reloadTime, string language)
         {
             Logger.Information(SettingsServiceEvents.ChromiumSettingSave);
             _langChange = CCSIproChromiumSetting.Default.Language != language;

@@ -221,21 +221,21 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
                 ServerConnect();
             }
             _serverReconnectCount = 0;
-        }
 
+        }
 
         private void KioskReconnect()
         {
             _kioskReconnectCount = 0;
             while (_kioskTcpClient != null && !_kioskTcpClient.Connected)
             {
-
                 _kioskReconnectCount++;
                 Thread.Sleep(_kioskReconnectCount * 1000);
                 Logger.Warning(SocketServiceEvents.KioskTryingReconnect, $"Kiosk TCP reconnect count: {_kioskReconnectCount}");
                 KioskConnect();
             }
             _kioskReconnectCount = 0;
+
         }
 
         public void Disconnect()
@@ -243,8 +243,10 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
             Logger.Debug(SocketServiceEvents.Disconnect);
             _serverTcpClient.Close();
             _serverTcpClient.Dispose();
+            _serverTcpClient = null;
             _kioskTcpClient.Close();
             _kioskTcpClient.Dispose();
+            _kioskTcpClient = null;
         }
     }
 }

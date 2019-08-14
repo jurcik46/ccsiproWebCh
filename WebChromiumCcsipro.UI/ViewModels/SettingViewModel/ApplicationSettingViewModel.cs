@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using Serilog;
@@ -26,7 +27,7 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
         public int UserId { get; set; }
         public string HomePage { get; set; }
 
-        public string ReloadTime { get; set; }
+        public DateTime ReloadTime { get; set; }
 
 
         public string SelectedLanguage
@@ -68,12 +69,15 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
         private void Save()
         {
             var langKey = LanguageSource.GetValues().FirstOrDefault(x => x.Value == SelectedLanguage).Key;
-
+            //TODO fix bus with saving time reload
             Logger.Information(ApplicationSettingViewModelEvents.SaveSettingCommand, $"ObjectId: {ObjectId} " +
                                                                                      $"UserId: {UserId} HomePage: {HomePage} " +
                                                                                      $"ReloadTime: {ReloadTime} LangKey: {langKey}");
             SettingsService.ChromiumSettingSave(ObjectId, UserId, HomePage, ReloadTime, langKey);
             CloseAction?.Invoke();
+            //System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+            //Application.Current.Shutdown();
+            //TODO reload app fix
         }
     }
 }

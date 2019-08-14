@@ -23,9 +23,9 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
         public RelayCommand ChangePasswordCommand { get; set; }
         public RelayCommand ServerSettingCommand { get; set; }
         private ISettingsService SettingService { get; set; }
-        private IDialogServiceWithOwner DialogService { get; set; }
+        private IMetroDialogServiceWithOwner DialogService { get; set; }
 
-        public SettingViewModel(ISettingsService settingService, IDialogServiceWithOwner dialogService)
+        public SettingViewModel(ISettingsService settingService, IMetroDialogServiceWithOwner dialogService)
         {
             Logger.Information(SettingViewModelEvents.CreateInstance, "Creating new instance of SettingViewModel");
             SettingService = settingService;
@@ -94,10 +94,10 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
             return true;
         }
 
-        private void ChangePassword()
+        private async void ChangePassword()
         {
             Logger.Information(SettingViewModelEvents.ChangePasswordCommand);
-            var newPassword = DialogService.ChangePassword();
+            var newPassword = await DialogService.ChangePasswordDialog();
             if (newPassword != null)
             {
                 SettingService.CreatePassword(newPassword);

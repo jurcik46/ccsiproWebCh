@@ -169,10 +169,9 @@ namespace WebChromiumCcsipro.Resources.Settings {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string ReloadTime {
+        public global::System.DateTime ReloadTime {
             get {
-                return ((string)(this["ReloadTime"]));
+                return ((global::System.DateTime)(this["ReloadTime"]));
             }
             set {
                 this["ReloadTime"] = value;

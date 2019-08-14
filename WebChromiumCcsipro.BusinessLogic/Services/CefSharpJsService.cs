@@ -54,7 +54,6 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
                 try
                 {
                     var api = new Api(apiLinks);
-
                     api.OneEmptyRequest();
                 }
                 catch (Exception ex)

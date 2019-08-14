@@ -19,7 +19,7 @@ namespace WebChromiumCcsipro.API
     {
         private ILogger Logger => Log.Logger.ForContext<Api>();
 
-        public Uri ApiLink { get; set; }
+        private Uri ApiLink { get; set; }
 
         private string ApiKey { get; set; }
 
@@ -38,6 +38,7 @@ namespace WebChromiumCcsipro.API
         {
             Logger.Debug(ApiEvents.Create, $"Creating new instance of Api(string apiLink)  {apiLink}", ApiLink);
             ApiLink = new Uri(apiLink, UriKind.Absolute);
+            ApiKey = string.Empty;
         }
 
         public T Execute<T>(RestRequest request) where T : class, new()
@@ -114,7 +115,7 @@ namespace WebChromiumCcsipro.API
             var request = new RestRequest
             {
                 Resource = @"",
-                Method = Method.POST,
+                Method = Method.GET,
                 RequestFormat = DataFormat.Json
             };
 

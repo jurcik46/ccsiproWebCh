@@ -31,11 +31,11 @@ namespace WebChromiumCcsipro.UI.ViewModels
             {
                 // Create run time view services and models
                 SimpleIoc.Default.Register<IDialogServiceWithOwner, DialogService>();
+                SimpleIoc.Default.Register<IMetroDialogServiceWithOwner, MetroDialogService>();
                 SimpleIoc.Default.Register<IApiService, ApiService>();
                 SimpleIoc.Default.Register<ISocketService, SocketService>();
                 SimpleIoc.Default.Register<ISignatureService, SignatureService>();
                 SimpleIoc.Default.Register<ICefSharpJsService, CefSharpJsService>();
-
             }
             RegisterViewModels();
         }
@@ -55,6 +55,7 @@ namespace WebChromiumCcsipro.UI.ViewModels
         public static MainViewModel MainViewModel => ServiceLocator.Current.GetInstance<MainViewModel>();
         public static ISocketService SocketService => ServiceLocator.Current.GetInstance<ISocketService>();
         public static ICefSharpJsService CefSharpJsService => ServiceLocator.Current.GetInstance<ICefSharpJsService>();
+        public static IMetroDialogServiceWithOwner MetroDialogService => ServiceLocator.Current.GetInstance<IMetroDialogServiceWithOwner>();
         //        public static SettingViewModel.SettingViewModel SettingViewModel => ServiceLocator.Current.GetInstance<SettingViewModel.SettingViewModel>();
     }
 }
