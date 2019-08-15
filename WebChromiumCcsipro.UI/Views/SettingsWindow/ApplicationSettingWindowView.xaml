@@ -63,17 +63,17 @@
                       Controls:TextBoxHelper.Watermark="{x:Static lang:lang.ApplicationSettingWindowLanguageTextBox}"/>
                 <StackPanel>
                     <Controls:ToggleSwitch x:Name="visibleSwitch"
-                                           Margin="0 10" IsChecked="False"
+                                           Margin="0 10" IsChecked="{Binding ReloadEnable, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                            OffLabel="{x:Static lang:lang.ApplicationSettingWindowHomeReloadTextBox}"
                            OnLabel="{x:Static lang:lang.ApplicationSettingWindowHomeReloadTextBox}"
                            Style="{StaticResource MahApps.Metro.Styles.ToggleSwitch.Win10}" />
 
-                    <Controls:TimePicker Culture="{Binding Path=SelectedItem, ElementName=DateTimePickerCulture, TargetNullValue={x:Static globalization:CultureInfo.CurrentUICulture}}"
+                    <Controls:TimePicker Culture="cs-CZ" 
                          Visibility="{Binding ElementName=visibleSwitch, Path=IsChecked, Converter={StaticResource btv}}"
                          HandVisibility="All"
                          IsEnabled="True"
                          PickerVisibility="All"
-                         SelectedTime="{Binding Path=SelectedTime, ElementName=DateTimePicker}"
+                         SelectedTime="{Binding ReloadTime, ValidatesOnDataErrors=True, Mode=TwoWay, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"
                          SelectedTimeFormat="Long"
                          Controls:TextBoxHelper.IsWaitingForData="True"
                          Controls:TextBoxHelper.UseFloatingWatermark="True"

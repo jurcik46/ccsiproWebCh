@@ -32,6 +32,7 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
         public int UserId { get; set; }
         public string HomePage { get; set; }
         public DateTime ReloadTime { get; set; }
+        public bool ReloadTimeEnable { get; set; }
         public bool FullScreen { get; set; }
         private CultureInfo _culture;
         private bool _langChange;
@@ -121,7 +122,16 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
             ObjectId = CCSIproChromiumSetting.Default.ObjecID;
             UserId = CCSIproChromiumSetting.Default.UserID;
             HomePage = CCSIproChromiumSetting.Default.HomePage;
-            ReloadTime = CCSIproChromiumSetting.Default.ReloadTime;
+            ReloadTimeEnable = CCSIproChromiumSetting.Default.ReloadTimeEnable;
+            try
+            {
+                ReloadTime = CCSIproChromiumSetting.Default.ReloadTime;
+            }
+            catch (Exception e)
+            {
+                ReloadTime = new DateTime(1990, DateTime.Now.Month, DateTime.Now.Day); ;
+            }
+            CCSIproChromiumSetting.Default.ReloadTime = DateTime.Now;
             Language = CCSIproChromiumSetting.Default.Language;
             PasswordSetting = CCSIproChromiumSetting.Default.PasswordSetting;
             PasswordSalt = CCSIproChromiumSetting.Default.PasswordSalt;
@@ -152,7 +162,7 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
             SignatureSettingLoad();
         }
 
-        public void ChromiumSettingSave(int objectId, int userId, string homePage, DateTime reloadTime, string language)
+        public void ChromiumSettingSave(int objectId, int userId, string homePage, bool reloadTimeEnable, DateTime reloadTime, string language)
         {
             Logger.Information(SettingsServiceEvents.ChromiumSettingSave);
             _langChange = CCSIproChromiumSetting.Default.Language != language;
@@ -160,6 +170,7 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
             CCSIproChromiumSetting.Default.UserID = userId;
             CCSIproChromiumSetting.Default.HomePage = homePage;
             CCSIproChromiumSetting.Default.ReloadTime = reloadTime;
+            CCSIproChromiumSetting.Default.ReloadTimeEnable = reloadTimeEnable;
             CCSIproChromiumSetting.Default.Language = language;
             CCSIproChromiumSetting.Default.PasswordSalt = PasswordSalt;
             CCSIproChromiumSetting.Default.PasswordSetting = PasswordSetting;

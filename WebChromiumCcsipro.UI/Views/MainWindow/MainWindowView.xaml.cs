@@ -17,6 +17,7 @@ using Serilog;
 using WebChromiumCcsipro.Domain.Enums;
 using WebChromiumCcsipro.Domain.Interfaces;
 using WebChromiumCcsipro.Domain.Messages;
+using WebChromiumCcsipro.Resources.Language;
 using WebChromiumCcsipro.UI.ViewModels;
 using WebChromiumCcsipro.UI.VirtualKeyboard;
 
@@ -36,6 +37,8 @@ namespace WebChromiumCcsipro.UI.Views.MainWindow
 
         public MainWindowView()
         {
+            var version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+            Title = $"{lang.MainWindowTitle}  v{version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
             SimpleIoc.Default.Register<MetroWindow>(() => this);
             ViewModelLocator.MetroDialogService.ResetMetroWindowOwner();
             InitializeComponent();

@@ -177,5 +177,17 @@ namespace WebChromiumCcsipro.Resources.Settings {
                 this["ReloadTime"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ReloadTimeEnable {
+            get {
+                return ((bool)(this["ReloadTimeEnable"]));
+            }
+            set {
+                this["ReloadTimeEnable"] = value;
+            }
+        }
     }
 }

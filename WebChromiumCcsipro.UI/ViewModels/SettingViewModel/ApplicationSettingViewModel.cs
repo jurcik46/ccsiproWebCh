@@ -22,12 +22,32 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
 
         private ISettingsService SettingsService { get; set; }
         private string _selectedLanguage;
+        private bool _reloadEnable;
+        private TimeSpan? _reloadTime;
 
         public int ObjectId { get; set; }
         public int UserId { get; set; }
         public string HomePage { get; set; }
 
-        public DateTime ReloadTime { get; set; }
+        public bool ReloadEnable
+        {
+            get { return _reloadEnable; }
+            set
+            {
+                _reloadEnable = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public TimeSpan? ReloadTime
+        {
+            get { return _reloadTime; }
+            set
+            {
+                _reloadTime = value;
+                RaisePropertyChanged();
+            }
+        }
 
 
         public string SelectedLanguage
@@ -50,8 +70,10 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
             SettingsService = settingsService;
             ObjectId = SettingsService.ObjectId;
             UserId = SettingsService.UserId;
+
+            ReloadEnable = SettingsService.ReloadTimeEnable;
             HomePage = SettingsService.HomePage;
-            ReloadTime = SettingsService.ReloadTime;
+            ReloadTime = SettingsService.ReloadTime.TimeOfDay;
             SelectedLanguage = LanguageSource.GetValues()[SettingsService.Language];
             SaveCommand = new RelayCommand(Save, CanSave);
             Language = new ObservableCollection<string>();
@@ -70,10 +92,17 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
         {
             var langKey = LanguageSource.GetValues().FirstOrDefault(x => x.Value == SelectedLanguage).Key;
             //TODO fix bus with saving time reload
+
+            if (!ReloadTime.HasValue)
+                ReloadTime = DateTime.Now.TimeOfDay;
             Logger.Information(ApplicationSettingViewModelEvents.SaveSettingCommand, $"ObjectId: {ObjectId} " +
                                                                                      $"UserId: {UserId} HomePage: {HomePage} " +
-                                                                                     $"ReloadTime: {ReloadTime} LangKey: {langKey}");
-            SettingsService.ChromiumSettingSave(ObjectId, UserId, HomePage, ReloadTime, langKey);
+                                                                                     $"Reload Time: {ReloadTime:G} " +
+                                                                                     $"ReloadTimeEnable {ReloadEnable} LangKey: {langKey}");
+
+            SettingsService.ChromiumSettingSave(ObjectId, UserId, HomePage, ReloadEnable,
+                new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, ReloadTime.Value.Hours, ReloadTime.Value.Minutes,
+                ReloadTime.Value.Seconds), langKey);
             CloseAction?.Invoke();
             //System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
             //Application.Current.Shutdown();

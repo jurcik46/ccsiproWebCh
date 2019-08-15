@@ -123,11 +123,13 @@ namespace WebChromiumCcsipro.UI.ViewModels
 
             DateTime nowTime = DateTime.Now;
             DateTime scheduledTime;
+            if (!SettingService.ReloadTimeEnable)
+                 return;
             try
             {
                 //scheduledTime = DateTime.ParseExact(SettingService.ReloadTime, "HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
+           
                 scheduledTime = SettingService.ReloadTime;
-                //TODO donst run if is not enable
             }
             catch (Exception ex)
             {
