@@ -91,7 +91,6 @@ namespace WebChromiumCcsipro.UI.ViewModels.SettingViewModel
         private void Save()
         {
             var langKey = LanguageSource.GetValues().FirstOrDefault(x => x.Value == SelectedLanguage).Key;
-            //TODO fix bus with saving time reload
 
             if (!ReloadTime.HasValue)
                 ReloadTime = DateTime.Now.TimeOfDay;

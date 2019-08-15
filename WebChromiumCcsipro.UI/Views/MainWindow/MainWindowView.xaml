@@ -14,7 +14,6 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:behaviours="clr-namespace:WebChromiumCcsipro.UI.Behaviours"
         mc:Ignorable="d"
-        Title="{x:Static lang:lang.MainWindowTitle}" 
         GlowBrush="{DynamicResource AccentColorBrush}"
         Height="600" Width="800" 
         WindowStartupLocation="CenterScreen"
