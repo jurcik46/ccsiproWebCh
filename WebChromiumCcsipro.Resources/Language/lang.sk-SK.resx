@@ -136,7 +136,7 @@
     <value>Objekt ID</value>
   </data>
   <data name="ApplicationSettingWindowTitle" xml:space="preserve">
-    <value>CCSIpro Chromium nastavenia aplikácie</value>
+    <value>CCSIPRO nastavenia aplikácie</value>
   </data>
   <data name="ApplicationSettingWindowUserTextBox" xml:space="preserve">
     <value>Uživatelské ID</value>
@@ -203,7 +203,7 @@
     <value>Reštartovať</value>
   </data>
   <data name="MainWindowTitle" xml:space="preserve">
-    <value>CCSIPro Chromium</value>
+    <value>CCSIPRO </value>
   </data>
   <data name="ServerSettingWindowSaveButton" xml:space="preserve">
     <value>Uložiť</value>
@@ -215,7 +215,7 @@
     <value>Nastavenia pre pripojenie na Server</value>
   </data>
   <data name="SettingButtonApplication" xml:space="preserve">
-    <value>CCSIpro Chromium</value>
+    <value>CCSIPRO</value>
   </data>
   <data name="SettingButtonChangePassword" xml:space="preserve">
     <value>Zmeniť heslo do nastavenia</value>

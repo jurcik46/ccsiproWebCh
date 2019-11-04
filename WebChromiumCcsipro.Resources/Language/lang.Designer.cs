@@ -115,7 +115,7 @@ namespace WebChromiumCcsipro.Resources.Language {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CCSIpro Chromium application settings.
+        ///   Looks up a localized string similar to CCSIPRO application settings.
         /// </summary>
         public static string ApplicationSettingWindowTitle {
             get {
@@ -314,7 +314,7 @@ namespace WebChromiumCcsipro.Resources.Language {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CCSIPro Chromium.
+        ///   Looks up a localized string similar to CCSIPRO.
         /// </summary>
         public static string MainWindowTitle {
             get {
@@ -350,7 +350,7 @@ namespace WebChromiumCcsipro.Resources.Language {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CCSIpro Chromium.
+        ///   Looks up a localized string similar to CCSIPRO.
         /// </summary>
         public static string SettingButtonApplication {
             get {

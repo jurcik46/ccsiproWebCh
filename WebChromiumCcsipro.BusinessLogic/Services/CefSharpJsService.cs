@@ -41,7 +41,7 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
         {
             Logger.Information(CefSharpJsServiceEvents.sendCameralink, $"Camera Link {links}");
 
-
+            Console.WriteLine(links);
             SocketService.KioskSendData(links);
         }
 

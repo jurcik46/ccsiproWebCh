@@ -136,7 +136,7 @@
     <value>Object ID</value>
   </data>
   <data name="ApplicationSettingWindowTitle" xml:space="preserve">
-    <value>CCSIpro Chromium application settings</value>
+    <value>CCSIPRO application settings</value>
   </data>
   <data name="ApplicationSettingWindowUserTextBox" xml:space="preserve">
     <value>User ID</value>
@@ -203,7 +203,7 @@
     <value>Restart</value>
   </data>
   <data name="MainWindowTitle" xml:space="preserve">
-    <value>CCSIPro Chromium</value>
+    <value>CCSIPRO</value>
   </data>
   <data name="ServerSettingWindowSaveButton" xml:space="preserve">
     <value>Save</value>
@@ -215,7 +215,7 @@
     <value>Settings to connect to Server</value>
   </data>
   <data name="SettingButtonApplication" xml:space="preserve">
-    <value>CCSIpro Chromium</value>
+    <value>CCSIPRO</value>
   </data>
   <data name="SettingButtonChangePassword" xml:space="preserve">
     <value>Change settings password</value>

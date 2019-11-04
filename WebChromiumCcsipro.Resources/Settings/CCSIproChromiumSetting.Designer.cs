@@ -12,7 +12,7 @@ namespace WebChromiumCcsipro.Resources.Settings {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.2.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.3.0.0")]
     public sealed partial class CCSIproChromiumSetting : global::System.Configuration.ApplicationSettingsBase {
         
         private static CCSIproChromiumSetting defaultInstance = ((CCSIproChromiumSetting)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new CCSIproChromiumSetting())));
@@ -97,7 +97,7 @@ namespace WebChromiumCcsipro.Resources.Settings {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("CCSIPro Web Chromium V1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("CCSIPRO V1")]
         public string ApplicationName {
             get {
                 return ((string)(this["ApplicationName"]));

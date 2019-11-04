@@ -21,7 +21,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="ApplicationName" Type="System.String" Scope="User">
-      <Value Profile="(Default)">CCSIPro Web Chromium V1</Value>
+      <Value Profile="(Default)">CCSIPRO V1</Value>
     </Setting>
     <Setting Name="CompanyName" Type="System.String" Scope="User">
       <Value Profile="(Default)">CCSIPro.sk</Value>
