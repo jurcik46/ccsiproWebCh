@@ -146,8 +146,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\Icons\offline-old.ico" />
+    <Resource Include="Images\Icons\online-old.ico" />
+    <Resource Include="Images\Icons\working-old.ico" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="Images\Icons\offline.ico" />
     <Resource Include="Images\Icons\online.ico" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="Images\Icons\working.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
