@@ -30,6 +30,9 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
         private int _serverReconnectCount;
         private int _kioskReconnectCount;
         private ISettingsService _settingsService;
+        private TcpClient _oneTimeTcpClient;
+        private Stream _oneTimeStream;
+
 
         public SocketService(ISettingsService settingsService)
         {
@@ -43,6 +46,37 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
             _kioskPort = _settingsService.KioskPort;
             Task.Run(ServerReconnect);
             Task.Run(KioskReconnect);
+        }
+
+        public void SendOneTimeSocketMessage(string ipAddress, int port, string message)
+        {
+            Logger.Debug(SocketServiceEvents.SendOneTimeSocketMessage, $"Ip Address {ipAddress}:{port}  Message{message}");
+            if (ipAddress.Equals("") || port == 0)
+            {
+                Logger.Error(SocketServiceEvents.SendOneTimeSocketMessageError, "IP address is empty or port is zero.");
+                return;
+            }
+            try
+            {
+
+                _oneTimeTcpClient = new TcpClient();
+                _oneTimeTcpClient.Connect(ipAddress, port);
+                _oneTimeStream = _oneTimeTcpClient.GetStream();
+                ASCIIEncoding asen = new ASCIIEncoding();
+                byte[] bytes = asen.GetBytes(message);
+                _oneTimeStream.Write(bytes, 0, bytes.Length);
+                _oneTimeTcpClient.Close();
+                _oneTimeTcpClient.Dispose();
+
+            }
+            catch (SocketException socketErrorException)
+            {
+                Logger.Error(SocketServiceEvents.SendOneTimeSocketMessageSocketError, $" Message: {socketErrorException.Message} Code: {socketErrorException.SocketErrorCode} Error {socketErrorException.StackTrace} ");
+            }
+            catch (Exception errorException)
+            {
+                Logger.Error(SocketServiceEvents.SendOneTimeSocketMessageError, $"  Source: {errorException.Source} Message: {errorException.Message}   Error {errorException.StackTrace}  ");
+            }
         }
 
         private void KioskConnect()

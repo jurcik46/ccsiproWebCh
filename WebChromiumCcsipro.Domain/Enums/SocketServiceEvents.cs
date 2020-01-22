@@ -20,7 +20,11 @@
         KioskSendData,
         KioskSendDataError,
         ServerReadData,
-        ServerReadDataError
+        ServerReadDataError,
+        SendOneTimeSocketMessage,
+        SendOneTimeSocketMessageSocketError,
+        SendOneTimeSocketMessageError,
+
 
     }
 }

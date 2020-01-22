@@ -64,5 +64,25 @@ namespace WebChromiumCcsipro.BusinessLogic.Services
 
             }
         }
+
+
+        public void sendSocketMessage(string ipAddress, int port, string message)
+        {
+            Logger.Information(CefSharpJsServiceEvents.sendSocketMessage, $"IP address {ipAddress}:{port}  Message: {message}");
+
+            if (ipAddress != "")
+            {
+                try
+                {
+                    SocketService.SendOneTimeSocketMessage(ipAddress: ipAddress, port: port, message: message);
+                }
+                catch (Exception ex)
+                {
+                    Logger.Error(CefSharpJsServiceEvents.sendSocketMessageError, $"Source {ex.Source} Error: {ex.Message} InnerException: {ex.InnerException}");
+
+                }
+
+            }
+        }
     }
 }

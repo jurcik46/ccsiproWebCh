@@ -8,5 +8,7 @@
         sendCameralink,
         sendApi,
         sendApiError,
+        sendSocketMessage,
+        sendSocketMessageError,
     }
 }
